@@ -1,16 +1,16 @@
-var express = require('express');
+const express = require('express');
 
-var router = express.Router();
+const router = express.Router();
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
+router.get('/', (req, res) => {
   const users = [{
-    "id": 1,
-    "name": "the king mulu"
+    id: 1,
+    name: 'mulualm',
   },
   {
-    "id": 2,
-    "name": "ravi"
+    id: 2,
+    name: 'ravi',
   }];
   res.send(users);
 });
