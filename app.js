@@ -46,7 +46,4 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 8095703ef138706528597c994b6cf0a4f3f17bef
