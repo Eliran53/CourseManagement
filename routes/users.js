@@ -11,6 +11,10 @@ router.get('/', (req, res) => {
   {
     id: 2,
     name: 'ravi',
+  },
+  {
+    id: 3,
+    name: 'eliran',
   }];
   res.send(users);
 });
