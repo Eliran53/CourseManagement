@@ -4,9 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
-
+var db = require('./DB/app')
+db.on('error',console.error.bind(
+  console,'mongoDB connection error'
+));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var instructorsRouter = require('./routes/instructor-route')
 
 var app = express();
 
@@ -27,6 +31,7 @@ app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/instructors',instructorsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
