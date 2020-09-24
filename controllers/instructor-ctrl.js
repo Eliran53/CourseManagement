@@ -37,17 +37,18 @@ createInstructor = (req, res) => {
 };
 
 getAllInstructors = async (req, res) => {
-  await Instructor.find({}, (err, instructors) => {
-    if (err) {
-      return res.status(400).json({ success: false, error: err });
-    }
+  try {
+    const instructors = await Instructor.find({}).exec();
     if (!instructors.length) {
       return res
         .status(404)
         .json({ success: false, error: "not a singal instructor was found" });
     }
+
     return res.status(200).json({ success: true, data: instructors });
-  }).catch((err) => console.log(err));
+  } catch (error) {
+    return res.status(400).json({ success: false, error: err });
+  }
 };
 
 updateInstructor = async (req, res) => {
@@ -58,8 +59,8 @@ updateInstructor = async (req, res) => {
       error: "You must provide a body to update",
     });
   }
-try {
-    const instructor= await Instructor.findOne({ _id: req.params.id }).exec() ;
+  try {
+    const instructor = await Instructor.findOne({ _id: req.params.id }).exec();
 
     instructor.first_name = body.first_name;
     instructor.last_name = body.last_name;
@@ -68,38 +69,36 @@ try {
     instructor.email = body.email;
     instructor.subject_id = body.subject_id;
     instructor.role_id = body.role_id;
-            instructor.education = body.education;
+    instructor.education = body.education;
     instructor.linkdin = body.linkdin;
     instructor.bio = body.bio;
 
-    instructor
-      .save()
-      .then(() => {
-        return res.status(200).json({
-          success: true,
-          id: instructor._id,
-          message: "instructor updated",
-        });
-      })
-} catch (error) {
-    return res.status(400).json({ success: false, error:error });
-
-    }
-
+    instructor.save().then(() => {
+      return res.status(200).json({
+        success: true,
+        id: instructor._id,
+        message: "instructor updated",
+      });
+    });
+  } catch (error) {
+    return res.status(400).json({ success: false, error: error });
+  }
+};
 
 deleteInstructor = async (req, res) => {
-    try {
-        if (!instructor) {
-            return res
-              .status(404)
-              .json({ success: false, error: "instructor not found" });
-          }
-          return res.status(200).json({ success: true, data: instructor });
-    } catch (error) {
-        console.log(error);
-        return res.status(400).json({ success: false, error: err });
+  try {
+    const instructor = await Instructor.findOneAndDelete({_id: req.params.id}).exec();
+    if (!instructor) {
+      return res
+        .status(404)
+        .json({ success: false, error: "instructor not found" });
     }
-}
+    return res.status(200).json({ success: true, data: instructor });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json({ success: false, error: err });
+  }
+};
 
 getInstructorById = async (req, res) => {
   try {
@@ -112,7 +111,7 @@ getInstructorById = async (req, res) => {
     return res.status(200).json({ success: true, data: instructor });
   } catch (error) {
     console.error(error);
-    return res.status(400).json({ success: false, error:error });
+    return res.status(400).json({ success: false, error: error });
   }
 };
 
