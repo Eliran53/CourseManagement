@@ -11,7 +11,9 @@ db.on('error',console.error.bind(
 ));
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var instructorsRouter = require('./routes/instructor-route')
+var instructorsRouter = require('./routes/instructor-route');
+var rolesRouter = require('./routes/role-route');
+
 
 var app = express();
 
@@ -35,6 +37,8 @@ app.use(express.static(path.resolve(__dirname, 'client/build')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
+app.use('/roles',rolesRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
