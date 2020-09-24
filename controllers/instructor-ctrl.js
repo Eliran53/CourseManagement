@@ -1,9 +1,7 @@
 const Instructor = require("../modules/instructor-module");
 createInstructor = (req, res) => {
   const body = req.body;
-  console.log(body);
   if (!body) {
-    console.log("body");
 
     return res.status(400).json({
       success: false,
@@ -14,7 +12,6 @@ createInstructor = (req, res) => {
   const instructor = new Instructor(body);
 
   if (!instructor) {
-    console.log("instructor");
 
     return res.status(400).json({ success: false, error: err });
   }
