@@ -58,16 +58,7 @@ updateRole = async (req, res) => {
   try {
     const role = await Role.findOne({ _id: req.params.id }).exec();
 
-    role.first_name = body.first_name;
-    role.last_name = body.last_name;
-    role.phone = body.phone;
-    role.password = body.password;
-    role.email = body.email;
-    role.subject_id = body.subject_id;
-    role.role_id = body.role_id;
-    role.education = body.education;
-    role.linkdin = body.linkdin;
-    role.bio = body.bio;
+    role.role_name = body.role_name;
 
     role.save().then(() => {
       return res.status(200).json({
