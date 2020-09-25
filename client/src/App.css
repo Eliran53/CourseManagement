@@ -5,7 +5,8 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-/* body {
+ body {
+
   color: #000;
   overflow-x: hidden;
   height: 100%;
@@ -173,5 +174,6 @@ a {
       border-top: 1px solid #EEEEEE !important;
       margin: 0px 15px
   }
-} */
+
+} 
 
