@@ -1,4 +1,8 @@
 import React from "react";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 890bd56cbf08f51aa9666e1c3e48335a0bdaf7a0
 import Navbar from "./components/Navbar";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -23,7 +27,11 @@ function App() {
 }
 
 export default App;
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 890bd56cbf08f51aa9666e1c3e48335a0bdaf7a0
 import reactDOM from "react-dom";
 
 
@@ -341,5 +349,11 @@ class RegisterBox extends React.Component {
 
 }
 
+<<<<<<< HEAD
 reactDOM.render(<App />, document.getElementById("root"));
 
+=======
+reactDOM.render(
+  <App />, document.getElementById("root"));
+>>>>>>> Einav-the-Queen
+>>>>>>> 890bd56cbf08f51aa9666e1c3e48335a0bdaf7a0

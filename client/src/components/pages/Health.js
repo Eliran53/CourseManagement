@@ -4,7 +4,7 @@ class Health extends Component {
   
   render() { 
     return (
-      <h1 className='Health'>Dvora salamon</h1>
+      <h1 className='Health'>Dvora Ugly</h1>
       );
   }
 }
