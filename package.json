@@ -27,5 +27,17 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "constantinople": ">=3.1.1"
-  }
+  },
+  "description": "This application is an all-in-one application that contains react-client app and and express server.\r The application is made for demo purposes only,",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mulualm1997/CourseManagement.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mulualm1997/CourseManagement/issues"
+  },
+  "homepage": "https://github.com/mulualm1997/CourseManagement#readme"
 }
