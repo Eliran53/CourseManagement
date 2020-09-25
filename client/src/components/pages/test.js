@@ -1,6 +1,4 @@
 import React from "react";
-import reactDOM from "react-dom";
-
 
 export default class App extends React.Component {
 
@@ -311,6 +309,3 @@ class RegisterBox extends React.Component {
   }
 
 }
-
-reactDOM.render(
-  <App />, document.getElementById("root"));

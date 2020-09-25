@@ -34,8 +34,8 @@ function Navbar() {
           Logo
           <i class="fab fa-firstdraft" />
         </Link>
-        <Link to="/Register" className="Login" onClick={closeMobileMenu}>
-          Login/Signup
+        <Link to="/Login-Register" className="Login" onClick={closeMobileMenu}>
+        Login/Register
         </Link>
         <div className="menu-icon" onClick={handleClick}>
           <i className={click ? "fas fa-times" : "fas fa-bars"} />
