@@ -1,30 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import Navbar from "./components/Navbar";
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Makeup from "./components/pages/Makeup";
-import Health from "./components/pages/Health";
-import PersonalDevelopment from "./components/pages/Personal-Development";
-import Register from "./components/pages/Register";
-
-
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Switch>
-        <Route path="/Makeup" component={Makeup} />
-        <Route path="/Health" component={Health} />
-        <Route path="/Personal-Development" component={PersonalDevelopment} />
-        <Route path="/Register" component={Register} />
-      </Switch>
-    </Router>
-  );
-}
-
-export default App;
-=======
 import reactDOM from "react-dom";
 
 
@@ -34,10 +8,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isLoginOpen: true,
-      isRegisterOpen: false,
-      userName:''
-      
-    };  
+      isRegisterOpen: false
+    };
   }
 
   showLoginBox() {
@@ -111,9 +83,7 @@ class LoginBox extends React.Component {
               type="text"
               name="username"
               className="login-input"
-              placeholder="Username" 
-              onChange = {(e)=>  this.setState({userName: e.target.value}) }
-               /> 
+              placeholder="Username" />
           </div>
 
           <div className="input-group">
@@ -217,7 +187,7 @@ class RegisterBox extends React.Component {
       this.showValidationErr("email", "Email Cannot be empty!");
     }
     if (this.state.password == "") {
-      this.showValidationErr("password", "Password Cannot be\ empty!");
+      this.showValidationErr("password", "Password Cannot be empty!");
     }
 
   }
@@ -344,4 +314,3 @@ class RegisterBox extends React.Component {
 
 reactDOM.render(
   <App />, document.getElementById("root"));
->>>>>>> Einav-the-Queen
