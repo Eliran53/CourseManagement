@@ -4,7 +4,7 @@ export function Button() {
   return (
     <>
       <button className="btn">Search</button>
-      <input className="ct" type="text" id="Catgorei" name="Catgorei" placeholder="Catgoreis" />
+      <input className="ct" type="text" id="Catgoreis" name="Catgoreis" placeholder="Catgoreis" />
     </>
   );
 }
