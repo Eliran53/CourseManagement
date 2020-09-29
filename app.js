@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
+//damo
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, 'client/build')));
 
