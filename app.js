@@ -12,8 +12,12 @@ db.on('error',console.error.bind(
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instructorsRouter = require('./routes/instructor-route');
+
 var rolesRouter = require('./routes/role-route');
 var subjectsRouter = require('./routes/subject-route')
+
+var customersRouter = require('./routes/customer-route');
+var lectureRouter = require('./routes/lecture-route')
 
 
 var app = express();
@@ -31,15 +35,20 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//damo
+
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
+
 app.use('/roles',rolesRouter);
 app.use('/subjects',subjectsRouter);
+
+
+app.use('/api/customers',customersRouter);
+app.use('/api/lectures',lectureRouter)
 
 
 // catch 404 and forward to error handler
