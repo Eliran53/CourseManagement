@@ -7,6 +7,7 @@ import Health from "./components/pages/Health";
 import PersonalDevelopment from "./components/pages/Personal-Development";
 import test from './components/pages/test';
 import './login-style.scss';
+import contact from "./components/pages/Contact";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path="/Makeup" component={Makeup} />
         <Route path="/Health" component={Health} />
         <Route path="/Personal-Development" component={PersonalDevelopment} />
+        <Route path="/Contact" component={contact} />
+
        
       </Switch>
     </Router>
