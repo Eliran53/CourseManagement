@@ -12,14 +12,11 @@ db.on('error',console.error.bind(
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var instructorsRouter = require('./routes/instructor-route');
-<<<<<<< HEAD
 var rolesRouter = require('./routes/role-route');
 var subjectsRouter = require('./routes/subject-route')
-
-=======
 var customersRouter = require('./routes/customer-route');
 var lectureRouter = require('./routes/lecture-route')
->>>>>>> crus-revital
+
 
 var app = express();
 
@@ -43,14 +40,11 @@ app.use(express.static(path.resolve(__dirname, 'client/build')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
-<<<<<<< HEAD
 app.use('/roles',rolesRouter);
 app.use('/subjects',subjectsRouter);
-
-=======
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter)
->>>>>>> crus-revital
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -67,6 +61,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
 
 module.exports = app;
 
