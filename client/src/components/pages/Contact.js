@@ -3,80 +3,78 @@ import React, { useState, useEffect } from "react";
 //import { db } from "../firebase";
 
 const Contact = () => {
-    const [fullName, setFullName] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-    const [loader, setLoader] = useState(false);
+  const [loader, setLoader] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setLoader(true);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoader(true);
 
-        // db.collection("contacts")
-        //     .add({
-        //         fullName: fullName,
-        //         phoneNumber: phoneNumber,
-        //         email: email,
-        //         message: message,
-        //     })
-        //     .then(() => {
-        //         setLoader(false);
-        //         alert("Your message has been submitted");
-        //     })
-        //     .catch((error) => {
-        //         alert(error.message);
-        //         setLoader(false);
-        //     });
+    // db.collection("contacts")
+    //     .add({
+    //         fullName: fullName,
+    //         phoneNumber: phoneNumber,
+    //         email: email,
+    //         message: message,
+    //     })
+    //     .then(() => {
+    //         setLoader(false);
+    //         alert("Your message has been submitted");
+    //     })
+    //     .catch((error) => {
+    //         alert(error.message);
+    //         setLoader(false);
+    //     });
 
-        // setFullName("");
-        // setPhoneNumber("");
-        // setEmail("");
-        // setMessage("");
-    };
+    // setFullName("");
+    // setPhoneNumber("");
+    // setEmail("");
+    // setMessage("");
+  };
 
-    return (
-        <form className="form" onSubmit={handleSubmit}>
+  return (
+    <form className="form" onSubmit={handleSubmit}>
+      <h1> Contact Us </h1>
 
-            <h1> Contact Us </h1>
+      <label>Full Name</label>
+      <input
+        placeholder="Full name"
+        value={fullName}
+        onChange={(e) => setFullName(e.target.value)}
+      />
+      <label>Phone Number</label>
+      <input
+        placeholder="Phone number"
+        value={phoneNumber}
+        onChange={(e) => setPhoneNumber(e.target.value)}
+      />
 
-            <label>Full Name</label>
-            <input
-                placeholder="Full name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
+      <label>Email</label>
+      <input
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
 
-            />
-            <label>Phone Number</label>
-            <input
-                placeholder="Phone number"
-                value={phoneNumber}
-                onChange={(e) => setPhoneNumber(e.target.value)}
-            />
+      <label>Message</label>
+      <textarea
+        placeholder="Message"
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+      ></textarea>
 
-            <label>Email</label>
-            <input
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-
-            <label>Message</label>
-            <textarea
-                placeholder="Message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-            ></textarea>
-
-            <button
-                type="submit"
-                style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
-            >
-                Submit
+      <button
+        type="submit"
+        style={{ background: loader ? "#ccc" : " rgb(2, 2, 110)" }}
+      >
+        Submit
       </button>
-        </form>
-    );
+    </form>
+  );
 };
 
 export default Contact;
