@@ -1,11 +1,9 @@
-const mongoose = require('mongoose')
-const schema = mongoose.Schema
+const mongoose = require("mongoose");
+const schema = mongoose.Schema;
 
-const subject = new schema(
-    {
-        subject_name:{type:String,required:true},
+const subject = new schema({
+  subject_name: { type: String, required: true },
+});
 
-    }
-    )
-
-    module.exports = mongoose.model('subjects',subject)
+module.exports = mongoose.model("subjects", subject);
+ 
