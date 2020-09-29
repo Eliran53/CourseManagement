@@ -2,6 +2,7 @@ const Role = require("../modules/role-module");
 
 createRole = (req, res) => {
   const body = req.body;
+  console.log(body);
   if (!body) {
     return res.status(400).json({
       success: false,
@@ -15,7 +16,7 @@ createRole = (req, res) => {
     return res.status(400).json({ success: false, error: err });
   }
 
-  instructor
+  role
     .save()
     .then(() => {
       return res.status(201).json({
@@ -85,13 +86,13 @@ deleteRole = async (req, res) => {
   }
 };
 
-getRoleById = async (req, res) => {
+getRoleNameById = async (req, res) => {
   try {
-    const role = await role.findOne({ _id: req.params.id }).exec();
+    const role = await Role.findOne({ _id: req.params.id }).exec();
     if (!role) {
       return res.status(404).json({ success: false, error: "role not found" });
     }
-    return res.status(200).json({ success: true, data: role });
+    return res.status(200).json({ data: role.role_name});
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
@@ -101,7 +102,7 @@ getRoleById = async (req, res) => {
 module.exports = {
   createRole,
   getAllRoles,
-  getRoleById,
+  getRoleNameById,
   deleteRole,
   updateRole,
 };
