@@ -1,8 +1,8 @@
 const Instructor = require("../modules/instructor-module");
+const bcrypt = require("bcryptjs");
 createInstructor = (req, res) => {
   const body = req.body;
   if (!body) {
-
     return res.status(400).json({
       success: false,
       error: "you must provide instructor",
@@ -12,7 +12,6 @@ createInstructor = (req, res) => {
   const instructor = new Instructor(body);
 
   if (!instructor) {
-
     return res.status(400).json({ success: false, error: err });
   }
 
@@ -84,7 +83,9 @@ updateInstructor = async (req, res) => {
 
 deleteInstructor = async (req, res) => {
   try {
-    const instructor = await Instructor.findOneAndDelete({_id: req.params.id}).exec();
+    const instructor = await Instructor.findOneAndDelete({
+      _id: req.params.id,
+    }).exec();
     if (!instructor) {
       return res
         .status(404)
@@ -112,10 +113,73 @@ getInstructorById = async (req, res) => {
   }
 };
 
+getInstructorFullNameById = async (req, res) => {
+  try {
+    const instructor = await Instructor.findOne({ _id: req.params.id }).exec();
+    if (!instructor) {
+      return res
+        .status(404)
+        .json({ success: false, error: "instructor not found" });
+    }
+    return res
+      .status(200)
+      .json({
+        success: true,
+        data: instructor.first_name + instructor.last_name,
+      });
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ success: false, error: error });
+  }
+};
+checkAuthentication = async (req, res) => {
+  // Search for a user by email 
+  const user = await Instructor.findOne({ email: req.body.email }).exec();
+  if (!user) {
+    // throw new Error({ error: "Invalid login credentials" });
+    return res.status(400).json({ success: false, error: "Invalid login credentials" });
+  }
+  const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
+  if (!isPasswordMatch) {
+    // throw new Error({ error: "Invalid login credentials" });
+    return res.status(400).json({ success: false, error: "Invalid login credentials" });
+  }
+  return res.status(200).json({ success: true, data: user });
+};
+RoleNameById = async (id) => {
+    try {
+      const role = await Role.findOne({ _id: id }).exec();
+      if (!role) {
+        return res.status(404).json({ success: false, error: "role not found" });
+      }
+      return role.role_name;
+    } catch (error) {
+      console.error(error);
+      return res.status(400).json({ success: false, error: error });
+    }
+  };
+checkAuthorization = async (id)=>{
+    try {
+        const instructor = await Instructor.findOne({ _id: id }).exec();
+        if (!instructor) {
+          return res
+            .status(404)
+            .json({ success: false, error: "instructor not found" });
+        }
+       const role= getRoleNameById(instructor.role_id);
+        return res.status(200).json({ success: true, data: role });
+      } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+      }
+}
+
 module.exports = {
   createInstructor,
   getAllInstructors,
   getInstructorById,
   deleteInstructor,
   updateInstructor,
+  checkAuthentication,
+  checkAuthorization
 };
