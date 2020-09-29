@@ -1,4 +1,4 @@
-const Subject = require("../modules/role-module");
+const Subject = require("../modules/subject-module");
 
 createSubject = (req, res) => {
   const body = req.body;
@@ -89,15 +89,15 @@ deleteSubject = async (req, res) => {
   }
 };
 
-getSubjectById = async (req, res) => {
+getSubjectNameById = async (req, res) => {
   try {
-    const subject = await subject.findOne({ _id: req.params.id }).exec();
-    if (!role) {
+    const subject = await Subject.findOne({ _id: req.params.id }).exec();
+    if (!subject) {
       return res
         .status(404)
         .json({ success: false, error: "subject not found" });
     }
-    return res.status(200).json({ success: true, data: subject });
+    return res.status(200).json({  data: subject.subject_name });
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
@@ -107,7 +107,7 @@ getSubjectById = async (req, res) => {
 module.exports = {
   createSubject,
   getAllSubjects,
-  getSubjectById,
+  getSubjectNameById,
   deleteSubject,
   updateSubject,
 };
