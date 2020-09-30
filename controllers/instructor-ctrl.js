@@ -136,12 +136,10 @@ checkAuthentication = async (req, res) => {
   // Search for a user by email 
   const user = await Instructor.findOne({ email: req.body.email }).exec();
   if (!user) {
-    // throw new Error({ error: "Invalid login credentials" });
     return res.status(400).json({ success: false, error: "Invalid login credentials" });
   }
   const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
   if (!isPasswordMatch) {
-    // throw new Error({ error: "Invalid login credentials" });
     return res.status(400).json({ success: false, error: "Invalid login credentials" });
   }
   return res.status(200).json({ success: true, data: user });
