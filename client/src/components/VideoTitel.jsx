@@ -2,14 +2,20 @@ import React, { Component } from "react";
 import axios from "axios";
 import ".././App.css";
 
+const id = 'Lr9WUkeYSA8'
+
 class VideoTitel extends Component {
   state = {
     lectures: [],
   };
   componentDidMount() {
     axios.get("http://localhost:3001/api/lectures").then((res) => {
-      console.log(res);
-      this.setState({ lectures: res.data.data });
+      const {data} = res.data;
+      data.forEach(item => {
+        item.videos = item.videos.startsWith('http')?  item.videos.split("v=")[1] : item.videos
+      });
+      console.log(data);
+      this.setState({ lectures: data });
     });
   }
   render() {
@@ -33,7 +39,7 @@ class VideoTitel extends Component {
                 title="hi"
                 width="300"
                 height="250"
-                src="https://www.youtube.com/embed/t2ByLmLnYJ8"
+                src={`https://www.youtube.com/embed/${lecture.videos}`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
