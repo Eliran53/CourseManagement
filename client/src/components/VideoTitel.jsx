@@ -42,7 +42,7 @@ class VideoTitel extends Component {
                 src={`https://www.youtube.com/embed/${lecture.videos}`}
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allowfullscreen="0"
               ></iframe>
               <p className="p">{lecture.summery}</p>
             </div>
@@ -57,8 +57,9 @@ class VideoTitel extends Component {
                 height="250"
                 src="https://www.youtube.com/embed/t2ByLmLnYJ8"
                 frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
+                allow="accelerometer;
+                 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen="0"
               ></iframe>
               <p className="p">{lecture.summery}</p>
             </div>
