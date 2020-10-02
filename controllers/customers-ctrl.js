@@ -1,10 +1,11 @@
 const Customer = require("../modules/customers-module");
+const bcrypt = require("bcryptjs");
+
 createCustomer = (req, res) => {
     const body = req.body;
-    console.log(body);
+  
     if (!body) {
-        console.log("body");
-
+        
         return res.status(400).json({
             success: false,
             error: 'you must provide customer',
@@ -68,7 +69,6 @@ updateCustomer = async (req, res) => {
         customer.last_name = body.last_name;
         customer.email = body.email;
         customer.password = body.password,
-        customer.username = body.username,
         customer.role_id = body.role_id,
         customer.lecture_id = body.lecture_id,
         customer.payment = body.payment
@@ -93,39 +93,43 @@ updateCustomer = async (req, res) => {
 
 deleteCustomer = async (req, res) => {
     await Customer.findOneAndDelete(
-      { _id: req.params.id },
-      (err, customer) => {
-        if (err) {
-          return res.status(400).json({ success: false, error: err });
+        { _id: req.params.id },
+        (err, customer) => {
+            if (err) {
+                return res.status(400).json({ success: false, error: err });
+            }
+            if (!customer) {
+                return res
+                    .status(404)
+                    .json({ success: false, error: "customer not found" });
+            }
+            return res.status(200).json({ success: true, data: customer });
         }
+    ).catch((err) => console.log(err));
+};
+
+getCustomerById = async (req, res) => {
+    try {
+        const customer = await Customer.findOne({ _id: req.params.id }).exec();
         if (!customer) {
-          return res
-            .status(404)
-            .json({ success: false, error: "customer not found" });
+            return res
+                .status(404)
+                .json({ success: false, error: "customer not found" });
         }
         return res.status(200).json({ success: true, data: customer });
-      }
-    ).catch((err) => console.log(err));
-  };
-  
-  getCustomerById = async (req, res) => {
-    try {
-      const customer = await Customer.findOne({ _id: req.params.id }).exec();
-       if (!customer) {
-        return res
-          .status(404)
-          .json({ success: false, error: "customer not found" });
-      }
-      return res.status(200).json({ success: true, data: customer });
     } catch (error) {
-      console.error(error);
-      return res.status(400).json({ success: false, error:error });
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
     }
-  };
+};
+
+
+
 module.exports = {
     createCustomer,
     getAllCustomers,
     updateCustomer,
     deleteCustomer,
-    getCustomerById
+    getCustomerById,
+    
 };

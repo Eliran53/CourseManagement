@@ -1,4 +1,7 @@
 const Lecture = require("../modules/lecture-module");
+const Instructor = require("./instructor-ctrl");
+const bcrypt = require("bcryptjs");
+
 createLecture = (req, res) => {
     const body = req.body;
     console.log(body);
@@ -62,20 +65,49 @@ updateLecture = async (req, res) => {
                 message: "lecture not found",
             });
         }
-        lecture.instructorID = body.lecture,
-        lecture.lectureName = body.lecture,
+        lecture.instructorID = body.instructorID,
+        console.log("lecture.instructorID",lecture.instructorID)
+
+        lecture.lectureName = body.lectureName,
+        console.log("lecture.lectureName",lecture.lectureName)
+
         lecture.subjectID = body.subjectID,
+        console.log("lecture.subjectID",lecture.subjectID)
+
         lecture.duration = body.duration,
+        console.log("lecture.duration",lecture.duration)
+
         lecture.maxCapacityParticipants = body.maxCapacityParticipants,
+        console.log("lecture.maxCapacityParticipants",lecture.maxCapacityParticipants )
+
         lecture.uploadDate = body.uploadDate,
+        console.log("lecture.uploadDate", lecture.uploadDate)
+
         lecture.lectureDate = body.lectureDate,
+        console.log("lecture.lectureDate:",lecture.lectureDate)
+
         lecture.summery = body.summery,
+        console.log("lecture.summery:",lecture.summery)
+
         lecture.price = body.price,
+        console.log("lecture.price",lecture.price)
+
         lecture.language = body.language,
+        console.log("lecture.language",lecture.language)
+
         lecture.rank = body.rank,
+        console.log("lecture.rank",lecture.rank)
+
         lecture.recommended = body.recommended,
+        console.log("lecture.recommended" ,lecture.recommended )
+
         lecture.videos = body.videos,
+        console.log("lecture.videos", lecture.videos)
+
         lecture.customerID = body.customerID
+        console.log("lecture.customerID", lecture.customerID)
+
+        console.log("lecture:",lecture);
 
         lecture
             .save()
@@ -115,6 +147,7 @@ deleteLecture = async (req, res) => {
 getLectureById = async (req, res) => {
     try {
         const lecture = await Lecture.findOne({ _id: req.params.id }).exec();
+        console.log("lecture:", lecture);
        if (!lecture) {
             return res
                 .status(404)
@@ -127,10 +160,12 @@ getLectureById = async (req, res) => {
     }
 };
 
+
+
 module.exports = {
     createLecture,
     getAllLectures,
     getLectureById,
     deleteLecture ,
-    updateLecture 
-};
+    updateLecture ,
+ };

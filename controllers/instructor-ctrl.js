@@ -173,6 +173,24 @@ checkAuthorization = async (id)=>{
         return res.status(400).json({ success: false, error: error });
       }
 }
+// searchInstructorIdByInstructorName = async (first_name) =>{
+//   try {
+//     const instructor = await Instructor.find({first_name: req.body.first_name}).exec();
+//      console.log("instructor",instructor)
+    
+//        if (!instructor ) {
+//         return res
+//             .status(404)
+//             .json({ success: false, error: "instructor not found" });
+//     }
+//     console.log("instructor.id",instructor.id)
+   
+//     return instructor;
+// } catch (error) {
+//     console.error(error);
+//     return res.status(400).json({ success: false, error: error });
+// } 
+// }; 
 
 module.exports = {
   createInstructor,
@@ -181,5 +199,6 @@ module.exports = {
   deleteInstructor,
   updateInstructor,
   checkAuthentication,
-  checkAuthorization
+  checkAuthorization,
+  
 };
