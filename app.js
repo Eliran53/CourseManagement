@@ -45,8 +45,6 @@ app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
 <<<<<<< HEAD
 app.use('/roles',rolesRouter);
-app.use('/subjects',subjectsRouter);
-
 =======
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter)
