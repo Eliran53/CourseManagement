@@ -1,13 +1,12 @@
 import React,{Component} from 'react';
-import VideoTitel from '../VideoTitel'
 
 class Health extends Component {
   
   render() { 
     return (
-      
-      <VideoTitel/>
-     
+      <div>
+        <h1>Health</h1>
+      </div>
       );
   }
 }

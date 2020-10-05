@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import ".././App.css";
 
-const id = 'Lr9WUkeYSA8'
+//const id = 'Lr9WUkeYSA8'
 
 class VideoTitel extends Component {
   state = {
@@ -48,40 +48,7 @@ class VideoTitel extends Component {
             </div>
           ))}
         </div>
-        <div className="allDiv">
-          {this.state.lectures.map((lecture) => (
-            <div className="iframeDiv" key={lecture.id}>
-              <iframe
-                title="hi"
-                width="300"
-                height="250"
-                src="https://www.youtube.com/embed/t2ByLmLnYJ8"
-                frameborder="0"
-                allow="accelerometer;
-                 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen="0"
-              ></iframe>
-              <p className="p">{lecture.summery}</p>
-            </div>
-          ))}
-        </div>
-        <div className="allDiv">
-          {this.state.lectures.map((lecture) => (
-            <div className="iframeDiv" key={lecture.id}>
-              <iframe
-                title="hi"
-                width="300"
-                height="250"
-                src="https://www.youtube.com/embed/t2ByLmLnYJ8"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
-              <p className="p">{lecture.summery}</p>
-            </div>
-          ))}
-          <a href = "/">Load more</a>
-        </div>
+        
       </>
     );
   }
