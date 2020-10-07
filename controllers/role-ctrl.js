@@ -33,20 +33,24 @@ createRole = (req, res) => {
     });
 };
 
-getAllRoles = async (req, res) => {
-  try {
-    const roles = await Role.find({}).exec();
-    if (!roles.length) {
-      return res
-        .status(404)
-        .json({ success: false, error: "not a singal role was found" });
-    }
-
-    return res.status(200).json({ success: true, data: roles });
-  } catch (error) {
-    return res.status(400).json({ success: false, error: err });
-  }
-};
+// getAllRoles = async (req, res) => {
+//   try {
+//     const roles = await Role.find({}).exec();
+//     if (!roles.length) {
+//       return res
+//         .status(404)
+//         .json({ success: false, error: "not a singal role was found" });
+//     }
+//     const jobs = [];
+//     roles.forEach(element => {
+//          jobs.push(element.role_name)
+//      });
+//      console.log(jobs);
+//     return res.status(200).json({  data: jobs });
+//   } catch (error) {
+//     return res.status(400).json({ success: false, error: error });
+//   }
+// };
 
 updateRole = async (req, res) => {
   const body = req.body;
@@ -86,13 +90,15 @@ deleteRole = async (req, res) => {
   }
 };
 
-getRoleNameById = async (req, res) => {
+getRoleNameById = async (id) => {
   try {
-    const role = await Role.findOne({ _id: req.params.id }).exec();
+      console.log("rolectrl",id);
+    const role = await Role.findOne({ _id: id }).exec();
+    console.log("rolectrl");
     if (!role) {
       return res.status(404).json({ success: false, error: "role not found" });
     }
-    return res.status(200).json({ data: role.role_name});
+    return  role.role_name;
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
@@ -101,7 +107,7 @@ getRoleNameById = async (req, res) => {
 
 module.exports = {
   createRole,
-  getAllRoles,
+//   getAllRoles,
   getRoleNameById,
   deleteRole,
   updateRole,

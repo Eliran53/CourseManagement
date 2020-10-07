@@ -20,12 +20,18 @@ const instructor = new schema(
       },
     },
     password: { type: String, required: true },
-    phone: { type: String, required: true },
-    role_id: { type: String, required: true },
-    subject_id: { type: String, required: true },
+    phone: { type: String },
+    role_id: { type: mongoose.Schema.Types.ObjectId, required: true,ref: "roles" },
+    subjects: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          required:true,
+          ref: "subject"
+        }
+      ],
     education: { type: String, required: true },
-    linkdin: { type: String, required: true },
-    bio: { type: String, required: true },
+    linkdin: { type: String },
+    bio: { type: String},
   },
   { timestamps: true }
 );
