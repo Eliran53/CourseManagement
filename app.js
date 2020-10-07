@@ -49,6 +49,21 @@ app.use('/', indexRouter);
 app.use('/instructors',instructorsRouter);
 
 
+app.use('/roles',rolesRouter);
+app.use('/subjects',subjectsRouter);
+app.use('/contactus',contactusRouter);
+
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+  next();
+});
+app.use('/',authRouter)
+app.use('/',userRouter)
+
+
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter)
 // require('./app/routes/auth.routes')(app);
