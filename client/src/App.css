@@ -264,14 +264,18 @@ textarea:focus {
   width: 300px;
 }
 .allDiv {
-  display: flex;
-  margin-left: 10px;
+   margin-left: 10px;
   margin-right: 10px;
   padding: 50px;
-
+  display: flex;
+  flex-wrap: wrap;
 }
 .iframeDiv {
   padding: 20px;
+  flex: 1 0 21%; /* explanation below */
+  margin: 5px;
+  height: 50px;
+  margin-bottom: 400px;
 }
 .divH {
   padding: 20px;

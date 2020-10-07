@@ -1,10 +1,11 @@
 import React from "react";
-import "./Button.css";
+import "./css/Button.css";
 export function Button() {
   return (
     <>
-      <button className="btn">Search</button>
+    <form>
       <input className="ct" type="text" id="Catgoreis" name="Catgoreis" placeholder="Catgoreis" />
+      </form>
     </>
   );
 }

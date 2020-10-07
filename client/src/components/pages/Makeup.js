@@ -1,7 +1,12 @@
 import React,{Component} from 'react';
-
-class Makeup extends Component {
-  
+import axios from 'axios';
+export default class Makeup extends Component {
+  state = {
+    subjects: []
+  }
+  componentDidMount() {
+    axios.get()
+  }
   render() { 
     return (
       <h1 className='Makeup'>Makeup</h1>
@@ -9,5 +14,5 @@ class Makeup extends Component {
   }
 }
  
-export default Makeup;
+
 

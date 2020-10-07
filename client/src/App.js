@@ -8,6 +8,7 @@ import PersonalDevelopment from "./components/pages/Personal-Development";
 import test from "./components/pages/test";
 import "./login-style.scss";
 import contact from "./components/pages/Contact";
+import Footer from "./components/footer";
 import Home from "./components/pages/Home";
 
 function App() {
@@ -19,9 +20,14 @@ function App() {
         <Route exact path="/Login-Register" component={test} />
         <Route exact path="/Makeup" component={Makeup} />
         <Route exact path="/Health" component={Health} />
-        <Route exact  path="/Personal-Development" component={PersonalDevelopment} />
-        <Route exact path="/Contact" component={contact} />
+        <Route
+          exact
+          path="/Personal-Development"
+          component={PersonalDevelopment}
+        />
+        <Route exact path="/Contact-Us" component={contact} />
       </Switch>
+      <Footer />
     </Router>
   );
 }

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import ".././App.css";
 
-//const id = 'Lr9WUkeYSA8'
+
 
 class VideoTitel extends Component {
   state = {
@@ -35,9 +35,10 @@ class VideoTitel extends Component {
         <div className="allDiv">
           {this.state.lectures.map((lecture) => (
             <div className="iframeDiv" key={lecture.id}>
+              <p className="p">{lecture.lectureName}</p>
               <iframe
                 title="hi"
-                width="300"
+                width="400"
                 height="250"
                 src={`https://www.youtube.com/embed/${lecture.videos}`}
                 frameborder="0"
@@ -47,8 +48,8 @@ class VideoTitel extends Component {
               <p className="p">{lecture.summery}</p>
             </div>
           ))}
+          
         </div>
-        
       </>
     );
   }
