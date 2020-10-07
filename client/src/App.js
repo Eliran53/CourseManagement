@@ -9,18 +9,26 @@ import test from "./components/pages/test";
 import "./login-style.scss";
 import contact from "./components/pages/Contact";
 import Home from "./components/pages/Home";
+import loginButton from './components/loginbtn'
+import logoutButton from './components/logoutbtn'
+import contactus from './components/pages/contactus'
+
 
 function App() {
   return (
     <Router>
       <Navbar />
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Login-Register" component={test} />
-        <Route exact path="/Makeup" component={Makeup} />
-        <Route exact path="/Health" component={Health} />
-        <Route exact  path="/Personal-Development" component={PersonalDevelopment} />
-        <Route exact path="/Contact" component={contact} />
+        <Route path ="/Login-Register" component = {test}/>
+        <Route path="/Makeup" component={Makeup} />
+        <Route path="/Health" component={Health} />
+        <Route path="/Personal-Development" component={PersonalDevelopment} />
+        <Route path="/Contact" component={contact} />
+        <Route path="/loginout" component={loginButton} />
+        <Route path="/Login-Register" component={logoutButton} />
+        <Route path="/contactus" component={contactus} />
+        
+       
       </Switch>
     </Router>
   );

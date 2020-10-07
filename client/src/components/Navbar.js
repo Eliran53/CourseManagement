@@ -3,6 +3,8 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
+import  LoginButton  from './loginbtn'
+import LogoutButton from './logoutbtn'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -52,7 +54,8 @@ function Navbar() {
             {dropdown && <Dropdown />}
           </li>
         </ul>
-        
+        {/* <LoginButton/>
+        <LogoutButton/> */}
         <Button />
       </nav>
     </>

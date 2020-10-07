@@ -1,35 +1,33 @@
 const Instructor = require("../modules/instructor-module");
 const bcrypt = require("bcryptjs");
-createInstructor = (req, res) => {
-  const body = req.body;
-  if (!body) {
-    return res.status(400).json({
-      success: false,
-      error: "you must provide instructor",
-    });
-  }
+const uuid = require("uuid/v4");
 
-  const instructor = new Instructor(body);
-
-  if (!instructor) {
-    return res.status(400).json({ success: false, error: err });
-  }
-
-  instructor
-    .save()
-    .then(() => {
-      return res.status(201).json({
-        success: true,
-        id: instructor._id,
-        message: "instructor created!",
-      });
-    })
-    .catch((error) => {
+createInstructor = async (req, res) => {
+  try {
+    const body = req.body;
+    if (!body) {
       return res.status(400).json({
-        error,
-        message: "instructor not created",
+        success: false,
+        error: "you must provide instructor",
       });
+    }
+
+    const instructor = new Instructor(body);
+
+    const user = await instructor.save();
+
+    return res.status(201).json({
+      success: true,
+      id: user._id,
+      message: "User created!",
     });
+  } catch (error) {
+
+    return res.status(400).json({
+      error,
+      message: "instructor not created",
+    });
+  }
 };
 
 getAllInstructors = async (req, res) => {
@@ -106,7 +104,8 @@ getInstructorById = async (req, res) => {
         .status(404)
         .json({ success: false, error: "instructor not found" });
     }
-    return res.status(200).json({ success: true, data: instructor });
+    // return res.status(200).json({ success: true, data: instructor.role_id.role_name });
+    return instructor.role_id.role_name;
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
@@ -121,58 +120,71 @@ getInstructorFullNameById = async (req, res) => {
         .status(404)
         .json({ success: false, error: "instructor not found" });
     }
-    return res
-      .status(200)
-      .json({
-        success: true,
-        data: instructor.first_name + instructor.last_name,
-      });
+    return res.status(200).json({
+      success: true,
+      data: instructor.first_name + instructor.last_name,
+    });
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
   }
 };
 checkAuthentication = async (req, res) => {
-  // Search for a user by email 
+  // Search for a user by email
+  if (!req.body) {
+    return res
+      .status(400)
+      .json({ success: false, error: "Invalid login credentials" });
+  }
   const user = await Instructor.findOne({ email: req.body.email }).exec();
   if (!user) {
-    // throw new Error({ error: "Invalid login credentials" });
-    return res.status(400).json({ success: false, error: "Invalid login credentials" });
+    return res
+      .status(400)
+      .json({ success: false, error: "Invalid login credentials" });
   }
-  const isPasswordMatch = await bcrypt.compare(req.body.password, user.password);
+  const isPasswordMatch = await bcrypt.compare(
+    req.body.password,
+    user.password
+  );
   if (!isPasswordMatch) {
-    // throw new Error({ error: "Invalid login credentials" });
-    return res.status(400).json({ success: false, error: "Invalid login credentials" });
+    return res.status(401).json({
+      success: false,
+      accessToken: null,
+      error: "Invalid login credentials",
+    });
   }
-  return res.status(200).json({ success: true, data: user });
+  return user;
 };
 RoleNameById = async (id) => {
-    try {
-      const role = await Role.findOne({ _id: id }).exec();
-      if (!role) {
-        return res.status(404).json({ success: false, error: "role not found" });
-      }
-      return role.role_name;
-    } catch (error) {
-      console.error(error);
-      return res.status(400).json({ success: false, error: error });
+  try {
+    const role = await Role.findOne({ _id: id }).exec();
+    if (!role) {
+      return res.status(404).json({ success: false, error: "role not found" });
     }
-  };
-checkAuthorization = async (id)=>{
-    try {
-        const instructor = await Instructor.findOne({ _id: id }).exec();
-        if (!instructor) {
-          return res
-            .status(404)
-            .json({ success: false, error: "instructor not found" });
-        }
-       const role= getRoleNameById(instructor.role_id);
-        return res.status(200).json({ success: true, data: role });
-      } catch (error) {
-        console.error(error);
-        return res.status(400).json({ success: false, error: error });
-      }
-}
+    return role.role_name;
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ success: false, error: error });
+  }
+};
+checkAuthorization = async (req, res) => {
+  try {
+    const instructor = await Instructor.findOne({
+      email: req.body.email,
+    }).exec();
+    console.log(instructor);
+    if (!instructor) {
+      return res
+        .status(404)
+        .json({ success: false, error: "instructor not found" });
+    }
+    const role = RoleNameById(instructor.role_id);
+    return res.status(200).json({ success: true, data: role });
+  } catch (error) {
+    console.error(error);
+    return res.status(400).json({ success: false, error: error });
+  }
+};
 
 module.exports = {
   createInstructor,
@@ -181,5 +193,6 @@ module.exports = {
   deleteInstructor,
   updateInstructor,
   checkAuthentication,
-  checkAuthorization
+  checkAuthorization,
+  RoleNameById,
 };

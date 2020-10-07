@@ -3,14 +3,14 @@ const validator = require("validator");
 
 const schema = mongoose.Schema;
 
-const contact = new schema(
+const contactus = new schema(
   {
     first_name: { type: String, required: true },
     last_name: { type: String, required: true },
     email: {
       type: String,
       required: true,
-      unique: true,
+      // unique: true,
       lowercase: true,
       validate: (value) => {
         if (!validator.isEmail(value)) {
@@ -18,7 +18,8 @@ const contact = new schema(
         }
       },
     },
+    subject: { type: String, required: true },
     message:{type:String,maxlength:200,required: true}
 })
 
-module.exports = mongoose.model("contacts", contact);
+module.exports = mongoose.model("contactus", contactus);
