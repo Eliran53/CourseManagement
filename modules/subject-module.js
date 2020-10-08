@@ -7,5 +7,12 @@ const subject = new schema(
 
     }
     )
+    subject.virtual('lectures', {
+        ref: 'lecture', 
+        localField: '_id', 
+        foreignField: 'subjectID', 
+      
+       
+    });
 
     module.exports = mongoose.model('subjects',subject)

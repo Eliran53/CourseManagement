@@ -16,7 +16,7 @@ var rolesRouter = require('./routes/role-route');
 var subjectsRouter = require('./routes/subject-route')
 var customersRouter = require('./routes/customer-route');
 var lectureRouter = require('./routes/lecture-route');
-var queriesRouter = require('./routes/queries-route')
+const queriesRouter = require('./routes/queries-route');
 
 var app = express();
 
@@ -26,22 +26,22 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(cors());
-app.use(bodyParser.text());
+// app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-//damo
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/instructors',instructorsRouter);
-app.use('/roles',rolesRouter);
-app.use('/subjects',subjectsRouter);
+app.use('api/users', usersRouter);
+app.use('api/instructors',instructorsRouter);
+app.use('api/roles',rolesRouter);
+app.use('api/subjects',subjectsRouter);
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter);
 app.use('/api/queries',queriesRouter);

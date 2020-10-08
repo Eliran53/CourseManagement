@@ -3,8 +3,8 @@ const bcrypt = require("bcryptjs");
 
 createCustomer = (req, res) => {
     const body = req.body;
-  
-    if (!body) {
+    
+     if (!body) {
         
         return res.status(400).json({
             success: false,
@@ -78,7 +78,7 @@ updateCustomer = async (req, res) => {
             .then(() => {
                 return res.status(200).json({
                     success: true,
-                    id: instructor._id,
+                    id: customer._id,
                     message: "customer updated",
                 });
             })
