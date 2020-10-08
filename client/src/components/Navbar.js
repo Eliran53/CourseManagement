@@ -33,7 +33,7 @@ function Navbar() {
       <nav className="navbar">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           Logo
-          <i class="fab fa-firstdraft" />
+          {/* <i class="fab fa-firstdraft" /> */}
         </Link>
 
         <div className="menu-icon" onClick={handleClick}>

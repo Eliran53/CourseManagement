@@ -61,7 +61,7 @@ export default class Health extends React.Component {
         <div className="allDiv">
           {this.state.post.map((lecture, index) => (
             <div className="iframeDiv" key={lecture.id}>
-              <p className="p">{lecture.lectureName}</p>
+              <p className="p">{lecture.lecture_name}</p>
               <iframe
                 title="hi"
                 width="400"

@@ -44,7 +44,7 @@ getAllLectures = async (req, res) => {
         }
         return res.status(200).json({ success: true, data: lecture });
     })
-    .populate('instructor').exec(err,instructors)
+    .populate('instructors').exec()
     .catch((err) => console.log(err));
 };
 

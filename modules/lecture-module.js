@@ -15,12 +15,12 @@ const lecture = new schema(
     recommended: { type: String, required: true },
     videos: { type: String, required: true },
     customerID: { type: String },
-    instructor: 
-        {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "instructors"
-        }
-      
+    instructors: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "instructors",
+      },
+    ],
   },
   { timestamps: true }
 );

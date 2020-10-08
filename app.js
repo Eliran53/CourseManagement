@@ -42,8 +42,7 @@ app.use(express.static(path.resolve(__dirname, 'client/build')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
-
-
+app.use('/api/subjects',subjectsRouter);
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter)
 
