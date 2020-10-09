@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ".././App.css";
-import {urlBase} from '../components/utils/utils';
+import {urlBase} from '../utils/utils';
 
 
 class VideoTitel extends Component {
