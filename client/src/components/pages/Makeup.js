@@ -1,13 +1,27 @@
-import React,{Component} from 'react';
+import React, { Component } from "react";
+import axios from "axios";
 
-class Makeup extends Component {
-  
-  render() { 
+export default class Makeup extends Component {
+  state = {
+    subjects: [],
+  };
+  componentDidMount() {
+    axios.get("http://localhost:3001/api/subjects").then((res) => {
+      console.log(res);
+      this.setState({ subjects: res.data.data });
+    });
+  }
+  render() {
     return (
-      <h1 className='Makeup'>Makeup</h1>
-      );
+      <div className="">
+      {this.state.subjects.map((subject) => (
+        <div key={subject.id}>
+          <p className="p">{subject.subject_name}</p>
+         </div>
+      ))}
+      
+    </div>
+    )
+   
   }
 }
- 
-export default Makeup;
-
