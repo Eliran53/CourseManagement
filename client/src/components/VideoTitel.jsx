@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import ".././App.css";
-
+import {urlBase} from '../components/utils/utils';
 
 
 class VideoTitel extends Component {
@@ -9,7 +9,8 @@ class VideoTitel extends Component {
     lectures: [],
   };
   componentDidMount() {
-    axios.get("http://localhost:3001/api/lectures").then((res) => {
+    const url = `${urlBase()}/api/lectures`;
+    axios.get(url).then((res) => {
       const {data} = res.data;
       data.forEach(item => {
         item.videos = item.videos.startsWith('http')?  item.videos.split("v=")[1] : item.videos
