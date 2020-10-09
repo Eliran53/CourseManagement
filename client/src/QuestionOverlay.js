@@ -27,17 +27,18 @@ class QuestionOverlay extends Component {
     render() {
 
         return (
-
+           <div>
             <div className="add_checkbox">
 
                 <span>Enable Comments</span>
                 <input className="checkbox" type="checkbox" name="enable_comment" onClick={this.showComments} value="enable_comment" />
 
             </div>
-
-
-
-                { this.state.showComponent ? <div className="comments_preview_sample"></div> : null }
+              
+              <div>
+                    { this.state.showComponent ? <div className="comments_preview_sample"></div> : null }
+              </div>
+              </div>
 
         )
     }
