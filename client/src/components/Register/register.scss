@@ -7,10 +7,6 @@ body,
     box-sizing: border-box;
 }
 
-div {
-    font-family: Oxygen,Arial, Helvetica, sans-serif;
-}
-
 $blue_theme: #70a1ff;
 //Root Container
 .root-container {
@@ -25,7 +21,7 @@ $blue_theme: #70a1ff;
 .box-controller {
     visibility: visible;
     display: -webkit-box;
-    display: -ms-flexion;
+    display: -ms-flexbox;
     display: flex;
     max-width: 24em;
     min-width: 21em;
@@ -76,7 +72,7 @@ $blue_theme: #70a1ff;
     margin-bottom: 17px;
     /* margin-left: 35px; */
     /* margin-right: 35px; */
-    font-family: Oxygen,Arial, Helvetica, sans-serif;
+    font-family: Ozxgen, sans-serif;
     font-size: 22px;
     border-bottom: 2px solid $blue_theme;
 }
@@ -96,20 +92,20 @@ $blue_theme: #70a1ff;
 
 //Label
 .login-label {
-    font-family: Oxygen, Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    font-weight: 400;
+    font-family: Oxygen, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
     padding-left: 5px;
 }
 
 //Input
 .login-input {
-    height: 0.0em;
+    height: 2.1em;
     border-radius: 3px;
     border: 1px solid $blue_theme;
     transition: border 0.4s ease-out;
     padding: 13px;
-    font-family: Oxygen,Arial, Helvetica, sans-serif;
+    font-family: Oxygen, sans-serif;
     font-size: 19px;
     color: #3e3e42;
     background: rgba(15, 15, 15, 0.01);
@@ -137,7 +133,7 @@ $blue_theme: #70a1ff;
     border: 0;
     font-size: 18px;
     border-radius: 3px;
-    font-family: Oxygen,Arial, Helvetica,sans-serif;
+    font-family: Oxygen, sans-serif;
     background-color: rgba(15, 15, 15, 0.03);
     margin-top: 20px;
     border: 2px solid #417cef;

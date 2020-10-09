@@ -8,7 +8,9 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       isLoginOpen: true,
-      isRegisterOpen: false
+      isRegisterOpen: false,
+      userName: ''
+
     };
   }
 
@@ -67,7 +69,7 @@ class LoginBox extends React.Component {
     this.state = {};
   }
 
-  submitLogin(e) {}
+  submitLogin(e) { }
 
   render() {
     return (
@@ -83,7 +85,9 @@ class LoginBox extends React.Component {
               type="text"
               name="username"
               className="login-input"
-              placeholder="Username" />
+              placeholder="Username"
+              onChange={(e) => this.setState({ userName: e.target.value })}
+            />
           </div>
 
           <div className="input-group">
@@ -187,7 +191,7 @@ class RegisterBox extends React.Component {
       this.showValidationErr("email", "Email Cannot be empty!");
     }
     if (this.state.password == "") {
-      this.showValidationErr("password", "Password Cannot be empty!");
+      this.showValidationErr("password", "Password Cannot be\ empty!");
     }
 
   }
@@ -230,6 +234,7 @@ class RegisterBox extends React.Component {
         <div className="header">
           Register
         </div>
+
         <div className="box">
 
           <div className="input-group">
@@ -292,7 +297,15 @@ class RegisterBox extends React.Component {
             </div>}
 
           </div>
-
+          <button
+            type="button"
+            className="login-btn"
+            onHover={this
+              .openPopup
+              .bind(this)}
+            onClick={this
+              .openPopup
+              .bind(this)}>Lecturer</button>
           <button
             type="button"
             className="login-btn"
@@ -302,6 +315,9 @@ class RegisterBox extends React.Component {
             onClick={this
               .openPopup
               .bind(this)}>Register</button>
+
+
+          <button type="button" className="lacturer-btn"></button>
 
         </div>
       </div>
