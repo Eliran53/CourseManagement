@@ -1,4 +1,8 @@
 const Lecture = require("../modules/lecture-module");
+const subjects = require('../modules/subject-module');
+var ObjectId = require('mongoose').Types.ObjectId; 
+
+
 createLecture = (req, res) => {
     const body = req.body;
     console.log(body);
@@ -129,10 +133,29 @@ getLectureById = async (req, res) => {
     }
 };
 
+getHomeLectures = async(req,res) =>{
+    try{
+      let lecturesHome =[]
+      const subjectList = await subjects.find({}).select('id')
+      subjectList.forEach(async(sub)=>{
+        console.log(sub.id)
+        const data = await Lecture.find({subjectID : sub.id}).limit(3).exec()
+        console.log(data);
+        lecturesHome =[...data,...lecturesHome]
+      })
+      return res.status(200).json({ success: true, data:lecturesHome});
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+}
+
 module.exports = {
     createLecture,
     getAllLectures,
     getLectureById,
     deleteLecture ,
-    updateLecture 
+    updateLecture,
+    getHomeLectures
 };
