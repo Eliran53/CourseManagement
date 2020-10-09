@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Header';
 import ContactForm from '../ContactForm';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 // import './contactus.css';
 
 class contactuss extends Component {

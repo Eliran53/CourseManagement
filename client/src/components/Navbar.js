@@ -3,9 +3,8 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "./css/Navbar.css";
 import Dropdown from "./Dropdown";
-import  LoginButton  from './loginbtn'
-import LogoutButton from './logoutbtn'
-
+// import LoginButton from "./loginbtn";
+// import LogoutButton from "./logoutbtn";
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -53,14 +52,10 @@ function Navbar() {
             {dropdown && <Dropdown />}
           </li>
         </ul>
-<<<<<<< HEAD
         {/* <LoginButton/>
         <LogoutButton/> */}
-=======
-
->>>>>>> MuluWorks
         <Button />
-        <Link to="/" className="Login" onClick={closeMobileMenu}>
+        <Link to="/Login" className="Login" onClick={closeMobileMenu}>
           Login
         </Link>
         <Link to="/Register" className="Login" onClick={closeMobileMenu}>
