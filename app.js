@@ -47,9 +47,6 @@ app.use(express.static(path.resolve(__dirname, 'client/build')));
 app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
-<<<<<<< HEAD
-
-
 app.use('/roles',rolesRouter);
 app.use('/subjects',subjectsRouter);
 app.use('/contactus',contactusRouter);
@@ -63,11 +60,6 @@ app.use(function (req, res, next) {
 });
 app.use('/',authRouter)
 app.use('/',userRouter)
-
-
-=======
-app.use('/api/subjects',subjectsRouter);
->>>>>>> MuluWorks
 app.use('/api/customers',customersRouter);
 app.use('/api/lectures',lectureRouter)
 // require('./app/routes/auth.routes')(app);
