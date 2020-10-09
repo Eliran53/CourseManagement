@@ -1,13 +1,16 @@
 import React from "react";
+import reactDOM from "react-dom";
+import axios from 'axios'
 
-export default class App extends React.Component {
+
+export default class LoginRegister extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       isLoginOpen: true,
       isRegisterOpen: false,
-      userName: ''
+
 
     };
   }
@@ -15,6 +18,7 @@ export default class App extends React.Component {
   showLoginBox() {
     this.setState({ isLoginOpen: true, isRegisterOpen: false });
   }
+
 
   showRegisterBox() {
     this.setState({ isRegisterOpen: true, isLoginOpen: false });
@@ -77,15 +81,13 @@ class LoginBox extends React.Component {
         </div>
         <div className="box">
 
-          <div className="input-group">
-            <label htmlFor="username">Username</label>
+        <div className="input-group">
+            <label htmlFor="Email">Email</label>
             <input
               type="text"
-              name="username"
+              name="Email"
               className="login-input"
-              placeholder="Username"
-              onChange={(e) => this.setState({ userName: e.target.value })}
-            />
+              placeholder="Email" />
           </div>
 
           <div className="input-group">
@@ -96,6 +98,8 @@ class LoginBox extends React.Component {
               className="login-input"
               placeholder="Password" />
           </div>
+
+          
 
           <button
             type="button"
@@ -111,20 +115,30 @@ class LoginBox extends React.Component {
 
 }
 
-function pop(props) {
-  return
-}
 
+
+// function pop(props) {
+//   return
+// }
+// ---------------------------------------------------------------------------------------
 class RegisterBox extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
+      isChecked: false,
+      firstName: "",
+      lastName: "",
       email: "",
       password: "",
+      phone: "",
+      role_id: "",
+      subjects: [],
+      education: "",
+      Linkdin: "",
+      bio: "",
       errors: [],
-      pwdState: null
+
     };
   }
 
@@ -176,20 +190,41 @@ class RegisterBox extends React.Component {
 
   openPopup(e) {
     console.log("Hello world!");
+    // לשלוח לשרת את המידע של המשתמש   שנרשם
+    axios
+      .post('api/auth/signup', {
+        first_name: this.state.firstName,
+        last_name: this.state.last_name,
+        email: this.state.email,
+        password: this.state.password,
+        phone: this.state.phone,
+        role_id: this.state.role_id,
+        subjects: this.state.subjects,
+        education: this.state.education,
+        linkdin: this.state.linkdin,
+        bio: this.state.bio
+      })
+      .then(res => {
+        console.log('Registerd!!!');
+
+
+      }).catch(console.log('some ERROR!!!!!!!'))
   }
+
+
 
   submitRegister(e) {
 
     console.log(this.state);
 
     if (this.state.username == "") {
-      this.showValidationErr("username", "Username Cannot be empty!");
+      this.showValidationErr("first_name", "first_name Cannot be empty!");
     }
     if (this.state.email == "") {
       this.showValidationErr("email", "Email Cannot be empty!");
     }
     if (this.state.password == "") {
-      this.showValidationErr("password", "Password Cannot be\ empty!");
+      this.showValidationErr("password", "Password Cannot be empty!");
     }
 
   }
@@ -201,7 +236,7 @@ class RegisterBox extends React.Component {
       emailErr = null;
 
     for (let err of this.state.errors) {
-      if (err.elm == "username") {
+      if (err.elm == "first_name") {
         usernameErr = err.msg;
       }
       if (err.elm == "password") {
@@ -227,24 +262,40 @@ class RegisterBox extends React.Component {
       pwdStrong = true;
     }
 
+
+    const checkboxClicked = () => {
+      this.setState({ isChecked: !this.state.isChecked });
+    }
+
+
     return (
       <div className="inner-container">
         <div className="header">
           Register
         </div>
-
         <div className="box">
 
           <div className="input-group">
-            <label htmlFor="username">Username</label>
+            <label htmlFor="first_name">First name</label>
             <input
               type="text"
-              name="username"
+              name="First name"
               className="login-input"
-              placeholder="Username"
-              onChange={this
-                .onUsernameChange
-                .bind(this)} />
+              placeholder="First name"
+              onChange={(e) => { this.setState({ firstName: e.target.value }) }} />
+            <small className="danger-error">{usernameErr
+              ? usernameErr
+              : ""}</small>
+          </div>
+
+          <div className="input-group">
+            <label htmlFor="last_name">Last name</label>
+            <input
+              type="text"
+              name="Last name"
+              className="login-input"
+              placeholder="Last name"
+              onChange={(e) => { this.setState({ lastName: e.target.value }) }} />
             <small className="danger-error">{usernameErr
               ? usernameErr
               : ""}</small>
@@ -254,12 +305,10 @@ class RegisterBox extends React.Component {
             <label htmlFor="email">Email</label>
             <input
               type="text"
-              name="email"
+              name="Email"
               className="login-input"
               placeholder="Email"
-              onChange={this
-                .onEmailChange
-                .bind(this)} />
+              onChange={(e) => { this.setState({ Email: e.target.value }) }} />
             <small className="danger-error">{emailErr
               ? emailErr
               : ""}</small>
@@ -268,13 +317,11 @@ class RegisterBox extends React.Component {
           <div className="input-group">
             <label htmlFor="password">Password</label>
             <input
-              type="password"
-              name="password"
+              type="Password"
+              name="Password"
               className="login-input"
               placeholder="Password"
-              onChange={this
-                .onPasswordChange
-                .bind(this)} />
+              onChange={(e) => { this.setState({ Password: e.target.value }) }} />
             <small className="danger-error">{passwordErr
               ? passwordErr
               : ""}</small>
@@ -292,18 +339,87 @@ class RegisterBox extends React.Component {
                 className={"pwd pwd-strong " + (pwdStrong
                   ? "show"
                   : "")}></div>
-            </div>}
+            </div>
+            }
 
+            {this.state.isChecked && <>
+
+              <div className="input-group">
+                <label htmlFor="phone">Phone</label>
+                <input
+                  type="text"
+                  name="Phone"
+                  className="login-input"
+                  placeholder="Phone"
+                  onChange={(e) => { this.setState({ phone: e.target.value }) }} />
+                <small className="danger-error">{usernameErr
+                  ? usernameErr
+                  : ""}</small>
+              </div>
+
+
+              <div className="input-group">
+                <label htmlFor="Education">Education</label>
+                <input
+                  type="text"
+                  name="Education"
+                  className="login-input"
+                  placeholder="Education"
+                  onChange={(e) => { this.setState({ education: e.target.value }) }} />
+                <small className="danger-error">{usernameErr
+                  ? usernameErr
+                  : ""}</small>
+              </div>
+
+              <div className="input-group">
+                <label htmlFor="Linkdin">Linkdin</label>
+                <input
+                  type="text"
+                  name="Linkdin"
+                  className="login-input"
+                  placeholder="Linkdin"
+                  onChange={(e) => { this.setState({ Linkdin: e.target.value }) }} />
+                <small className="danger-error">{usernameErr
+                  ? usernameErr
+                  : ""}</small>
+              </div>
+
+              <div className="input-group">
+                <label htmlFor="Bio">Bio</label>
+                <input
+                  type="text"
+                  name="Bio"
+                  className="login-input"
+                  placeholder="Bio"
+                  onChange={(e) => { this.setState({ bio: e.target.value }) }} />
+                <small className="danger-error">{usernameErr
+                  ? usernameErr
+                  : ""}</small>
+              </div>
+
+              <br/>
+              
+              <label for="Subjects">Subjects :</label><br/>
+              <select class="custom-select" multiple>
+                <option selected>health</option>
+                <option value="1">Life Style</option>
+                <option value="2">Make Up</option>
+                <option value="3">Sport</option>
+                <option value="1">Food</option>
+                <option value="2">Science</option>
+                <option value="3">Music</option>
+              </select>
+
+            </>
+            }
           </div>
-          <button
-            type="button"
-            className="login-btn"
-            onHover={this
-              .openPopup
-              .bind(this)}
-            onClick={this
-              .openPopup
-              .bind(this)}>Lecturer</button>
+
+          <br />
+          <div>
+            <input type="checkbox" id="registerAsLecturer " onClick={() => checkboxClicked()} />
+            <label for="registerAsLecturer">Register as a Instructor</label>
+          </div>
+
           <button
             type="button"
             className="login-btn"
@@ -313,15 +429,9 @@ class RegisterBox extends React.Component {
             onClick={this
               .openPopup
               .bind(this)}>Register</button>
-
-
-          <button type="button" className="lacturer-btn"></button>
-
         </div>
       </div>
 
     );
-
   }
-
 }
