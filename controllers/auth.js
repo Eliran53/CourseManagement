@@ -26,7 +26,7 @@ signin = async (req, res) => {
   const user = await instructor_ctrl.checkAuthentication(req, res);
   const role = await role_ctrl.getRoleNameById(user.role_id);
   const token = jwt.sign({ id: user.id }, config.secret, {
-    expiresIn: 3600, //  hour
+    expiresIn: 3600, //  hour in sec
   });
 
   res.status(200).send({
