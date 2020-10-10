@@ -12,6 +12,8 @@ import contactus from './components/pages/contactus'
 import LoginRegister from "./LoginAndRegister";
 import Footer from "./components/footer";
 import Home from "./components/pages/Home";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
