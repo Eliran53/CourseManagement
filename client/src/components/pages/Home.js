@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import VideoTitel from '../VideoTitel'
+import VideoTitel from '../homePage/VideoTitel'
 export class Home extends Component {
     render() {
         return (
