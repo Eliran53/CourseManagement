@@ -3,12 +3,11 @@ import axios from "axios";
 import ".././App.css";
 import {urlBase} from '../utils/utils';
 
-
-
 class VideoTitel extends Component {
   state = {
     lectures: [],
   };
+  
   componentDidMount() {
     const url = `${urlBase()}/api/lectures`;
     axios.get(url).then((res) => {
@@ -20,6 +19,7 @@ class VideoTitel extends Component {
       this.setState({ lectures: data });
     });
   }
+
   render() {
     return (
       <>
