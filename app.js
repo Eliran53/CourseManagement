@@ -12,6 +12,7 @@ db.on('error',console.error.bind(
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
 var instructorsRouter = require('./routes/instructor-route');
+<<<<<<< HEAD
 
 var rolesRouter = require('./routes/role-route');
 var subjectsRouter = require('./routes/subject-route');
@@ -24,6 +25,13 @@ var authRouter = require('./routes/auth');
 var userRouter = require('./routes/user');
 // require('./app/routes/auth.routes')(app);
 // require('./app/routes/user.routes')(app);
+=======
+var rolesRouter = require('./routes/role-route');
+var subjectsRouter = require('./routes/subject-route')
+var customersRouter = require('./routes/customer-route');
+var lectureRouter = require('./routes/lecture-route');
+const queriesRouter = require('./routes/queries-route');
+>>>>>>> origin/queryUpdate
 
 var app = express();
 
@@ -33,18 +41,23 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(cors());
-app.use(bodyParser.text());
+// app.use(bodyParser.text());
+app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({extended:true}))
 
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/queryUpdate
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, 'client/build')));
 
 app.use('/', indexRouter);
+<<<<<<< HEAD
 // app.use('/users', usersRouter);
 app.use('/instructors',instructorsRouter);
 app.use('/roles',rolesRouter);
@@ -92,6 +105,16 @@ app.post("/send", (req, res) => {
     );
   }
 });
+=======
+app.use('api/users', usersRouter);
+app.use('api/instructors',instructorsRouter);
+app.use('api/roles',rolesRouter);
+app.use('api/subjects',subjectsRouter);
+app.use('/api/customers',customersRouter);
+app.use('/api/lectures',lectureRouter);
+app.use('/api/queries',queriesRouter);
+
+>>>>>>> origin/queryUpdate
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
