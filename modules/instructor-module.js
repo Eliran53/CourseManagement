@@ -22,13 +22,6 @@ const instructor = new schema(
     password: { type: String, required: true },
     // phone: { type: String }
     role_id: { type: mongoose.Schema.Types.ObjectId, required: true,ref: "roles" },
-    // subjects: [
-    //     {
-    //       type: mongoose.Schema.Types.ObjectId,
-    //       required:true,
-    //       ref: "subject"
-    //     }
-    //   ],
     education: { type: String, required: true },
     linkdin: { type: String },
     bio: { type: String},
