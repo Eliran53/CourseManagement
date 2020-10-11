@@ -161,13 +161,14 @@ RoleNameById = async (id) => {
     if (!role) {
       return res.status(404).json({ success: false, error: "role not found" });
     }
-<<<<<<< HEAD
+
     return role.role_name;
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
   }
 };
+
 checkAuthorization = async (req, res) => {
   try {
     const instructor = await Instructor.findOne({
@@ -186,23 +187,8 @@ checkAuthorization = async (req, res) => {
     return res.status(400).json({ success: false, error: error });
   }
 };
-=======
-  };
-checkAuthorization = async (id)=>{
-    try {
-        const instructor = await Instructor.findOne({ _id: id }).exec();
-        if (!instructor) {
-          return res
-            .status(404)
-            .json({ success: false, error: "instructor not found" });
-        }
-       const role= getRoleNameById(instructor.role_id);
-        return res.status(200).json({ success: true, data: role });
-      } catch (error) {
-        console.error(error);
-        return res.status(400).json({ success: false, error: error });
-      }
-}
+
+
 // searchInstructorIdByInstructorName = async (first_name) =>{
 //   try {
 //     const instructor = await Instructor.find({first_name: req.body.first_name}).exec();
@@ -221,7 +207,6 @@ checkAuthorization = async (id)=>{
 //     return res.status(400).json({ success: false, error: error });
 // } 
 // }; 
->>>>>>> origin/queryUpdate
 
 module.exports = {
   createInstructor,
@@ -231,9 +216,4 @@ module.exports = {
   updateInstructor,
   checkAuthentication,
   checkAuthorization,
-<<<<<<< HEAD
-  RoleNameById,
-=======
-  
->>>>>>> origin/queryUpdate
 };
