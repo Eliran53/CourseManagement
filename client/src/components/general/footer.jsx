@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./css/Form.css";
+import "../css/Form.css";
 export class footer extends Component {
   render() {
     return (
