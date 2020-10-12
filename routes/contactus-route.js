@@ -4,7 +4,7 @@ const contactCtrl = require('../controllers/contactus_ctrl');
 const router = express.Router();
 
 router.post('/',contactCtrl.createContactus)
-app.post('/send', (req, res) => {
+router.post('/send', (req, res) => {
   
     try {
       const mailOptions = {
