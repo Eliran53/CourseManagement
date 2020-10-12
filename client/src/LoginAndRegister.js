@@ -1,5 +1,4 @@
 import React from "react";
-import reactDOM from "react-dom";
 import axios from 'axios'
 
 
@@ -81,7 +80,7 @@ class LoginBox extends React.Component {
         </div>
         <div className="box">
 
-        <div className="input-group">
+          <div className="input-group">
             <label htmlFor="Email">Email</label>
             <input
               type="text"
@@ -99,7 +98,7 @@ class LoginBox extends React.Component {
               placeholder="Password" />
           </div>
 
-          
+
 
           <button
             type="button"
@@ -127,15 +126,15 @@ class RegisterBox extends React.Component {
     super(props);
     this.state = {
       isChecked: false,
-      firstName: "",
-      lastName: "",
+      first_Name: "",
+      last_Name: "",
       email: "",
       password: "",
       phone: "",
-      role_id: "",
+      role_Id: "5f6cd2d1cd814e3bdc725b57",
       subjects: [],
       education: "",
-      Linkdin: "",
+      linkdin: "",
       bio: "",
       errors: [],
 
@@ -157,7 +156,7 @@ class RegisterBox extends React.Component {
     this.setState((prevState) => {
       let newArr = [];
       for (let err of prevState.errors) {
-        if (elm != err.elm) {
+        if (elm !== err.elm) {
           newArr.push(err);
         }
       }
@@ -165,9 +164,9 @@ class RegisterBox extends React.Component {
     });
   }
 
-  onUsernameChange(e) {
-    this.setState({ username: e.target.value });
-    this.clearValidationErr("username");
+  onfirstNameChange(e) {
+    this.setState({ first_Name: e.target.value });
+    this.clearValidationErr("first_Name");
   }
 
   onEmailChange(e) {
@@ -193,12 +192,12 @@ class RegisterBox extends React.Component {
     // לשלוח לשרת את המידע של המשתמש   שנרשם
     axios
       .post('api/auth/signup', {
-        first_name: this.state.firstName,
-        last_name: this.state.last_name,
+        first_Name: this.state.first_Name,
+        last_Name: this.state.last_Name,
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
-        role_id: this.state.role_id,
+        role_Id: this.state.role_Id,
         subjects: this.state.subjects,
         education: this.state.education,
         linkdin: this.state.linkdin,
@@ -217,13 +216,13 @@ class RegisterBox extends React.Component {
 
     console.log(this.state);
 
-    if (this.state.username == "") {
+    if (this.state.first_Name === "") {
       this.showValidationErr("first_name", "first_name Cannot be empty!");
     }
-    if (this.state.email == "") {
+    if (this.state.email === "") {
       this.showValidationErr("email", "Email Cannot be empty!");
     }
-    if (this.state.password == "") {
+    if (this.state.password === "") {
       this.showValidationErr("password", "Password Cannot be empty!");
     }
 
@@ -236,13 +235,13 @@ class RegisterBox extends React.Component {
       emailErr = null;
 
     for (let err of this.state.errors) {
-      if (err.elm == "first_name") {
+      if (err.elm === "first_name") {
         usernameErr = err.msg;
       }
-      if (err.elm == "password") {
+      if (err.elm === "password") {
         passwordErr = err.msg;
       }
-      if (err.elm == "email") {
+      if (err.elm === "email") {
         emailErr = err.msg;
       }
     }
@@ -251,12 +250,12 @@ class RegisterBox extends React.Component {
       pwdMedium = false,
       pwdStrong = false;
 
-    if (this.state.pwdState == "weak") {
+    if (this.state.pwdState === "weak") {
       pwdWeak = true;
-    } else if (this.state.pwdState == "medium") {
+    } else if (this.state.pwdState === "medium") {
       pwdWeak = true;
       pwdMedium = true;
-    } else if (this.state.pwdState == "strong") {
+    } else if (this.state.pwdState === "strong") {
       pwdWeak = true;
       pwdMedium = true;
       pwdStrong = true;
@@ -279,10 +278,10 @@ class RegisterBox extends React.Component {
             <label htmlFor="first_name">First name</label>
             <input
               type="text"
-              name="First name"
+              name="First_name"
               className="login-input"
               placeholder="First name"
-              onChange={(e) => { this.setState({ firstName: e.target.value }) }} />
+              onChange={(e) => { this.setState({ first_Name: e.target.value }) }} />
             <small className="danger-error">{usernameErr
               ? usernameErr
               : ""}</small>
@@ -292,10 +291,10 @@ class RegisterBox extends React.Component {
             <label htmlFor="last_name">Last name</label>
             <input
               type="text"
-              name="Last name"
+              name="Last_name"
               className="login-input"
               placeholder="Last name"
-              onChange={(e) => { this.setState({ lastName: e.target.value }) }} />
+              onChange={(e) => { this.setState({ last_Name: e.target.value }) }} />
             <small className="danger-error">{usernameErr
               ? usernameErr
               : ""}</small>
@@ -308,7 +307,7 @@ class RegisterBox extends React.Component {
               name="Email"
               className="login-input"
               placeholder="Email"
-              onChange={(e) => { this.setState({ Email: e.target.value }) }} />
+              onChange={(e) => { this.setState({ email: e.target.value }) }} />
             <small className="danger-error">{emailErr
               ? emailErr
               : ""}</small>
@@ -321,7 +320,7 @@ class RegisterBox extends React.Component {
               name="Password"
               className="login-input"
               placeholder="Password"
-              onChange={(e) => { this.setState({ Password: e.target.value }) }} />
+              onChange={(e) => { this.setState({ password: e.target.value }) }} />
             <small className="danger-error">{passwordErr
               ? passwordErr
               : ""}</small>
@@ -378,7 +377,7 @@ class RegisterBox extends React.Component {
                   name="Linkdin"
                   className="login-input"
                   placeholder="Linkdin"
-                  onChange={(e) => { this.setState({ Linkdin: e.target.value }) }} />
+                  onChange={(e) => { this.setState({ linkdin: e.target.value }) }} />
                 <small className="danger-error">{usernameErr
                   ? usernameErr
                   : ""}</small>
@@ -397,9 +396,9 @@ class RegisterBox extends React.Component {
                   : ""}</small>
               </div>
 
-              <br/>
-              
-              <label for="Subjects">Subjects :</label><br/>
+              <br />
+
+              <label for="Subjects">Subjects :</label><br />
               <select class="custom-select" multiple>
                 <option selected>health</option>
                 <option value="1">Life Style</option>
@@ -416,7 +415,7 @@ class RegisterBox extends React.Component {
 
           <br />
           <div>
-            <input type="checkbox" id="registerAsLecturer " onClick={() => checkboxClicked()} />
+            <input type="checkbox" id="registerAsLecturer " onClick={() => checkboxClicked()} onChange={(e) => { this.setState({ role_id: "5f6cd2e5cd814e3bdc725b58" }) }} />
             <label for="registerAsLecturer">Register as a Instructor</label>
           </div>
 
