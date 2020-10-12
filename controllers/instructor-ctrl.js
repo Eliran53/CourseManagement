@@ -33,14 +33,16 @@ createInstructor = async (req, res) => {
 getAllInstructors = async (req, res) => {
   try {
     const instructors = await Instructor.find({}).exec();
+    console.log("instructors:", instructors);
     if (!instructors.length) {
       return res
         .status(404)
-        .json({ success: false, error: "not a singal instructor was found" });
+        .json({ success: false, error: "not a single instructor was found" });
     }
 
     return res.status(200).json({ success: true, data: instructors });
   } catch (error) {
+    console.log("catch");
     return res.status(400).json({ success: false, error: err });
   }
 };

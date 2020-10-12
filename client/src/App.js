@@ -1,65 +1,20 @@
 import React from "react";
-<<<<<<< HEAD
-import Navbar from "./components/general/Navbar";
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Makeup from "./components/pages/Makeup";
-import Health from "./components/pages/Health";
-import LifeStyle from "./components/pages/LifeStyle";
-
-import PersonalDevelopment from './components/pages/Personal-Development'
-import "./login-style.scss";
-import loginButton from './components/loginbtn'
-import logoutButton from './components/logoutbtn'
-import contactus from './components/pages/contactus'
-import LoginRegister from "./LoginAndRegister";
-import Footer from "./components/general/footer";
-import Home from "./components/pages/Home";
-=======
 import "./App.css";
 import ContactForm from './components/contact/ContactForm';
 import VideoTitel from '../src/components/homePage/VideoTitel';
 import Dropdown from './components/general/Dropdown';
 import { DropdownButton } from 'react-bootstrap';
 import {Button1 } from './components/general/Button';
->>>>>>> origin/site-design
 
-
-
-
-  
 
 function App() {
   return (
-<<<<<<< HEAD
-    <Router>
-      <Navbar />
-      <Switch>
-         <Route path="/Login" component={LoginRegister} />
-        <Route path="/Personal-Development" component = {PersonalDevelopment} />
-        <Route path="/loginout" component={loginButton} />
-        <Route path="/Login-Register" component={logoutButton} />
-        <Route path="/contactus" component={contactus} />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/Makeup" component={Makeup} />
-        <Route exact path="/Health" component={Health} />
-        <Route exact path="/LifeStyle" component={LifeStyle} />
-        <Route exact
-          path="/Personal-Development"
-          component={PersonalDevelopment}
-        />
-      </Switch>
-      <Footer />
-    </Router>
-=======
 
-    
   <div className= "App">
+       {/* Navigation */}
     <nav className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
                   <div className="container">
-                  {/* <div class="md-form mt-0">
-                  <input class="form-control" type="text" placeholder="Search" aria-label="Search"/>
-                </div>        */}
+                 
                 <a className="navbar-brand js-scroll-trigger" href="#page-top" >
                              <DropdownButton id="dropdown-basic-button" title="Categories"> 
                          <Dropdown.Item href="#/action-1">Health</Dropdown.Item>
@@ -265,7 +220,7 @@ function App() {
 
  
 
->>>>>>> origin/site-design
+
   )
 } export default App;
 

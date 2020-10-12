@@ -92,10 +92,10 @@ app.post("/send", (req, res) => {
   }
 });
 
-app.use("api/users", userRouter);
-app.use("api/instructors", instructorsRouter);
-app.use("api/roles", rolesRouter);
-app.use("api/subjects", subjectsRouter);
+app.use("/api/users", userRouter);
+app.use("/api/instructors", instructorsRouter);
+app.use("/api/roles", rolesRouter);
+app.use("/api/subjects", subjectsRouter);
 app.use("/api/customers", customersRouter);
 app.use("/api/lectures", lectureRouter);
 app.use("/api/queries", queriesRouter);

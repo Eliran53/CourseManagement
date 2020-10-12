@@ -22,11 +22,7 @@ class VideoTitel extends Component {
   render() {
     return (
       <>
-<<<<<<< HEAD
-      <div className="divH">
-=======
       {/* <div className="divH">
->>>>>>> origin/site-design
           <h1>
             The purpose of the site is to connect between independent lecturers
             and you!
@@ -36,11 +32,7 @@ class VideoTitel extends Component {
             feel free to visit our site !<br />
           </h1>
         </div>
-<<<<<<< HEAD
-        <hr />
-=======
         <hr /> */}
->>>>>>> origin/site-design
         <div className="allDiv">
           {this.state.lectures.map((lecture) => (
             <div className="iframeDiv" key={lecture.id}>
