@@ -1,12 +1,17 @@
 export const MenuItems = [
     {
-      title: 'Makeup',
-      path: '/Makeup',
+      title: 'Health',
+      path: '/Health',
       cName: 'dropdown-link'
     },
     {
-      title: 'Health',
-      path: '/Health',
+      title: 'Life style',
+      path: '/LifeStyle',
+      cName: 'dropdown-link'
+    },
+    {
+      title: 'Makeup',
+      path: '/Makeup',
       cName: 'dropdown-link'
     },
     {

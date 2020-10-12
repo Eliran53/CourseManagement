@@ -3,7 +3,7 @@ import React from 'react'
 
 const Header = ()=>(
     <header className={"header"}>
-        <h1>Eliran Form</h1>
+        <h1>Get In Touch</h1>
     </header>
 )
 

@@ -269,6 +269,7 @@ textarea:focus {
   padding: 50px;
   display: flex;
   flex-wrap: wrap;
+  
 }
 .iframeDiv {
   padding: 20px;
@@ -281,9 +282,24 @@ textarea:focus {
   padding: 20px;
   text-align: center;
   font-family: 'PT Sans', sans-serif;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+   padding: 100px 300px 0 300px;
 }
 .allDiv a {
    padding-top: 390px;
    margin-left: 150px;
+   margin: 0 100px;
+   background-color: #718192;
    
 }
+/* .allDiv {
+  padding: 0 300px;
+} */
+/* .divH h1{
+  color:#fff;
+  height: 600px;
+  text-align: left;
+  font-family: 'Fredoka One', cursive;
+} */
+
+

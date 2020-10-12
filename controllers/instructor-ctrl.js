@@ -33,14 +33,16 @@ createInstructor = async (req, res) => {
 getAllInstructors = async (req, res) => {
   try {
     const instructors = await Instructor.find({}).exec();
+    console.log("instructors:", instructors);
     if (!instructors.length) {
       return res
         .status(404)
-        .json({ success: false, error: "not a singal instructor was found" });
+        .json({ success: false, error: "not a single instructor was found" });
     }
 
     return res.status(200).json({ success: true, data: instructors });
   } catch (error) {
+    console.log("catch");
     return res.status(400).json({ success: false, error: err });
   }
 };
@@ -161,12 +163,14 @@ RoleNameById = async (id) => {
     if (!role) {
       return res.status(404).json({ success: false, error: "role not found" });
     }
+
     return role.role_name;
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
   }
 };
+
 checkAuthorization = async (req, res) => {
   try {
     const instructor = await Instructor.findOne({
@@ -186,6 +190,26 @@ checkAuthorization = async (req, res) => {
   }
 };
 
+
+// searchInstructorIdByInstructorName = async (first_name) =>{
+//   try {
+//     const instructor = await Instructor.find({first_name: req.body.first_name}).exec();
+//      console.log("instructor",instructor)
+    
+//        if (!instructor ) {
+//         return res
+//             .status(404)
+//             .json({ success: false, error: "instructor not found" });
+//     }
+//     console.log("instructor.id",instructor.id)
+   
+//     return instructor;
+// } catch (error) {
+//     console.error(error);
+//     return res.status(400).json({ success: false, error: error });
+// } 
+// }; 
+
 module.exports = {
   createInstructor,
   getAllInstructors,
@@ -194,5 +218,4 @@ module.exports = {
   updateInstructor,
   checkAuthentication,
   checkAuthorization,
-  RoleNameById,
 };

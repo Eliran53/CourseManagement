@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './register.scss';
 
-
 class Register extends React.Component {
     constructor(props) {
         super(props);

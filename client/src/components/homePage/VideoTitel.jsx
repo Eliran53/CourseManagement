@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ".././App.css";
-import {urlBase} from '../utils/utils';
+import "../../App.css";
+import {urlBase} from '../../utils/utils';
 
 
 class VideoTitel extends Component {
@@ -22,7 +22,7 @@ class VideoTitel extends Component {
   render() {
     return (
       <>
-        <div className="divH">
+      {/* <div className="divH">
           <h1>
             The purpose of the site is to connect between independent lecturers
             and you!
@@ -32,7 +32,7 @@ class VideoTitel extends Component {
             feel free to visit our site !<br />
           </h1>
         </div>
-        <hr />
+        <hr /> */}
         <div className="allDiv">
           {this.state.lectures.map((lecture) => (
             <div className="iframeDiv" key={lecture.id}>
@@ -51,6 +51,8 @@ class VideoTitel extends Component {
           ))}
           
         </div>
+      
+        
       </>
     );
   }
