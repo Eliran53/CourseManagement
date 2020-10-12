@@ -1,7 +1,6 @@
 import React from "react";
 import axios from "axios";
 import "react-dom";
-
 export default class Health extends React.Component {
   state = {
     lectures: [],

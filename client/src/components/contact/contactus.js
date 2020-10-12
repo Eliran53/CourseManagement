@@ -9,7 +9,11 @@ function contactus() {
     return (
       <div >
         <div>
+<<<<<<< HEAD
           <Header />
+=======
+          {/* <Header /> */}
+>>>>>>> origin/site-design
           <ContactForm />
         </div>
       </div>
