@@ -133,6 +133,21 @@ getLectureById = async (req, res) => {
     }
 };
 
+getLectureByCustomerId = async (id) => {
+    try {
+        const lectures = await Lecture.findOne({ _id: id }).exec();
+       if (!lectures) {
+            return res
+                .status(404)
+                .json({ success: false, error: "lectures not found" });
+        }
+        return lectures;
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+};
+
 getHomeLectures = async(req,res) =>{
     try{
       let lecturesHome =[]
