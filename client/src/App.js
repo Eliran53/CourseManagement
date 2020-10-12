@@ -4,7 +4,8 @@ import ContactForm from './components/contact/ContactForm';
 import VideoTitel from '../src/components/homePage/VideoTitel';
 import Dropdown from './components/general/Dropdown';
 import { DropdownButton } from 'react-bootstrap';
-import {Button1 } from './components/general/Button';
+// import {Button1 } from './components/general/Button';
+import instructors from './components/pages/profileinstructor';
 
 
 function App() {
