@@ -164,22 +164,38 @@ getLectureById = async (req, res) => {
   }
 };
 
-// getHomeLectures = async (req, res) => {
-//   try {
-//     let lecturesHome = [];
-//     const subjectList = await subjects.find({}).select("id");
-//     subjectList.forEach(async (sub) => {
-//       console.log(sub.id);
-//       const data = await Lecture.find({ subjectID: sub.id }).limit(3).exec();
-//       console.log(data);
-//       lecturesHome = [...data, ...lecturesHome];
-//     });
-//     return res.status(200).json({ success: true, data: lecturesHome });
-//   } catch (error) {
-//     console.error(error);
-//     return res.status(400).json({ success: false, error: error });
-//   }
-// };
+getLectureByCustomerId = async (id) => {
+    try {
+        const lectures = await Lecture.findOne({ _id: id }).exec();
+       if (!lectures) {
+            return res
+                .status(404)
+                .json({ success: false, error: "lectures not found" });
+        }
+        return lectures;
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+};
+
+getHomeLectures = async(req,res) =>{
+    try{
+      let lecturesHome =[]
+      const subjectList = await subjects.find({}).select('id')
+      subjectList.forEach(async(sub)=>{
+        console.log(sub.id)
+        const data = await Lecture.find({subjectID : sub.id}).limit(3).exec()
+        console.log(data);
+        lecturesHome =[...data,...lecturesHome]
+      })
+      return res.status(200).json({ success: true, data:lecturesHome});
+    }
+    catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+}
 
 module.exports = {
   createLecture,

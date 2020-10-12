@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../contact/Header';
 import ContactForm from '../contact/ContactForm';
 // import 'bootstrap/dist/css/bootstrap.min.css';
-// import './contactus.css';
+//  import '../css';
 
 class contactuss extends Component {
   render() {
