@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../Header';
-import ContactForm from '../ContactForm';
+import Header from '../contact/Header';
+import ContactForm from '../contact/ContactForm';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import './contactus.css';
 
