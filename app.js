@@ -22,7 +22,7 @@ var rolesRouter = require("./routes/role-route");
 var subjectsRouter = require("./routes/subject-route");
 var customersRouter = require("./routes/customer-route");
 var lectureRouter = require("./routes/lecture-route");
-const queriesRouter = require("./routes/queries-route");
+var queriesRouter = require("./routes/queries-route");
 
 var app = express();
 

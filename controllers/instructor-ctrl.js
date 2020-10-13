@@ -107,7 +107,8 @@ getInstructorById = async (req, res) => {
         .json({ success: false, error: "instructor not found" });
     }
     // return res.status(200).json({ success: true, data: instructor.role_id.role_name });
-    return instructor.role_id.role_name;
+    // return instructor.role_id.role_name;
+    return res.status(200).json({ success: true, data: instructor });
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });

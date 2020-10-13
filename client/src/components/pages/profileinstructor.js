@@ -1,14 +1,22 @@
-import React, { Component } from 'react'
-import  profile from '../instructors/profile'
+import React, { Component } from "react";
+import Profile from "../instructors/detlis";
+import Proinstructor from "../instructors/proinstructor";
 
 export class profileinstructor extends Component {
-    render() {
-        return (
-            <div>
-                <profile/>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+          <Proinstructor />
+          </div>
+          <div className="col-6 float-right">
+          <Profile />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
-export default profileinstructor
+export default profileinstructor;
