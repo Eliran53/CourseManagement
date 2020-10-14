@@ -12,6 +12,8 @@ import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import instructors from "./components/pages/profileinstructor";
 import Add from "./components/instructors/Add";
+import List from './components/instructors/list'
+
 function App() {
   return (
     <Router>
@@ -19,6 +21,7 @@ function App() {
         <Route exact path="/api/instructors/:id" component={instructors} />
         <Route exact path="/api/queries/:id" component={instructors} />
         <Route exact path="/" component={Add} />
+        <Route exact path="/api/" component={List} />
       </Switch>
     </Router>
 
