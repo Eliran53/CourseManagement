@@ -4,8 +4,8 @@ const express = require('express');
 const router = express.Router();
 
 
-router.post("/api/auth/signup", authcontroller.signup);
-router.post("/api/auth/signin", authcontroller.signin);
+router.post("/signup", authcontroller.signup);
+router.post("/signin", authcontroller.signin);
 module.exports = router;
 // module.exports = function (app) {
 //   app.use(function (req, res, next) {

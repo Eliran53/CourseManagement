@@ -2,7 +2,7 @@ import React from "react";
 import axios from 'axios'
 
 
-export default class LoginRegister extends React.Component {
+class LoginRegister extends React.Component {
 
   constructor(props) {
     super(props);
@@ -67,10 +67,30 @@ class LoginBox extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      email: "",
+      password: "",
+    };
+
   }
 
-  submitLogin(e) { }
+  osubmitLogin(e) {
+    console.log("Hello world!");
+    // לשלוח לשרת את המידע של המשתמש   שנרשם
+    axios
+      .post('api/auth/signin', {
+        email: this.state.email,
+        password: this.state.password,
+
+      })
+      .then(res => {
+        console.log('singin!!!');
+
+
+      }).catch(console.log('some ERROR!!!!!!!'))
+  }
+
+
 
   render() {
     return (
@@ -86,7 +106,8 @@ class LoginBox extends React.Component {
               type="text"
               name="Email"
               className="login-input"
-              placeholder="Email" />
+              placeholder="Email"
+              onChange={(e) => { this.setState({ email: e.target.value }) }} />
           </div>
 
           <div className="input-group">
@@ -95,7 +116,8 @@ class LoginBox extends React.Component {
               type="password"
               name="password"
               className="login-input"
-              placeholder="Password" />
+              placeholder="Password"
+              onChange={(e) => { this.setState({ password: e.target.value }) }} />
           </div>
 
 
@@ -104,7 +126,7 @@ class LoginBox extends React.Component {
             type="button"
             className="login-btn"
             onClick={this
-              .submitLogin
+              .osubmitLogin
               .bind(this)}>Login</button>
 
         </div>
@@ -131,7 +153,7 @@ class RegisterBox extends React.Component {
       email: "",
       password: "",
       phone: "",
-      role_Id: "5f6cd2d1cd814e3bdc725b57",
+      role_id: "5f6cd2d1cd814e3bdc725b57",
       subjects: [],
       education: "",
       linkdin: "",
@@ -197,7 +219,7 @@ class RegisterBox extends React.Component {
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
-        role_Id: this.state.role_Id,
+        role_id: this.state.role_id,
         subjects: this.state.subjects,
         education: this.state.education,
         linkdin: this.state.linkdin,
@@ -434,3 +456,4 @@ class RegisterBox extends React.Component {
     );
   }
 }
+export default LoginRegister;
