@@ -5,6 +5,7 @@ import VideoTitel from '../src/components/homePage/VideoTitel';
 import Dropdown from './components/general/Dropdown';
 import { DropdownButton } from 'react-bootstrap';
 import {Button1 } from './components/general/Button';
+import Zone from './components/customer-zone/customer-zone'
 
 
 function App() {
@@ -39,8 +40,9 @@ function App() {
                         </DropdownButton> */}
                          
                         <li className="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#portfolio">Login</a></li>
-                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#registrar" >Sign up</a></li>
+                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#login-register">Login</a></li>
+                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#login-register" >Sign up</a></li>
+                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#zone" >zone</a></li>
 
                     </ul>
                 </div>
@@ -84,6 +86,11 @@ function App() {
             <div className="container">
              <h2 className="text-center mt-0">Lectures of your choice</h2>
                 <div className="videofile"><VideoTitel/></div></div> </section> </div>
+                <div className="video">
+          <section className="page-section" id="zone">
+            <div className="container">
+             <h2 className="text-center mt-0">My zone</h2>
+                <div className="zone"><Zone/></div></div> </section> </div>
                 {/* <hr className="divider my-4" /> */}
                 {/* <div className="row">
                     <div className="col-lg-3 col-md-6 text-center">
