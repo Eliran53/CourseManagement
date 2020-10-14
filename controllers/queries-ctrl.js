@@ -4,6 +4,7 @@ const Instructor = require("../modules/instructor-module");
 const Subject = require("../modules/subject-module");
 const Role = require("../modules/role-module");
 
+
 searchLectureIdByLectureName = async (req,res) => {
     try {
         const lecture = await Lecture.findOne({ lecture_name: req.body.lecture_name }).exec();
@@ -134,6 +135,23 @@ searchLecturesByInstructorName = async (req,res) => {
 //     }
 //  }
 
+ getLectureByCustomerId = async (req,res) => {
+    try {
+        const lectures = await Lecture.find({customerID:req.params.id}).exec();
+       if (!lectures) {
+            return res
+                .status(404)
+                .json({ success: false, error: "lectures not found" });
+        }
+        res.status(200).json({ data:lectures});
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+};
+
+      
+
 
 
 
@@ -144,7 +162,9 @@ module.exports = {
     searchLecturesByCategories,
     searchCustomersByLectureName,
     searchLecturesByDate,
-    searchLecturesByInstructorID
+    searchLecturesByInstructorID,
+    getLectureByCustomerId,
+    getAllLectures
     // searchCustomersByRoleName
     
    

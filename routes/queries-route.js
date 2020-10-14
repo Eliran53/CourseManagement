@@ -8,6 +8,8 @@ router.post('/lectureName',queriesCtrl.searchCustomersByLectureName)
 router.post('/lectures',queriesCtrl.searchLectureIdByLectureName)
 router.post('/lectureDate',queriesCtrl.searchLecturesByDate)
 router.get('/:id',queriesCtrl.searchLecturesByInstructorID )
+router.get('/lec',queriesCtrl.getLectureByCustomerId)
+
 // router.post('/customersRole',queriesCtrl.searchCustomersByRoleName)
 
 
