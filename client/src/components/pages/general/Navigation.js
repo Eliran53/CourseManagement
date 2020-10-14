@@ -2,10 +2,10 @@ import React from "react";
 import '../../css/navbar1.css';
 import {Dropdown}  from 'react-bootstrap';
 import { DropdownButton } from 'react-bootstrap';
-import Navbar from 'react-bootstrap/Navbar';
+// import Navbar from 'react-bootstrap/Navbar';
 import { Nav, NavDropdown, Form ,FormControl, Button} from 'react-bootstrap'; 
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
+// import Popup from 'reactjs-popup';
+// import 'reactjs-popup/dist/index.css';
 
 
 

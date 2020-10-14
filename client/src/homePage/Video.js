@@ -1,5 +1,5 @@
 import React from 'react';
-// import '../css/video';
+import '../components/css/video.css';
 import VideoTitel from './VideoTitel';
 
 function Video() {

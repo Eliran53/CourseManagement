@@ -36,7 +36,7 @@
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --breakpoint-xl: 1t200px;
   --font-family-sans-serif: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
@@ -10032,7 +10032,7 @@ hr.light {
   
 }
 .video {
-  background-color:  #E8DAB2;
+  background-color:  #2d4059;
   /* background-image: url("../../img/portfolio/thumbnails/background.jpg"); */
   /* background-image: url("../../img/portfolio/thumbnails/agoz.jpg"); */
 }
