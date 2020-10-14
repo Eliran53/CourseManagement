@@ -4,6 +4,7 @@ const Instructor = require("../modules/instructor-module");
 const Subject = require("../modules/subject-module");
 const Role = require("../modules/role-module");
 
+
 searchLectureIdByLectureName = async (req,res) => {
     try {
         const lecture = await Lecture.findOne({ lecture_name: req.body.lecture_name }).exec();
@@ -95,24 +96,23 @@ searchLecturesByInstructorName = async (req,res) => {
 
  
  };
-//  searchCustomersByRoleName = async(req,res) => {
-//     try{
-//         console.log("role_name:",req.body.role_name);
-//         const role = await Role.findOne({role_name: req.body.role_name}).
-//         populate('roleCustomer').exec();
-//         console.log("role:",role );
-//         console.log("customers:",role.customers);
-//         if (!role.customers) {
-//            return res
-//                .status(404)
-//                .json({ success: false, error: "customers not found" });
-//        }
-//        return res.status(200).json({data:role.customers});
-//      } catch (error) {
-//         console.error(error);
-//         return res.status(400).json({ success: false, error: error });
-//     }
-//  }
+
+ getLectureByCustomerId = async (req,res) => {
+    try {
+        const lectures = await Lecture.find({customerID:req.params.id}).exec();
+       if (!lectures) {
+            return res
+                .status(404)
+                .json({ success: false, error: "lectures not found" });
+        }
+        res.status(200).json({ data:lectures});
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+};
+
+      
 
 
 
@@ -123,7 +123,9 @@ module.exports = {
     searchLecturesByInstructorName,
     searchLecturesByCategories,
     searchCustomersByLectureName,
-    searchLecturesByDate
+    searchLecturesByDate,
+    getLectureByCustomerId,
+    getAllLectures
     // searchCustomersByRoleName
     
    

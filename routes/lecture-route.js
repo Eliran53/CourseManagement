@@ -5,6 +5,8 @@ const router = express.Router();
 
 router.post('/',lectureCtrl.createLecture)
 router.get('/',lectureCtrl.getAllLectures)
+// router.get('/lec',lectureCtrl)
+
 
 // router.get('/home',lectureCtrl.getHomeLectures)
 router.put('/:id',lectureCtrl.getLectureById) 
