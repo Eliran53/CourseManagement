@@ -21,6 +21,7 @@ const Lecture = () => {
     console.log(res.data);
     setsetlectures(res.data.data);
   };
+  
   return (
     <div className="container">
   
