@@ -13,11 +13,12 @@ const Addlecture = () => {
     lectureDate: "",
     summery: "",  
     price: "",
-    videos: ""
+    videos: "",
+    language: ""
   });
 
   const { instructorID, lecture_name, subjectID, duration, maxCapacityParticipants,
-    lectureDate,summery,price,videos} = lectures;
+    lectureDate,summery,price,videos, language} = lectures;
   const onInputChange = e => {
     setlecture({ ...lectures, [e.target.name]: e.target.value });
   };
@@ -77,7 +78,7 @@ const Addlecture = () => {
          
           <div className="form-group">
             <input
-              type="text"
+              type="date"
               className="form-control form-control-lg"
               placeholder="Enter Your lectureDate"
               name="lectureDate"
@@ -88,7 +89,7 @@ const Addlecture = () => {
 
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
               placeholder="Enter Your maxCapacityParticipants"
               name="maxCapacityParticipants"
@@ -110,7 +111,7 @@ const Addlecture = () => {
           
           <div className="form-group">
             <input
-              type="text"
+              type="number"
               className="form-control form-control-lg"
               placeholder="Enter Your price"
               name="price"
@@ -126,6 +127,16 @@ const Addlecture = () => {
               placeholder="Enter Your videos"
               name="videos"
               value={videos}
+              onChange={e => onInputChange(e)}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              type="text"
+              className="form-control form-control-lg"
+              placeholder="Enter Your language"
+              name="language"
+              value={language}
               onChange={e => onInputChange(e)}
             />
           </div>
