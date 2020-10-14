@@ -1,6 +1,6 @@
 import React from 'react';
 // import '../css/video';
-import VideoTitel from '../homePage/VideoTitel';
+import VideoTitel from './VideoTitel';
 
 function Video() {
 

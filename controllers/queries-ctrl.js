@@ -95,6 +95,26 @@ searchLecturesByInstructorName = async (req,res) => {
 
  
  };
+ searchLecturesByInstructorID = async (req,res) => {
+    try{
+       console.log("first name:",req.params.id);
+       const instructor = await Instructor. findOne({ _id: req.params.id}).
+       populate('lectures').exec();
+       console.log("instructor",instructor);
+       console.log("lectures",instructor.lectures);
+       if (instructor.lectures.length === 0) {
+          return res
+              .status(404)
+              .json({ success: false, error: "lectures not found" });
+      }
+      return res.status(200).json({ data:instructor.lectures});
+    } catch (error) {
+       console.error(error);
+       return res.status(400).json({ success: false, error: error });
+   }
+
+
+};
 //  searchCustomersByRoleName = async(req,res) => {
 //     try{
 //         console.log("role_name:",req.body.role_name);
@@ -123,7 +143,8 @@ module.exports = {
     searchLecturesByInstructorName,
     searchLecturesByCategories,
     searchCustomersByLectureName,
-    searchLecturesByDate
+    searchLecturesByDate,
+    searchLecturesByInstructorID
     // searchCustomersByRoleName
     
    
