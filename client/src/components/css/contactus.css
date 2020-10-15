@@ -1,8 +1,8 @@
-/* body {
+.container {
     background: #7877e6;
     color: #fff;
     letter-spacing: 1px;
-  } */
+  }
   
   .header {
     margin: 20px;
@@ -10,7 +10,7 @@
   } 
   
   .success {
-    /* color: #0ff40f; */
+    color: #0ff40f;
   }
   
   .error {
