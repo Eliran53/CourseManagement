@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "../../../App.css";
-import {urlBase} from '../../../utils/utils';
+import "../App.css";
+import {urlBase} from '../utils/utils';
 
 
-class VideoTitel extends Component {
+export default class VideoTitel extends Component {
   state = {
     lectures: [],
   };
@@ -26,7 +26,11 @@ class VideoTitel extends Component {
         <div className="allDiv">
           {this.state.lectures.map((lecture) => (
             <div className="iframeDiv" key={lecture.id}>
+              <div class="flex-container">
+               <div id="lectureName">
               <p className="p">{lecture.lecture_name}</p>
+              </div>
+              <div id ="iframeVideo">
               <iframe
                 title="hi"
                 width="400"
@@ -36,7 +40,17 @@ class VideoTitel extends Component {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen="0"
               ></iframe>
-              <p className="p">{lecture.summery}</p>
+              </div>
+              <div id ="summery"> 
+              <p id="p">{lecture.summery}</p>
+              </div>
+              {/* <div >
+              <div id="maxCapacityParticipants"> The lecture is limited to {lecture.maxCapacityParticipants} participants</div>
+              </div>
+              <div id="maxCapacityParticipants"> The price is {lecture. price} dollar </div> */}
+              
+              
+              </div>
             </div>
           ))}
           
@@ -48,4 +62,4 @@ class VideoTitel extends Component {
   }
 }
 
-export default VideoTitel;
+
