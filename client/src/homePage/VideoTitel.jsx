@@ -30,7 +30,7 @@ export default class VideoTitel extends Component {
                <div id="lectureName">
               <p className="p">{lecture.lecture_name}</p>
               </div>
-              <div>
+              <div id ="iframeVideo">
               <iframe
                 title="hi"
                 width="400"
@@ -44,6 +44,12 @@ export default class VideoTitel extends Component {
               <div id ="summery"> 
               <p id="p">{lecture.summery}</p>
               </div>
+              {/* <div >
+              <div id="maxCapacityParticipants"> The lecture is limited to {lecture.maxCapacityParticipants} participants</div>
+              </div>
+              <div id="maxCapacityParticipants"> The price is {lecture. price} dollar </div> */}
+              
+              
               </div>
             </div>
           ))}

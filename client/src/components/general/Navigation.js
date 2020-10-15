@@ -55,13 +55,7 @@ function Navbar() {
                         <Link to="/Makeup">Makeup</Link>
                         <a className="nav-link js-scroll-trigger" href="#about">About</a></li>
                         <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#services">Preview</a></li>
-                        {/* <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#portfolio">Categories</a></li> */}
-                          {/* <DropdownButton id="dropdown-basic-button" title="Categories"> */}
-                          {/* <Dropdown.Item href="#/action-1">Health</Dropdown.Item>
-                          <Dropdown.Item href="#/action-2">Life style</Dropdown.Item>
-                          <Dropdown.Item href="#/action-3">Makeup</Dropdown.Item>
-                        </DropdownButton> */}
-                         
+
                         <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                         <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#portfolio">Login</a></li>
                         <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#registrar" >Sign up</a></li>
