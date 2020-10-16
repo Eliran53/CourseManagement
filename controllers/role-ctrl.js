@@ -94,7 +94,7 @@ getRoleNameById = async (id) => {
  
    
     const role = await Role.findOne({ _id: id }).exec();
-    console.log("rolectrl", id);    
+    console.log("id", id);    
     if (!role) {
       return false
     }

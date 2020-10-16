@@ -1,14 +1,18 @@
 import React from "react";
 import "./App.css";
 import ContactForm from './components/contact/ContactForm';
-import LoginAndRegister from '../src/LoginAndRegister';
+import LoginRegisterBox from '../src/LoginRegisterBox';
 import VideoTitel from '../src/components/homePage/VideoTitel';
+import { useHistory } from "react-router-dom";
+
+
 // import Dropdown from './components/general/Dropdown';
 // import { DropdownButton } from 'react-bootstrap';
 
 
 
 function App() {
+
     return (
 
         <div className="App">
@@ -42,6 +46,24 @@ function App() {
                             <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                             <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#login">Login</a></li>
                             <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#registrar" >Sign up</a></li>
+
+                            <div id="myModal" class="modal fade" role="dialog">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            <h4 class="modal-title">Modal Header</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Some text in the modal.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
 
                         </ul>
                     </div>
@@ -82,7 +104,7 @@ function App() {
             </section>
             <section className="page-section bg-primary" id="login">
                 <div className="container">
-                    <LoginAndRegister />
+                    <LoginRegisterBox />
                 </div>
             </section>
             <div className="video">
