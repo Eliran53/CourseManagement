@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD:client/src/LoginAndRegister.js
-import axios from 'axios'
-=======
 import axios from 'axios';
->>>>>>> test:client/src/RegisterBox.jsx
 
 class RegisterBox extends React.Component {
   constructor(props) {

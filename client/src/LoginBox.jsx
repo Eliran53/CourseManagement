@@ -22,7 +22,7 @@ class LoginBox extends React.Component {
       })
       .then(res => {
         console.log('singin!!!');
-        this.props.onLogin();
+        this.props.onLogin('/singin');
 
 
       }).catch(() => {
