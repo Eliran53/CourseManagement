@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "../App.css";
-import {urlBase} from '../utils/utils';
-
+import { urlBase } from "../utils/utils";
 
 export default class VideoTitel extends Component {
   state = {
@@ -11,9 +10,11 @@ export default class VideoTitel extends Component {
   componentDidMount() {
     const url = `${urlBase()}/api/lectures`;
     axios.get(url).then((res) => {
-      const {data} = res.data;
-      data.forEach(item => {
-        item.videos = item.videos.startsWith('http')?  item.videos.split("v=")[1] : item.videos
+      const { data } = res.data;
+      data.forEach((item) => {
+        item.videos = item.videos.startsWith("http")
+          ? item.videos.split("v=")[1]
+          : item.videos;
       });
       console.log(data);
       this.setState({ lectures: data });
@@ -22,44 +23,32 @@ export default class VideoTitel extends Component {
   render() {
     return (
       <>
-    
         <div className="allDiv">
           {this.state.lectures.map((lecture) => (
             <div className="iframeDiv" key={lecture.id}>
               <div class="flex-container">
-               <div id="lectureName">
-              <p className="p">{lecture.lecture_name}</p>
-              </div>
-              <div id ="iframeVideo">
-              <iframe
-                title="hi"
-                width="400"
-                height="250"
-                src={`https://www.youtube.com/embed/${lecture.videos}`}
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen="0"
-              ></iframe>
-              </div>
-              <div id ="summery"> 
-              <p id="p">{lecture.summery}</p>
-              </div>
-              {/* <div >
-              <div id="maxCapacityParticipants"> The lecture is limited to {lecture.maxCapacityParticipants} participants</div>
-              </div>
-              <div id="maxCapacityParticipants"> The price is {lecture. price} dollar </div> */}
-              
-              
+                <div id="lectureName">
+                  <p className="p">{lecture.lecture_name}</p>
+                </div>
+                <div id="iframeVideo">
+                  <iframe
+                    title="hi"
+                    width="400"
+                    height="250"
+                    src={`https://www.youtube.com/embed/${lecture.videos}`}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen="0"
+                  ></iframe>
+                </div>
+                <div id="summery">
+                  <p id="p">{lecture.summery}</p>
+                </div>
               </div>
             </div>
           ))}
-          
         </div>
-      
-        
       </>
     );
   }
 }
-
-

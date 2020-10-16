@@ -3,36 +3,16 @@ import "../../src/App.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/pages/general/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-<<<<<<< HEAD
-import Home from '../components/Home';
-=======
 import Home from "../components/Home";
 import ContactUs from "../contact/ContactUs";
 import Login  from '../Login/index'
 import Signup  from '../Register/index'
 import Preview from '../homePage/Video'
->>>>>>> DeginFormMulu
 
 
 export default function App() {
   return (
-<<<<<<< HEAD
 
-  <div className= "App">
-     <Router>
-      <Navbar />
-      <Switch>
-     <Route path = "/" exact component = {Home}/>
-   
-      </Switch>
-      <Footer />
-    </Router>
-  </div>
-  )
-} 
-
- 
-=======
     <div className="App">
       <Router>
         <Navbar />
@@ -48,4 +28,3 @@ export default function App() {
     </div>
   );
 }
->>>>>>> DeginFormMulu
