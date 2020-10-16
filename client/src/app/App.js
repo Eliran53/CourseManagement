@@ -1,13 +1,22 @@
 import React from "react";
 import "../../src/App.css";
-import Navbar from '../components/Navbar1'
-import Footer from '../components/pages/general/Footer';
+import Navbar from "../components/Navbar";
+import Footer from "../components/pages/general/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+<<<<<<< HEAD
 import Home from '../components/Home';
+=======
+import Home from "../components/Home";
+import ContactUs from "../contact/ContactUs";
+import Login  from '../Login/index'
+import Signup  from '../Register/index'
+import Preview from '../homePage/Video'
+>>>>>>> DeginFormMulu
 
 
 export default function App() {
   return (
+<<<<<<< HEAD
 
   <div className= "App">
      <Router>
@@ -23,3 +32,20 @@ export default function App() {
 } 
 
  
+=======
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/contactUs" exact component={ContactUs} />
+          <Route path="/Login" exact component={Login} />
+          <Route path="/Signup" exact component={Signup} />
+          <Route path="/Preview" exact component={Preview} />
+        </Switch>
+        <Footer />
+      </Router>
+    </div>
+  );
+}
+>>>>>>> DeginFormMulu

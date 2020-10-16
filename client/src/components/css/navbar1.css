@@ -25,6 +25,10 @@
     #mainNav {
       box-shadow: none;
       background-color: transparent;
+      transition: all 0.3s ease-in-out;
+    }
+    #mainNav.navbar.contactPage{
+      background-color: rgba(0, 0, 0, 0.45);
     }
     #mainNav .navbar-brand {
       color: rgba(255, 255, 255, 0.7);
@@ -59,3 +63,7 @@
       color: #f4623a;
     }
   }
+  .form-control {
+    margin-left: 120px;
+  }
+

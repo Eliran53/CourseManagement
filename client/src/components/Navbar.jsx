@@ -1,48 +1,53 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import '../components/css/navbar1.css';
-import Categories from './Categories';
-import Preview from './CustomLink';
-import ContactButton from './ContactButton';
-import Search from './Search';
-import About from './About';
-import ContactUs from '../contact/ContactUs';
-import { Link } from "react-router-dom";
-import Video from '../homePage/Video'
+import React from "react";
+import "../components/css/navbar1.css";
+import {Link, useLocation} from 'react-router-dom';
 
-export default class Navbar extends Component {
-  links = [
-    {path : 'Categories', selected : false },
-    {path : 'Preview', selected : false },
-    {path : 'About', selected : false },
-    {path : 'Contact', selected : false },
-  
-     
-  ];
-  constructor(props){
-    super(props);
-    this.state = {
-      links: this.links
+
+export default function Navbar() {
+  const location= useLocation();
+  const [isShowBg , setShowGg] = React.useState(false)  
+  React.useEffect(()=>{
+  if(!['/contactUs','/Login','/Signup'].includes(location?.pathname)){
+    checkPosition()
+    document.addEventListener('scroll', checkPosition , false )
+    return ()=>{
+      document.removeEventListener('scroll', checkPosition, false)
     }
-
+  } else{
+    setShowGg(true)
   }
-  render() {
-    return (
-        <div className="Navbar">
-            <nav className="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+   
+  },[location.pathname])
+
+  const checkPosition =()=>{
+      setShowGg(window.pageYOffset > 100 )
+  }
+
+  return (
+    <nav className={`navbar navbar-expand-lg navbar-light fixed-top py-3 ${isShowBg? 'contactPage' : ''}`} id="mainNav">
                   <div className="container">
-                  <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
-                  <div className="collapse navbar-collapse" id="navbarResponsive">
+                <div className="navbar-brand js-scroll-trigger" href="#page-top" >
+                <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav ml-auto my-2 my-lg-0">
-
-                   
+                        <li className="nav-item"><Link to="/" className="nav-link js-scroll-trigger">Categories</Link></li>
+                        <li className="nav-item"><Link to="/Preview" className="nav-link js-scroll-trigger">preview</Link></li>
+                        <li className="nav-item"> <Link to="/contactUs" className="nav-link js-scroll-trigger">Contact</Link></li>
+                     </ul>
+                </div>
+                       </div>
+                     <div className="md-form mt-0">
+                            <input className="form-control" type="text" placeholder="Search" aria-label="Search"/>
+                          </div> 
+                          <div className="collapse navbar-collapse" id="navbarResponsive">
+                    <ul className="navbar-nav ml-auto my-2 my-lg-0">
+                         <li className="nav-item"> <Link to="/Login" className="nav-link js-scroll-trigger">Login</Link></li>
+                        <li className="nav-item"> <Link to="/Signup" className="nav-link js-scroll-trigger">Sign up</Link></li>
                     </ul>
-                    </div>
-
-                  </div>
-            </nav>
-        
-        </div>
-    );
-  }
+                </div>
+                          
+               <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span className="navbar-toggler-icon"></span></button>
+              
+            </div>
+        </nav>
+  )
 }
