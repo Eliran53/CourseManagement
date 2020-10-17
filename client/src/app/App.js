@@ -18,6 +18,7 @@ export default function App() {
       <Router>
         <Navbar />
         <Switch>
+        <Route path="/add" exact component={Add} />
           <Route path="/" exact component={Home} />
           <Route path="/contactUs" exact component={ContactUs} />
           <Route path="/Login" exact component={Login} />
@@ -25,7 +26,7 @@ export default function App() {
           <Route path="/Preview" exact component={Preview} />
           <Route path="/:sport" exact component={Sport} />
           <Route path="/api/queries/:id" exact component={instructors} />
-          <Route path="/add" exact component={Add} />
+          
         </Switch>
         <Footer />
       </Router>

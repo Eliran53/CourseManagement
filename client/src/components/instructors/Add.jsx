@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
 
-const Addlecture = () => {
+const Add = () => {
   let history = useHistory();
   const [lectures, setlecture] = useState({
     instructorID: "",
@@ -147,4 +147,4 @@ const Addlecture = () => {
   );
 };
 
-export default Addlecture;
+export default Add;
