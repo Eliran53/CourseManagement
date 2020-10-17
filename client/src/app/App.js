@@ -8,7 +8,7 @@ import ContactUs from "../contact/ContactUs";
 import Login  from '../LoginRegisterBox'
 import Signup  from '../Register/index'
 import Preview from '../homePage/Video'
-
+import Sport from '../otherSite/Sport'
 
 export default function App() {
   return (
@@ -22,6 +22,7 @@ export default function App() {
           <Route path="/Login" exact component={Login} />
           <Route path="/Signup" exact component={Signup} />
           <Route path="/Preview" exact component={Preview} />
+          <Route path="/:sport" exact component={Sport} />
         </Switch>
         <Footer />
       </Router>

@@ -1,7 +1,7 @@
 import React from "react";
 import "../components/css/navbar1.css";
 import {Link, useLocation} from 'react-router-dom';
-
+import Categories from './Categories'
 
 export default function Navbar() {
   const location= useLocation();
@@ -28,9 +28,10 @@ export default function Navbar() {
                   <div className="container">
                 <div className="navbar-brand js-scroll-trigger" href="#page-top" >
                 <div className="collapse navbar-collapse" id="navbarResponsive">
-                    <ul className="navbar-nav ml-auto my-2 my-lg-0">
-                        <li className="nav-item"><Link to="/" className="nav-link js-scroll-trigger">Categories</Link></li>
-                        <li className="nav-item"><Link to="/Preview" className="nav-link js-scroll-trigger">preview</Link></li>
+                   <Categories/>
+              <ul className="navbar-nav ml-auto my-2 my-lg-0">
+                         <li className="nav-item"><Link to="/" className="nav-link js-scroll-trigger">Home</Link></li>
+                         <li className="nav-item"><Link to="/Preview" className="nav-link js-scroll-trigger">preview</Link></li>
                         <li className="nav-item"> <Link to="/contactUs" className="nav-link js-scroll-trigger">Contact</Link></li>
                      </ul>
                 </div>
