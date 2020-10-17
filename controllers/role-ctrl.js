@@ -91,23 +91,22 @@ deleteRole = async (req, res) => {
 };
 
 getRoleNameById = async (id) => {
-  try {
-      console.log("rolectrl",id);
+ 
+   
     const role = await Role.findOne({ _id: id }).exec();
-    console.log("rolectrl");
+    console.log("id", id);    
     if (!role) {
-      return res.status(404).json({ success: false, error: "role not found" });
+      return false
     }
-    return  role.role_name;
-  } catch (error) {
-    console.error(error);
-    return res.status(400).json({ success: false, error: error });
-  }
+    // console.log("roleName:", role.role_name);
+    return role.role_name;
+ 
+
 };
 
 module.exports = {
   createRole,
-//   getAllRoles,
+  //   getAllRoles,
   getRoleNameById,
   deleteRole,
   updateRole,

@@ -5,7 +5,7 @@ import Footer from "../components/pages/general/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../components/Home";
 import ContactUs from "../contact/ContactUs";
-import Login  from '../Login/index'
+import Login  from '../LoginRegisterBox'
 import Signup  from '../Register/index'
 import Preview from '../homePage/Video'
 

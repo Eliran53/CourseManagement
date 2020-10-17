@@ -1,144 +1,38 @@
 import React from "react";
-import axios from 'axios'
+import axios from 'axios';
 
-
-export default class LoginRegister extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoginOpen: true,
-      isRegisterOpen: false,
-
-
-    };
-  }
-
-  showLoginBox() {
-    this.setState({ isLoginOpen: true, isRegisterOpen: false });
-  }
-
-
-  showRegisterBox() {
-    this.setState({ isRegisterOpen: true, isLoginOpen: false });
-  }
-
-  render() {
-
-    return (
-      <div className="root-container">
-
-        <div className="box-controller">
-          <div
-            className={"controller " + (this.state.isLoginOpen
-              ? "selected-controller"
-              : "")}
-            onClick={this
-              .showLoginBox
-              .bind(this)}>
-            Login
-          </div>
-          <div
-            className={"controller " + (this.state.isRegisterOpen
-              ? "selected-controller"
-              : "")}
-            onClick={this
-              .showRegisterBox
-              .bind(this)}>
-            Register
-          </div>
-        </div>
-
-
-        <div className="box-container">
-          {this.state.isLoginOpen && <LoginBox />}
-          {this.state.isRegisterOpen && <RegisterBox />}
-        </div>
-
-
-      </div>
-    );
-
-  }
-
-}
-
-class LoginBox extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
-  submitLogin(e) { }
-
-  render() {
-    return (
-      <div className="inner-container">
-        <div className="header">
-          Login
-        </div>
-        <div className="box">
-
-        <div className="input-group">
-            <label htmlFor="Email">Email</label>
-            <input
-              type="text"
-              name="Email"
-              className="login-input"
-              placeholder="Email" />
-          </div>
-
-          <div className="input-group">
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              className="login-input"
-              placeholder="Password" />
-          </div>
-
-          
-
-          <button
-            type="button"
-            className="login-btn"
-            onClick={this
-              .submitLogin
-              .bind(this)}>Login</button>
-
-        </div>
-      </div>
-    );
-  }
-
-}
-
-
-
-// function pop(props) {
-//   return
-// }
-// ---------------------------------------------------------------------------------------
 class RegisterBox extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       isChecked: false,
-      firstName: "",
-      lastName: "",
+      first_Name: "",
+      last_Name: "",
       email: "",
       password: "",
       phone: "",
-      role_id: "",
+      role_id: "5f6cd2d1cd814e3bdc725b57",
       subjects: [],
       education: "",
-      Linkdin: "",
+      linkdin: "",
       bio: "",
       errors: [],
+      subjectsArr: [],
 
     };
+  }
+
+  componentDidMount() {
+    axios.get('/api/subjects')
+      .then(res => {
+        if (res.status === 200) {
+          console.log(res.data.data);
+          this.setState({ subjectsArr: res.data.data })
+        }
+      })
+      .catch(err => {
+        console.log(err, 'error!')
+      })
   }
 
   showValidationErr(elm, msg) {
@@ -156,7 +50,7 @@ class RegisterBox extends React.Component {
     this.setState((prevState) => {
       let newArr = [];
       for (let err of prevState.errors) {
-        if (elm != err.elm) {
+        if (elm !== err.elm) {
           newArr.push(err);
         }
       }
@@ -164,9 +58,9 @@ class RegisterBox extends React.Component {
     });
   }
 
-  onUsernameChange(e) {
-    this.setState({ username: e.target.value });
-    this.clearValidationErr("username");
+  onfirstNameChange(e) {
+    this.setState({ first_Name: e.target.value });
+    this.clearValidationErr("first_Name");
   }
 
   onEmailChange(e) {
@@ -189,11 +83,10 @@ class RegisterBox extends React.Component {
 
   openPopup(e) {
     console.log("Hello world!");
-    // לשלוח לשרת את המידע של המשתמש   שנרשם
     axios
       .post('api/auth/signup', {
-        first_name: this.state.firstName,
-        last_name: this.state.last_name,
+        first_Name: this.state.first_Name,
+        last_Name: this.state.last_Name,
         email: this.state.email,
         password: this.state.password,
         phone: this.state.phone,
@@ -205,6 +98,7 @@ class RegisterBox extends React.Component {
       })
       .then(res => {
         console.log('Registerd!!!');
+        this.props.onRegister();
 
 
       }).catch(console.log('some ERROR!!!!!!!'))
@@ -216,32 +110,36 @@ class RegisterBox extends React.Component {
 
     console.log(this.state);
 
-    if (this.state.username == "") {
+    if (this.state.first_Name === "") {
       this.showValidationErr("first_name", "first_name Cannot be empty!");
     }
-    if (this.state.email == "") {
+    if (this.state.email === "") {
       this.showValidationErr("email", "Email Cannot be empty!");
     }
-    if (this.state.password == "") {
+    if (this.state.password === "") {
       this.showValidationErr("password", "Password Cannot be empty!");
     }
 
   }
 
   render() {
+    console.log('im here');
+    console.log(this.state.subjectsArr);
+
+
 
     let usernameErr = null,
       passwordErr = null,
       emailErr = null;
 
     for (let err of this.state.errors) {
-      if (err.elm == "first_name") {
+      if (err.elm === "first_name") {
         usernameErr = err.msg;
       }
-      if (err.elm == "password") {
+      if (err.elm === "password") {
         passwordErr = err.msg;
       }
-      if (err.elm == "email") {
+      if (err.elm === "email") {
         emailErr = err.msg;
       }
     }
@@ -250,12 +148,12 @@ class RegisterBox extends React.Component {
       pwdMedium = false,
       pwdStrong = false;
 
-    if (this.state.pwdState == "weak") {
+    if (this.state.pwdState === "weak") {
       pwdWeak = true;
-    } else if (this.state.pwdState == "medium") {
+    } else if (this.state.pwdState === "medium") {
       pwdWeak = true;
       pwdMedium = true;
-    } else if (this.state.pwdState == "strong") {
+    } else if (this.state.pwdState === "strong") {
       pwdWeak = true;
       pwdMedium = true;
       pwdStrong = true;
@@ -271,17 +169,17 @@ class RegisterBox extends React.Component {
       <div className="inner-container">
         <div className="header">
           Register
-        </div>
+          </div>
         <div className="box">
 
           <div className="input-group">
             <label htmlFor="first_name">First name</label>
             <input
               type="text"
-              name="First name"
+              name="First_name"
               className="login-input"
               placeholder="First name"
-              onChange={(e) => { this.setState({ firstName: e.target.value }) }} />
+              onChange={(e) => { this.setState({ first_Name: e.target.value }) }} />
             <small className="danger-error">{usernameErr
               ? usernameErr
               : ""}</small>
@@ -291,10 +189,10 @@ class RegisterBox extends React.Component {
             <label htmlFor="last_name">Last name</label>
             <input
               type="text"
-              name="Last name"
+              name="Last_name"
               className="login-input"
               placeholder="Last name"
-              onChange={(e) => { this.setState({ lastName: e.target.value }) }} />
+              onChange={(e) => { this.setState({ last_Name: e.target.value }) }} />
             <small className="danger-error">{usernameErr
               ? usernameErr
               : ""}</small>
@@ -307,7 +205,7 @@ class RegisterBox extends React.Component {
               name="Email"
               className="login-input"
               placeholder="Email"
-              onChange={(e) => { this.setState({ Email: e.target.value }) }} />
+              onChange={(e) => { this.setState({ email: e.target.value }) }} />
             <small className="danger-error">{emailErr
               ? emailErr
               : ""}</small>
@@ -320,7 +218,7 @@ class RegisterBox extends React.Component {
               name="Password"
               className="login-input"
               placeholder="Password"
-              onChange={(e) => { this.setState({ Password: e.target.value }) }} />
+              onChange={(e) => { this.setState({ password: e.target.value }) }} />
             <small className="danger-error">{passwordErr
               ? passwordErr
               : ""}</small>
@@ -377,7 +275,7 @@ class RegisterBox extends React.Component {
                   name="Linkdin"
                   className="login-input"
                   placeholder="Linkdin"
-                  onChange={(e) => { this.setState({ Linkdin: e.target.value }) }} />
+                  onChange={(e) => { this.setState({ linkdin: e.target.value }) }} />
                 <small className="danger-error">{usernameErr
                   ? usernameErr
                   : ""}</small>
@@ -396,18 +294,16 @@ class RegisterBox extends React.Component {
                   : ""}</small>
               </div>
 
-              <br/>
-              
-              <label for="Subjects">Subjects :</label><br/>
+              <br />
+
+              <label for="Subjects">Subjects :</label><br />
               <select class="custom-select" multiple>
-                <option selected>health</option>
-                <option value="1">Life Style</option>
-                <option value="2">Make Up</option>
-                <option value="3">Sport</option>
-                <option value="1">Food</option>
-                <option value="2">Science</option>
-                <option value="3">Music</option>
+
+                {this.state.subjectsArr.map((sub, i) => (
+                    <option >{sub.subject_name}</option>
+                ))}
               </select>
+
 
             </>
             }
@@ -415,7 +311,7 @@ class RegisterBox extends React.Component {
 
           <br />
           <div>
-            <input type="checkbox" id="registerAsLecturer " onClick={() => checkboxClicked()} />
+            <input type="checkbox" id="registerAsLecturer " onClick={() => checkboxClicked()} onChange={(e) => { this.setState({ role_id: "5f6cd2e5cd814e3bdc725b58" }) }} />
             <label for="registerAsLecturer">Register as a Instructor</label>
           </div>
 
@@ -434,3 +330,4 @@ class RegisterBox extends React.Component {
     );
   }
 }
+export default RegisterBox;

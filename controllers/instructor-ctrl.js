@@ -1,6 +1,7 @@
 const Instructor = require("../modules/instructor-module");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid/v4");
+const { log } = require("debug");
 
 createInstructor = async (req, res) => {
   try {
@@ -133,6 +134,7 @@ getInstructorFullNameById = async (req, res) => {
 };
 checkAuthentication = async (req, res) => {
   // Search for a user by email
+  console.log(req.body.email)
   if (!req.body) {
     return res
       .status(400)

@@ -109,5 +109,6 @@ module.exports = {
   getAllSubjects,
   getSubjectNameById,
   deleteSubject,
-  updateSubject,
+  updateSubject
+  
 };
