@@ -102,9 +102,7 @@ searchCustomersByLectureName = async (req, res) => {
   }
 };
 
-<<<<<<< HEAD
- 
- };
+
  searchLecturesByInstructorID = async (req,res) => {
     try{
        console.log("first name:",req.params.id);
@@ -123,8 +121,8 @@ searchCustomersByLectureName = async (req, res) => {
        return res.status(400).json({ success: false, error: error });
    }
 
+  };
 
-=======
 searchLecturesByInstructorName = async (req, res) => {
   try {
     console.log("first name:", req.body.first_name);
@@ -145,47 +143,14 @@ searchLecturesByInstructorName = async (req, res) => {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
   }
->>>>>>> mulu1
-};
-//  searchCustomersByRoleName = async(req,res) => {
-//     try{
-//         console.log("role_name:",req.body.role_name);
-//         const role = await Role.findOne({role_name: req.body.role_name}).
-//         populate('roleCustomer').exec();
-//         console.log("role:",role );
-//         console.log("customers:",role.customers);
-//         if (!role.customers) {
-//            return res
-//                .status(404)
-//                .json({ success: false, error: "customers not found" });
-//        }
-//        return res.status(200).json({data:role.customers});
-//      } catch (error) {
-//         console.error(error);
-//         return res.status(400).json({ success: false, error: error });
-//     }
-//  }
-
-module.exports = {
-<<<<<<< HEAD
-    searchLectureIdByLectureName,
-    searchLecturesByInstructorName,
-    searchLecturesByCategories,
-    searchCustomersByLectureName,
-    searchLecturesByDate,
-    searchLecturesByInstructorID
-    // searchCustomersByRoleName
-    
-   
 
 }
-=======
+module.exports = {
   searchLectureIdByLectureName,
   searchLecturesByInstructorName,
   searchLecturesByCategories,
   searchCustomersByLectureName,
   searchLecturesByDate,
   searchLecturesByInstructorID
-  // searchCustomersByRoleName
 };
->>>>>>> mulu1
+
