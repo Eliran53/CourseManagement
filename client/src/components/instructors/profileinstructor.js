@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Profile from "../instructors/detlis";
-import Proinstructor from "../instructors/proinstructor";
+import Profile from "./detlis";
+import Proinstructor from "./proinstructor";
 
 export class profileinstructor extends Component {
   render() {

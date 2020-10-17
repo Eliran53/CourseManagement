@@ -9,7 +9,7 @@ import Login from "../LoginRegisterBox";
 import Signup from "../Register/index";
 import Preview from "../homePage/Video";
 import Sport from "../otherSite/Sport";
-import instructors from "../components/pages/profileinstructor";
+import instructors from "../components/instructors/profileinstructor";
 import Add from "../components/instructors/Add";
 
 export default function App() {
