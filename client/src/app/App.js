@@ -9,7 +9,7 @@ import Login from "../LoginRegisterBox";
 import Signup from "../Register/index";
 import Preview from "../homePage/Video";
 import Sport from "../otherSite/Sport";
-import instructors from "../components/instructors/proinstructor";
+import instructors from "../components/pages/profileinstructor";
 import Add from "../components/instructors/Add";
 
 export default function App() {
@@ -24,7 +24,6 @@ export default function App() {
           <Route path="/Signup" exact component={Signup} />
           <Route path="/Preview" exact component={Preview} />
           <Route path="/:sport" exact component={Sport} />
-          <Route path="/api/instructors/:id" exact component={instructors} />
           <Route path="/api/queries/:id" exact component={instructors} />
           <Route path="/add" exact component={Add} />
         </Switch>
