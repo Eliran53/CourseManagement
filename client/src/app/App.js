@@ -9,7 +9,6 @@ import Login from "../LoginRegisterBox";
 import Signup from "../Register/index";
 import Preview from "../homePage/Video";
 import Sport from "../otherSite/Sport";
-import queries from "../components/instructors/detlis";
 import instructors from "../components/instructors/proinstructor";
 import Add from "../components/instructors/Add";
 
@@ -26,7 +25,7 @@ export default function App() {
           <Route path="/Preview" exact component={Preview} />
           <Route path="/:sport" exact component={Sport} />
           <Route path="/api/instructors/:id" exact component={instructors} />
-          <Route path="/api/queries/:id" exact component={queries} />
+          <Route path="/api/queries/:id" exact component={instructors} />
           <Route path="/add" exact component={Add} />
         </Switch>
         <Footer />
