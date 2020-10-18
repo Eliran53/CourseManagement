@@ -10,20 +10,21 @@ class Customerzone extends Component {
     //   counter:1
     };
     componentDidMount() {
-      const id = "5f6e5ac67a22a13c3cbe1f37";
-      const url = `${urlBase()}/api/queries/lec?_id=${id}`;
+       const id = "5f6e5ac67a22a13c3cbe1f37";
+      const url = `${urlBase()}/api/customers?_id=${id}`;
       axios.get(url).then((res) => {
-        const data = res.data;
+        const data = res.data.data;
        
         this.setState({ lectures: data });
-        //  console.log(lectures);
+        //  console.log(this.state.lectures);
       });
     }
     
     
     render() {
       return (
-        
+          <>
+        <h1>My Zone</h1>
         <Table striped bordered hover>
         <thead>
           <tr>
@@ -49,6 +50,7 @@ class Customerzone extends Component {
             }
         </tbody>
       </Table>
+      </>
       );
     }
   }

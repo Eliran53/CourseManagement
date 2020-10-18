@@ -1,4 +1,5 @@
 const Customer = require("../modules/customers-module");
+const Lecture = require('../modules/customers-module');
 const bcrypt = require("bcryptjs");
 
 createCustomer = (req, res) => {
@@ -122,6 +123,21 @@ getCustomerById = async (req, res) => {
         return res.status(400).json({ success: false, error: error });
     }
 };
+getLectureByCustomerId = async (req,res) => {
+    try {
+        const lectures = await Lecture.find({customerID:{$in: [req.params.id]}}).exec();
+       if (!lectures) {
+            return res
+                .status(404)
+                .json({ success: false, error: "lectures not found" });
+        }
+        console.log(lectures);
+        res.status(200).json({ data:lectures});
+    } catch (error) {
+        console.error(error);
+        return res.status(400).json({ success: false, error: error });
+    }
+};
 
 
 
@@ -131,5 +147,6 @@ module.exports = {
     updateCustomer,
     deleteCustomer,
     getCustomerById,
+    getLectureByCustomerId
     
 };

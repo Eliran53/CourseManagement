@@ -144,7 +144,35 @@ searchLecturesByInstructorName = async (req, res) => {
     return res.status(400).json({ success: false, error: error });
   }
 
-}
+};
+//  searchCustomersByRoleName = async(req,res) => {
+//     try{
+//         console.log("role_name:",req.body.role_name);
+//         const role = await Role.findOne({role_name: req.body.role_name}).
+//         populate('roleCustomer').exec();
+//         console.log("role:",role );
+//         console.log("customers:",role.customers);
+//         if (!role.customers) {
+//            return res
+//                .status(404)
+//                .json({ success: false, error: "customers not found" });
+//        }
+//        return res.status(200).json({data:role.customers});
+//      } catch (error) {
+//         console.error(error);
+//         return res.status(400).json({ success: false, error: error });
+//     }
+//  }
+
+ 
+
+      
+
+
+
+
+
+
 module.exports = {
   searchLectureIdByLectureName,
   searchLecturesByInstructorName,

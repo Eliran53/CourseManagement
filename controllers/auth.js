@@ -42,7 +42,7 @@ signup = async (req, res) => {
   if (role === "customer") {
     customer_ctrl.createCustomer(req, res);
   }
-  const token = jwt.sign({ id: user.id, name: req.first_name }, config.secret, {
+  const token = jwt.sign({ id: user.id}, config.secret, {
     expiresIn: 3600, //  hour in sec
   });
   res.cookie("token", token, { httpOnly: true });
@@ -57,7 +57,7 @@ signin = async (req, res) => {
   console.log(user,"e")
   const role = await role_ctrl.getRoleNameById(user.role_id);
   const token = jwt.sign(
-    { id: user.id, name: user.first_name },
+    { id: user.id},
     config.secret,
     {
       expiresIn: 3600, //  hour in sec
