@@ -61,6 +61,7 @@ function Navbar() {
                         <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                         <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#portfolio">Login</a></li>
                         <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#registrar" >Sign up</a></li>
+                        <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#zone" >My-Zone</a></li>
 
                     </ul>
                 </div>

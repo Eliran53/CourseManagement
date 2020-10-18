@@ -59,6 +59,8 @@ function Navbar1() {
                        
                         <li className="nav-item"><a className="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
                          <li className="nav-item"> <a className="nav-link js-scroll-trigger" href="#/registrar" >Sign up/Login</a></li>
+                         <li className="nav-item"><a className="nav-link js-scroll-trigger"><Nav.Link href="#zone">My-zone</Nav.Link> </a></li>
+
                         {/* <Navbar bg="light" expand="lg"> */}
   {/* <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />

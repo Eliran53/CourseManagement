@@ -30,7 +30,7 @@ const ContactForm = () => {
         setResult({
           success: false,
           message: "Something went wrong. Try again later",
-        },console.log("blaa2"));
+        });
       });
   };
 

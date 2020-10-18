@@ -5,8 +5,14 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var cors = require("cors");
+const csrf= require('csurf')
+
 var db = require("./DB/app");
 db.on("error", console.error.bind(console, "mongoDB connection error"));
+
+// const csrfProtection = csrf({
+//     cookie: true
+//   });
 
 var indexRouter = require("./routes/index");
 //var usersRouter = require('./routes/users');
@@ -37,13 +43,14 @@ app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(cookieParser());
+// app.use(csrfProtection);
+
 app.use(express.static(path.join(__dirname, "public")));
 
 // Added to serve client static files
 app.use(express.static(path.resolve(__dirname, "client/build")));
-
+//צריך לעשות גט ל2
 app.use('/', indexRouter);
 app.use('/api/users', userRouter);
 app.use('/api/instructors', instructorsRouter);

@@ -5,7 +5,7 @@ import "../css/Navbar.css";
 import Dropdown from "./Dropdown";
 import LoginButton from "./loginbtn";
 import LogoutButton from "./logoutbtn";
-import zone from '../customer-zone/customer-zone'
+import Zone from '../customer-zone/customer-zone'
 
 function Navbar() {
   const [click, setClick] = useState(false);

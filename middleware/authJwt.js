@@ -6,8 +6,9 @@ const Instructor = db.instructor;
 const Role = db.role;
 
 verifyToken = (req, res, next) => {
-  let authHeader = req.headers["authorization"];
-  const token = authHeader && authHeader.split(" ")[1];
+  //   let authHeader = req.headers["authorization"];
+  //   const token = authHeader && authHeader.split(" ")[1];
+  const token = req.cookies.token;
   if (!token) {
     return res.status(403).send({ message: "No token provided!" });
   }

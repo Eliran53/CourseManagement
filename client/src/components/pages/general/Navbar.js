@@ -3,6 +3,7 @@ import { Button } from "./Button";
 import { Link } from "react-router-dom";
 import "../css/Navbar.css";
 import Dropdown from "./Dropdown";
+import Zone from '../../customer-zone/customer-zone'
 // import LoginButton from "./loginbtn";
 // import LogoutButton from "./logoutbtn";
 
@@ -59,6 +60,9 @@ function Navbar() {
           Login
         </Link>
         <Link to="/Register" className="Login" onClick={closeMobileMenu}>
+          Register
+        </Link>
+        <Link to="/zone" className="zone" onClick={<Zone/>}>
           Register
         </Link>
       </nav>

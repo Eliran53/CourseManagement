@@ -135,20 +135,7 @@ searchLecturesByInstructorName = async (req,res) => {
 //     }
 //  }
 
- getLectureByCustomerId = async (req,res) => {
-    try {
-        const lectures = await Lecture.find({customerID:req.params.id}).exec();
-       if (!lectures) {
-            return res
-                .status(404)
-                .json({ success: false, error: "lectures not found" });
-        }
-        res.status(200).json({ data:lectures});
-    } catch (error) {
-        console.error(error);
-        return res.status(400).json({ success: false, error: error });
-    }
-};
+ 
 
       
 
