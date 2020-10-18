@@ -6,6 +6,8 @@ const customer_ctrl = require("./customers-ctrl");
 const Instructor = db.instructor;
 const Customer = db.customer;
 
+
+
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const { log } = require("debug");
@@ -77,3 +79,8 @@ signin = async (req, res) => {
   });
 };
 module.exports = { signup, signin };
+
+
+
+
+
