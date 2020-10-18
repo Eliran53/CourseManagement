@@ -2,13 +2,13 @@ import React from "react";
 import axios from "axios";
 import "react-dom";
 
-export default class Sport extends React.Component {
+export default class Science extends React.Component {
   state = {
     lectures: []
   };
 
   componentDidMount() {
-    axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'life style'}).then((res) => {
+    axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'science'}).then((res) => {
       const { data } = res.data;
       console.log(res)
       console.log(data)
