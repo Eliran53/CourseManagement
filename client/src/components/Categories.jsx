@@ -15,7 +15,7 @@ export default class Categories extends Component {
             <Link to="/science" className="dropdown-item">Science</Link>
             <Link to="/food" className="dropdown-item">Food</Link>
             <Link to="/lifeStyle" className="dropdown-item">LifeStyle</Link>
-            <Link to="/science" className="dropdown-item">Science</Link>
+            <Link to="/music" className="dropdown-item">Music</Link>
             
              </div>
           </div>

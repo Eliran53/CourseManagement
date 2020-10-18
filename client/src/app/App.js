@@ -13,7 +13,7 @@ import instructors from "../components/instructors/profileinstructor";
 import Add from "../components/instructors/Add";
 import Science from '../otherSite/Science'
 import Food from '../otherSite/Food'
-
+import Music from '../otherSite/Music'
 
 
 export default function App() {
@@ -31,6 +31,7 @@ export default function App() {
           <Route path="/sport" exact component={Sport} />
           <Route path="/science" exact component={Science} />
           <Route path="/food" exact component={Food} />
+          <Route path="/music" exact component={Music} />
           <Route path="/api/queries/:id" exact component={instructors} />
         </Switch>
         <Footer />
