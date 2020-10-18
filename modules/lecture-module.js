@@ -6,7 +6,7 @@ const lecture = new schema(
   {
     instructorID: { type: ObjectId, required: true },
     lecture_name: { type: String },
-    subjectID: { type: ObjectId, required: true },
+    subjectID: { type: String, unique: true, required: true },
     duration: { type: String, required: true },
     maxCapacityParticipants: {
       type: Number,
@@ -32,4 +32,10 @@ lecture.virtual("customers", {
   localField: "_id",
   foreignField: "lecture_id",
 });
+lecture.virtual("lectures", {
+  ref: "lecture",
+  localField: "_id",
+  foreignField: "subjectID",
+});
+
 module.exports = mongoose.model("lecture", lecture);

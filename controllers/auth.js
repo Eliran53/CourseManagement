@@ -21,6 +21,21 @@ signup = async (req, res) => {
     });
   }
   const role = await role_ctrl.getRoleNameById(req.body.role_id);
+const { NotExtended } = require("http-errors");
+
+signup = async (req, res) => {
+  console.log("REQ-BODY", req.body);
+  let role;
+  try {
+    role = await role_ctrl.getRoleNameById(req.body.role_id);
+    if (!role) {
+      return res.status(400).json({ success: false, error: "role is not exist" });
+    }
+  }
+  catch (error) {
+    console.error(error);
+    return res.status(400).json({ success: false, error: error });
+  }
   if (role === "instructor") {
     instructor_ctrl.createInstructor(req, res);
   }
@@ -31,10 +46,15 @@ signup = async (req, res) => {
     expiresIn: 3600, //  hour in sec
   });
   res.cookie("token", token, { httpOnly: true });
+
+  }
 };
+
+
 
 signin = async (req, res) => {
   const user = await instructor_ctrl.checkAuthentication(req, res);
+  console.log(user,"e")
   const role = await role_ctrl.getRoleNameById(user.role_id);
   const token = jwt.sign(
     { id: user.id, name: user.first_name },
@@ -44,6 +64,11 @@ signin = async (req, res) => {
     }
   );
   res.cookie("token", token, { httpOnly: true });
+  const token = jwt.sign({ id: user.id }, config.secret, {
+
+    expiresIn: 3600, //  hour in sec
+
+  });
   res.status(200).send({
     id: user._id,
     email: user.email,

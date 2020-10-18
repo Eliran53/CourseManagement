@@ -1,6 +1,7 @@
 const Instructor = require("../modules/instructor-module");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid/v4");
+const { log } = require("debug");
 
 createInstructor = async (req, res) => {
   try {
@@ -107,7 +108,8 @@ getInstructorById = async (req, res) => {
         .json({ success: false, error: "instructor not found" });
     }
     // return res.status(200).json({ success: true, data: instructor.role_id.role_name });
-    return instructor.role_id.role_name;
+    // return instructor.role_id.role_name;
+    return res.status(200).json({ success: true, data: instructor });
   } catch (error) {
     console.error(error);
     return res.status(400).json({ success: false, error: error });
@@ -133,6 +135,7 @@ getInstructorFullNameById = async (req, res) => {
 };
 checkAuthentication = async (req, res) => {
   // Search for a user by email
+  console.log(req.body.email)
   if (!req.body) {
     return res
       .status(400)

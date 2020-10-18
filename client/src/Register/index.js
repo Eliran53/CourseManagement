@@ -28,7 +28,7 @@ class Register extends React.Component {
         this.setState((prevState) => {
             let newArr = [];
             for (let err of prevState.errors) {
-                if (elm != err.elm) {
+                if (elm !== err.elm) {
                     newArr.push(err);
                 }
             }
@@ -67,13 +67,13 @@ class Register extends React.Component {
 
         console.log(this.state);
 
-        if (this.state.username == "") {
+        if (this.state.username === "") {
             this.showValidationErr("username", "Username Cannot be empty!");
         }
-        if (this.state.email == "") {
+        if (this.state.email === "") {
             this.showValidationErr("email", "Email Cannot be empty!");
         }
-        if (this.state.password == "") {
+        if (this.state.password === "") {
             this.showValidationErr("password", "Password Cannot be\ empty!");
         }
 
@@ -86,13 +86,13 @@ class Register extends React.Component {
             emailErr = null;
 
         for (let err of this.state.errors) {
-            if (err.elm == "username") {
+            if (err.elm === "username") {
                 usernameErr = err.msg;
             }
-            if (err.elm == "password") {
+            if (err.elm === "password") {
                 passwordErr = err.msg;
             }
-            if (err.elm == "email") {
+            if (err.elm === "email") {
                 emailErr = err.msg;
             }
         }
@@ -101,12 +101,12 @@ class Register extends React.Component {
             pwdMedium = false,
             pwdStrong = false;
 
-        if (this.state.pwdState == "weak") {
+        if (this.state.pwdState === "weak") {
             pwdWeak = true;
-        } else if (this.state.pwdState == "medium") {
+        } else if (this.state.pwdState === "medium") {
             pwdWeak = true;
             pwdMedium = true;
-        } else if (this.state.pwdState == "strong") {
+        } else if (this.state.pwdState === "strong") {
             pwdWeak = true;
             pwdMedium = true;
             pwdStrong = true;

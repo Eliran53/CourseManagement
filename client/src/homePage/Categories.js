@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-export default class Makeup extends Component {
+export default class Categories extends Component {
   state = {
     subjects: [],
   };

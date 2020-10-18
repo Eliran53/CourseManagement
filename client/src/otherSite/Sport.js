@@ -1,30 +1,29 @@
-import React, { Component } from "react";
+import React from "react";
 import axios from "axios";
-import "../../../App.css";
-import {urlBase} from '../../../utils/utils';
+import "react-dom";
 
-
-class VideoTitel extends Component {
+export default class Sport extends React.Component {
   state = {
-    lectures: [],
+    lectures: []
   };
+
   componentDidMount() {
-    const url = `${urlBase()}/api/lectures`;
-    axios.get(url).then((res) => {
-      const {data} = res.data;
-      data.forEach(item => {
-        item.videos = item.videos.startsWith('http')?  item.videos.split("v=")[1] : item.videos
+    axios.post("http://localhost:3001/api/queries/subjectName/:sport").then((res) => {
+      const { data } = res.data;
+      data.forEach((item) => {
+        item.videos = item.videos.startsWith("http")
+          ? item.videos.split("v=")[1]
+          : item.videos;
       });
+     
+      this.setState({ lectures: res.data.data });
       console.log(data);
-      this.setState({ lectures: data });
     });
   }
-  render() {
+   render() {
     return (
-      <>
-    
-        <div className="allDiv">
-          {this.state.lectures.map((lecture) => (
+      <div className="allDiv">
+          {this.state.lectures.map((lecture, index) => (
             <div className="iframeDiv" key={lecture.id}>
               <p className="p">{lecture.lecture_name}</p>
               <iframe
@@ -39,13 +38,7 @@ class VideoTitel extends Component {
               <p className="p">{lecture.summery}</p>
             </div>
           ))}
-          
         </div>
-      
-        
-      </>
     );
   }
 }
-
-export default VideoTitel;

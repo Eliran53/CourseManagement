@@ -1,9 +1,32 @@
 {
     "cSpell.words": [
+        "addlecture",
         "allowfullscreen",
+<<<<<<< HEAD
+        "desing",
+=======
+        "byinstructorsid",
+>>>>>>> mulu1
         "diviframe",
+        "id",
+        "lecture",
+        "linkdin",
+        "loadinstructors",
+        "loadlectures",
+        "namber",
+        "profileinstructor",
+        "proinstructor",
+        "search",
+        "search lecture id byinstructorsid",
+        "searchinstrcid",
+        "searchinstructorsid",
+        "setinstructors",
+        "setlecture",
+        "setsetlectures",
         "titel",
         "video",
-        "video titel"
+        "video titel",
+        "videoinstrctor",
+        "videoinstructors"
     ]
 }
