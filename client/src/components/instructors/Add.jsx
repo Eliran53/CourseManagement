@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useHistory } from "react-router-dom";
+import '../css/Form.css'
 
 const Add = () => {
   let history = useHistory();
@@ -32,7 +33,7 @@ const Add = () => {
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
         <h2 className="text-center mb-4">Add A lectures</h2>
-        <form onSubmit={e => onSubmit(e)}>
+        <form className = "f" onSubmit={e => onSubmit(e)}>
           <div className="form-group">
 
             <input
@@ -140,7 +141,9 @@ const Add = () => {
               onChange={e => onInputChange(e)}
             />
           </div>
+          <div className = "b">
           <button className="btn btn-primary btn-block">Add lectures</button>
+          </div>
         </form>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function Navbar() {
   const location= useLocation();
   const [isShowBg , setShowGg] = React.useState(false)  
   React.useEffect(()=>{
-  if(!['/contactUs','/Login','/Signup','api/queries/:id','add'].includes(location?.pathname)){
+  if(!['/contactUs','/Login','/Signup','/api/queries/:id','/add'].includes(location?.pathname)){
     checkPosition()
     document.addEventListener('scroll', checkPosition , false )
     return ()=>{
