@@ -11,6 +11,10 @@ import Preview from "../homePage/Video";
 import Sport from "../otherSite/Sport";
 import instructors from "../components/instructors/profileinstructor";
 import Add from "../components/instructors/Add";
+import Science from '../otherSite/Science'
+import Food from '../otherSite/Food'
+
+
 
 export default function App() {
   return (
@@ -24,7 +28,9 @@ export default function App() {
           <Route path="/Login" exact component={Login} />
           <Route path="/Signup" exact component={Signup} />
           <Route path="/Preview" exact component={Preview} />
-          <Route path="/:sport" exact component={Sport} />
+          <Route path="/sport" exact component={Sport} />
+          <Route path="/science" exact component={Science} />
+          <Route path="/food" exact component={Food} />
           <Route path="/api/queries/:id" exact component={instructors} />
         </Switch>
         <Footer />
