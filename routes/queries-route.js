@@ -3,19 +3,15 @@ const queriesCtrl = require('../controllers/queries-ctrl')
 const router = express.Router();
 
 
-router.get('/:id', queriesCtrl.searchLecturesByInstructorID)
+
 router.post('/instructorName', queriesCtrl.searchLecturesByInstructorName)
 router.post('/subjectName', queriesCtrl.searchLecturesByCategories)
 router.post('/lectureName',queriesCtrl.searchCustomersByLectureName)
 router.post('/lectures',queriesCtrl.searchLectureIdByLectureName)
 router.post('/lectureDate',queriesCtrl.searchLecturesByDate)
-<<<<<<< HEAD
 router.get('/:id',queriesCtrl.searchLecturesByInstructorID )
 router.get('/:id',queriesCtrl.getLectureByCustomerId)
-
-=======
 // router.get('/:id',queriesCtrl.searchLecturesByInstructorID )
->>>>>>> NewForMulu
 // router.post('/customersRole',queriesCtrl.searchCustomersByRoleName)
 
 
