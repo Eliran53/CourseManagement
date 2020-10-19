@@ -14,7 +14,7 @@ import Science from '../otherSite/Science'
 import Food from '../otherSite/Food'
 import Music from '../otherSite/Music'
 import LifeStyle from '../otherSite/LifeStyle'
-
+import Health from '../otherSite/Health'
 // import FormDialog from "./testLogin";
 
 export default function App() {
@@ -26,6 +26,7 @@ export default function App() {
           <Route path="/add" exact component={Add} />
           <Route path="/" exact component={Home} />
           <Route path="/contactUs" exact component={ContactUs} />
+          <Route path="/health" exact component={Health} />
           <Route path="/Signup" exact component={Signup} />
           <Route path="/Preview" exact component={Preview} />
           <Route path="/sport" exact component={Sport} />
