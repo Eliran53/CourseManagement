@@ -5,9 +5,10 @@ import Footer from "../components/pages/general/Footer";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../components/Home";
 import ContactUs from "../contact/ContactUs";
-import Login  from '../LoginRegisterBox'
 import Signup  from '../Register/index'
 import Preview from '../homePage/Video'
+import FormDialog from "./testLogin";
+
 
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/contactUs" exact component={ContactUs} />
-          <Route path="/Login" exact component={Login} />
+          <Route path="/Login" exact component={FormDialog} />
           <Route path="/Signup" exact component={Signup} />
           <Route path="/Preview" exact component={Preview} />
         </Switch>
