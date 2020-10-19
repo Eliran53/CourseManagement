@@ -1,5 +1,6 @@
 import React from "react";
 import axios from 'axios';
+import { useHistory } from 'react-router-dom'
 
 class LoginBox extends React.Component {
 
@@ -12,6 +13,8 @@ class LoginBox extends React.Component {
 
   }
 
+
+
   osubmitLogin(e) {
     console.log("Hello world!");
     axios
@@ -21,8 +24,13 @@ class LoginBox extends React.Component {
 
       })
       .then(res => {
-        console.log('singin!!!');
-        this.props.onLogin('/singin');
+        
+        if (res.status === 200) {
+          console.log('signIn!!!');
+          const history = useHistory();
+          history.push('/')
+
+        }
 
 
       }).catch(() => {
@@ -33,7 +41,7 @@ class LoginBox extends React.Component {
 
 
 
-  render() { 
+  render() {
     return (
       <div className="inner-container">
         <div className="header">
