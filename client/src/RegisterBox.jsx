@@ -1,5 +1,7 @@
 import React from "react";
 import axios from 'axios';
+import { useHistory } from 'react-router-dom'
+
 
 class RegisterBox extends React.Component {
   constructor(props) {
@@ -12,13 +14,10 @@ class RegisterBox extends React.Component {
       password: "",
       phone: "",
       role_id: "5f6cd2d1cd814e3bdc725b57",
-      subjects: [],
       education: "",
       linkdin: "",
       bio: "",
       errors: [],
-      subjectsArr: [],
-
     };
   }
 
@@ -84,7 +83,7 @@ class RegisterBox extends React.Component {
   openPopup(e) {
     console.log("Hello world!");
     axios
-      .post('api/auth/signup', {
+      .post('/signin', {
         first_Name: this.state.first_Name,
         last_Name: this.state.last_Name,
         email: this.state.email,
@@ -97,10 +96,12 @@ class RegisterBox extends React.Component {
         bio: this.state.bio
       })
       .then(res => {
-        console.log('Registerd!!!');
-        this.props.onRegister();
-
-
+        if(res.status === 200){
+          console.log('Registerd!!!');
+          // this.props.onRegister();
+          const history = useHistory();
+          history.push('/Login')
+        }
       }).catch(console.log('some ERROR!!!!!!!'))
   }
 
@@ -296,13 +297,13 @@ class RegisterBox extends React.Component {
 
               <br />
 
-              <label for="Subjects">Subjects :</label><br />
+              {/* <label for="Subjects">Subjects :</label><br />
               <select class="custom-select" multiple>
 
                 {this.state.subjectsArr.map((sub, i) => (
                     <option >{sub.subject_name}</option>
                 ))}
-              </select>
+              </select> */}
 
 
             </>
