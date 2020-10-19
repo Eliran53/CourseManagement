@@ -14,7 +14,7 @@ import Add from "../components/instructors/Add";
 import Science from '../otherSite/Science'
 import Food from '../otherSite/Food'
 import Music from '../otherSite/Music'
-
+import LifeStyle from '../otherSite/LifeStyle'
 
 export default function App() {
   return (
@@ -32,6 +32,7 @@ export default function App() {
           <Route path="/science" exact component={Science} />
           <Route path="/food" exact component={Food} />
           <Route path="/music" exact component={Music} />
+          <Route path="/lifeStyle" exact component={LifeStyle} />
           <Route path="/api/queries/:id" exact component={instructors} />
         </Switch>
         <Footer />

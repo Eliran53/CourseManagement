@@ -1,65 +1,32 @@
 import React from "react";
 import axios from "axios";
 import "react-dom";
-export default class LifeStyle extends React.Component {
+
+export default class Science extends React.Component {
   state = {
-    lectures: [],
-    post: [],
+    lectures: []
   };
 
   componentDidMount() {
-    axios.get("http://localhost:3001/api/lectures").then((res) => {
+    axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'life style'}).then((res) => {
       const { data } = res.data;
+      console.log(res)
+      console.log(data)
       data.forEach((item) => {
         item.videos = item.videos.startsWith("http")
           ? item.videos.split("v=")[1]
           : item.videos;
       });
+     
+      this.setState({ lectures: res.data.data });
       console.log(data);
-      this.setState({ post: data, lectures: data });
     });
   }
-  _onKeyUp = (e) => {
-    const excludeColumns = ["videos"];
-    const post = this.state.lectures.filter((item) => {
-      return Object.keys(item).some((key) =>
-        excludeColumns.includes(key)
-          ? false
-          : item[key]
-              .toString()
-              .toLowerCase()
-              .includes(e.target.value.toLowerCase())
-      );
-    });
 
-    this.setState({ post });
-  };
-
-  render() {
+   render() {
     return (
-      <div className="container">
-        <div className="search-outer">
-          <form
-            role="search"
-            method="get"
-            id="searchform"
-            className="searchform"
-            action=""
-          >
-            {/* input field activates onKeyUp function on state change */}
-            <input
-              type="search"
-              onChange={this._onKeyUp}
-              name="s"
-              id="s"
-              placeholder="Search"
-            />
-          
-          </form>
-        </div>
-
-        <div className="allDiv">
-          {this.state.post.map((lecture, index) => (
+      <div className="allDiv">
+          {this.state.lectures.map((lecture, index) => (
             <div className="iframeDiv" key={lecture.id}>
               <p className="p">{lecture.lecture_name}</p>
               <iframe
@@ -75,7 +42,6 @@ export default class LifeStyle extends React.Component {
             </div>
           ))}
         </div>
-      </div>
     );
   }
 }
