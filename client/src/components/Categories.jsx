@@ -21,5 +21,4 @@ export default class Categories extends Component {
           </div>
         )
     }
->>>>>>> NewForMulu
 }

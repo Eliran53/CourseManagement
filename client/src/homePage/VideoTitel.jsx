@@ -23,14 +23,12 @@ export default class VideoTitel extends Component {
   render() {
     return (
       <>
-        <div className="allDiv">
+      
+      <div className="row row-cols-1 row-cols-md-3">
           {this.state.lectures.map((lecture) => (
-            <div className="iframeDiv" key={lecture.id}>
-              <div class="flex-container">
-                <div id="lectureName">
-                  <p className="p">{lecture.lecture_name}</p>
-                </div>
-                <div id="iframeVideo">
+             <div className="col mb-4">
+            <div  key={lecture.id}>
+               <div className = "card h-100">
                   <iframe
                     title="hi"
                     width="400"
@@ -41,13 +39,15 @@ export default class VideoTitel extends Component {
                     allowfullscreen="0"
                   ></iframe>
                 </div>
-                <div id="summery">
-                  <p id="p">{lecture.summery}</p>
-                </div>
+            <div className = "card-body">
+               <h5 className="card-title">{lecture.lecture_name}</h5>
+                 <p className="card-text">{lecture.summery}</p>
+                  
               </div>
             </div>
+            </div>
           ))}
-        </div>
+       </div>
       </>
     );
   }

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import "react-dom";
 
-export default class Food extends React.Component {
+export default class Science extends React.Component {
   state = {
     lectures: []
   };
