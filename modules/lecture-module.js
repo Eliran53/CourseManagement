@@ -7,7 +7,7 @@ const lecture = new schema(
 
     instructorID: { type: ObjectId, required: true },
     lecture_name: { type: String },
-    subjectID: { type: ObjectId, unique: true, required: false },
+    subjectID: { type: ObjectId, required: true },
     duration: { type: String, required: true },
     maxCapacityParticipants: {
       type: Number,
