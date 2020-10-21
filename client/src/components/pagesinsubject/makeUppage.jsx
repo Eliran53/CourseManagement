@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "react-dom";
-
+import {Link} from 'react-router-dom'
 export default class Science extends React.Component {
   state = {
     lectures: [],
@@ -16,7 +16,7 @@ export default class Science extends React.Component {
         const { data } = res.data;
         console.log(res);
         console.log(data);
-        data.forEach((item) => {
+        data.splice(3,3).forEach((item) => {
           item.videos = item.videos.startsWith("http")
             ? item.videos.split("v=")[1]
             : item.videos;
@@ -32,7 +32,7 @@ export default class Science extends React.Component {
       <div className="video">
         <section className="page-section" id="services">
           <div className="container">
-            <div className="videofile">
+          <h1 className="h">Make Up</h1>
             <div className="row row-cols-1 row-cols-md-3">
               {this.state.lectures.map((lecture) => (
                 <div className="col mb-4 ">
@@ -55,8 +55,9 @@ export default class Science extends React.Component {
                   </div>
                 </div>
               ))}
-              </div>
-            </div>
+             
+          </div>
+          <Link to='/makeup' className ="linkpages"><strong>Learn Make-Up</strong></Link>
           </div>
         </section>
       </div>

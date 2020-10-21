@@ -3,6 +3,7 @@ import axios from "axios";
 import "../App.css";
 import { urlBase } from "../utils/utils";
 
+
 export default class VideoTitel extends Component {
   state = {
     lectures: [],
