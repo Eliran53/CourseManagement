@@ -4,6 +4,7 @@ var ObjectId = require("mongoose").Types.ObjectId;
 
 const Instructor = require("./instructor-ctrl");
 const bcrypt = require("bcryptjs");
+const { Mongoose, MongooseDocument } = require("mongoose");
 
 createLecture = (req, res) => {
   const body = req.body;
@@ -16,6 +17,7 @@ createLecture = (req, res) => {
       error: "you must provide lecture ",
     });
   }
+
   const lecture = new Lecture(body);
   if (!lecture) {
     console.log("lecture");

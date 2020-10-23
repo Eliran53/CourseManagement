@@ -2,28 +2,32 @@ import React from "react";
 import axios from "axios";
 import "react-dom";
 
-export default class Sport extends React.Component {
+export default class Science extends React.Component {
   state = {
-    lectures: []
+    lectures: [],
   };
 
   componentDidMount() {
-    axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'sport'}).then((res) => {
-      const { data } = res.data;
-      console.log(res)
-      console.log(data)
-      data.forEach((item) => {
-        item.videos = item.videos.startsWith("http")
-          ? item.videos.split("v=")[1]
-          : item.videos;
+    axios
+      .post("http://localhost:3001/api/queries/subjectName", {
+        subject_name: "health",
+      })
+      .then((res) => {
+        const { data } = res.data;
+        console.log(res);
+        console.log(data);
+        data.forEach((item) => {
+          item.videos = item.videos.startsWith("http")
+            ? item.videos.split("v=")[1]
+            : item.videos;
+        });
+
+        this.setState({ lectures: res.data.data });
+        console.log(data);
       });
-     
-      this.setState({ lectures: res.data.data });
-      console.log(data);
-    });
   }
 
-   render() {
+  render() {
     return (
       <div className="video">
         <section className="page-section" id="services">

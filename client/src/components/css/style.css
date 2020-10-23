@@ -601,6 +601,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: -15px;
   margin-left: -15px;
+  padding-top: 10px;
 }
 
 .no-gutters {
@@ -6097,6 +6098,7 @@ a.close.disabled {
 
 .bg-primary {
   background-color: #f4623a !important;
+  padding-top: 40px;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -10028,10 +10030,10 @@ hr.light {
   border-radius: 10rem;
 }
 
-.page-section {
-  padding: 8rem 0;
-  
-}
+/* .page-section {
+  padding-top: 90px;
+  padding-bottom: 90px;
+} */
 .video {
   background-color:  #2d4059;
   /* background-image: url("../../img/portfolio/thumbnails/background.jpg"); */
@@ -10040,4 +10042,17 @@ hr.light {
 
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
+}
+.d{
+  padding-top: 100px;
+}
+.h{
+  color: #f4623a !important;
+}
+.linkpages{
+  padding-left: 980px;
+ 
+}
+.videofile{
+  padding-top: 130px;
 }

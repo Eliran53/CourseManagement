@@ -3,3 +3,7 @@
     /* background-image: url("../../img/portfolio/thumbnails/background.jpg"); */
     /* background-image: url("../../img/portfolio/thumbnails/agoz.jpg"); */
   }
+ 
+.py-5{
+ padding-bottom: 1rem !important;
+}

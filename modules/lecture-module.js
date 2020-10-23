@@ -4,9 +4,10 @@ const schema = mongoose.Schema;
 const ObjectId = require("mongoose").Types.ObjectId;
 const lecture = new schema(
   {
-    instructorID: { type: ObjectId, required: true },
+
+    instructorID: { type: String, required: true },
     lecture_name: { type: String },
-    subjectID: { type: String, unique: true, required: true },
+    subjectID: { type: String, required: true },
     duration: { type: String, required: true },
     maxCapacityParticipants: {
       type: Number,
@@ -31,11 +32,14 @@ lecture.virtual("customers", {
   ref: "customer",
   localField: "_id",
   foreignField: "lecture_id",
+  justOne:false
 });
 lecture.virtual("lectures", {
   ref: "lecture",
   localField: "_id",
   foreignField: "subjectID",
+  justOne:false
+
 });
 
 module.exports = mongoose.model("lecture", lecture);

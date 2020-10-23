@@ -85,7 +85,7 @@
   
   .form-inputs {
     margin-bottom: 0.5rem;
-    width: 80%;
+    width: 0%;
     
   }
   
@@ -171,4 +171,13 @@
     color: #27cdff;
     font-weight: 600;
   }
-  
+  .f{
+    margin-right: 270px;
+  }
+  .btn btn-primary btn-block{
+    margin-left: 120px;
+  }
+  .b{
+    padding-left: 260px;
+  }
+

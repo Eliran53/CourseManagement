@@ -28,8 +28,8 @@ const Instructors = () => {
   };
   return (
     <div className="container">
-      <h1 />
-      <ul className="list-group w-50">
+     
+      <ul className="list-group w-20 text-left">
         <li className="list-group-item">First Name: {instructors.first_name}</li>
         <li className="list-group-item">Last Name: {instructors.last_name}</li>
         <li className="list-group-item">email: {instructors.email}</li>

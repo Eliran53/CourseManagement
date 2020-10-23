@@ -29,7 +29,7 @@ const instructor = new schema(
     subject_id: [{ type:ObjectId, required: true }],
     education: { type: String, required: true },
     
-    // lectures:[{type:ObjectId, ref:"lecture"}]
+   
   },
   { timestamps: true }
 );

@@ -4,11 +4,13 @@ import "../../App.css";
 import {urlBase} from '../../utils/utils';
 import Table from 'react-bootstrap/Table';
 
+
 class Customerzone extends Component {
     state = {
       lectures: [],
     //   counter:1
     };
+
     componentDidMount() {
        const id = "5f6e5ac67a22a13c3cbe1f37";
       const url = `${urlBase()}/api/customers?_id=${id}`;

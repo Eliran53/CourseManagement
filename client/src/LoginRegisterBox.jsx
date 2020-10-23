@@ -61,7 +61,7 @@ import "./login-style.scss";
   
   
           <div className="box-container">
-            {this.state.isLoginOpen && <LoginBox onLogin="{this.goHome}" />}
+            {this.state.isLoginOpen && <LoginBox onLogin={this.goHome} />}
             {this.state.isRegisterOpen && <RegisterBox onRegister={this.showLoginBox.bind(this)}/>}
           </div>
         </div>
