@@ -64,11 +64,11 @@ signin = async (req, res) => {
     }
   );
   res.cookie("token", token, { httpOnly: true });
-  const token = jwt.sign({ id: user.id }, config.secret, {
+  // const token = jwt.sign({ id: user.id }, config.secret, {
 
-    expiresIn: 3600, //  hour in sec
+  //   expiresIn: 3600, //  hour in sec
 
-  });
+  // });
   res.status(200).send({
     id: user._id,
     email: user.email,
