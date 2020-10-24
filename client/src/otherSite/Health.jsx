@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import "react-dom";
+import { urlBase } from "../utils/utils";
 
 export default class Science extends React.Component {
   state = {
@@ -8,8 +9,9 @@ export default class Science extends React.Component {
   };
 
   componentDidMount() {
+    const url = `${urlBase()}/api/queries/subjectName`
     axios
-      .post("http://localhost:3001/api/queries/subjectName", {
+      .post(url, {
         subject_name: "health",
       })
       .then((res) => {
