@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "react-dom";
 import {Link} from 'react-router-dom'
+import { urlBase } from "../../utils/utils";
 
 export default class Sport extends React.Component {
   state = {
@@ -9,7 +10,8 @@ export default class Sport extends React.Component {
   };
 
   componentDidMount() {
-    axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'sport'}).then((res) => {
+    const url = `${urlBase()}/api/queries/subjectName`
+    axios.post(url, {subject_name: 'sport'}).then((res) => {
       const { data } = res.data;
       console.log(res)
       console.log(data)
