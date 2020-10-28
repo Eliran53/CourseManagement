@@ -125,7 +125,7 @@ getCustomerById = async (req, res) => {
 };
 getLectureByCustomerId = async (req,res) => {
     try {
-        const lectures = await Lecture.find({customerID:{$in: [req.params.id]}}).exec();
+        const lectures = await Lecture.findOne({customersID:{$in: [req.params.id]}}).exec();
        if (!lectures) {
             return res
                 .status(404)

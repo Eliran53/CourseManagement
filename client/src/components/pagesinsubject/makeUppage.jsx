@@ -3,6 +3,8 @@ import axios from "axios";
 import "react-dom";
 import {Link} from 'react-router-dom'
 import { urlBase } from "../../utils/utils";
+import Boot from '../cardpopub/bootstrap'
+
 
 export default class Science extends React.Component {
   state = {
@@ -56,11 +58,12 @@ export default class Science extends React.Component {
                       <p className="card-text">{lecture.summery}</p>
                     </div>
                   </div>
+                  <Boot lecture = {lecture}/>
                 </div>
               ))}
              
           </div>
-          <Link to='/makeup' className ="linkpages"><strong>Learn Make-Up</strong></Link>
+          <Link to='/makeup' className ="linkpages"><strong>Learn More..</strong></Link>
           </div>
         </section>
       </div>

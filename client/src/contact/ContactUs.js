@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import ContactUp from "./ContactUp";
 import ContactForm from "./ContactForm";
-import ContactUsFooter from "./ContactUsFooter";
-import 'bootstrap/dist/css/bootstrap.min.css';
+// // import ContactUsFooter from "./ContactUsFooter";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default class ContactUs extends Component {
@@ -11,7 +11,7 @@ export default class ContactUs extends Component {
       <div>
         <ContactUp />
         <ContactForm />
-        <ContactUsFooter />
+        {/* <ContactUsFooter /> */}
       </div>
     );
   }

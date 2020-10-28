@@ -3,6 +3,7 @@ import axios from "axios";
 import "react-dom";
 import { Link } from "react-router-dom";
 import { urlBase } from "../../utils/utils";
+import Boot from '../cardpopub/bootstrap'
 
 export default class Science extends React.Component {
   state = {
@@ -29,7 +30,6 @@ export default class Science extends React.Component {
         console.log(data);
       });
   }
-
   render() {
     return (
       <div className="video">
@@ -39,7 +39,7 @@ export default class Science extends React.Component {
             <div className="row row-cols-1 row-cols-md-3">
               {this.state.lectures.map((lecture) => (
                 <div className="col mb-4 ">
-                  <div key={lecture.id}>
+                  <div key={lecture._id}>
                     <div className="card h-100">
                       <iframe
                         title="hi"
@@ -55,16 +55,19 @@ export default class Science extends React.Component {
                       <h5 className="card-title">{lecture.lecture_name}</h5>
                       <p className="card-text">{lecture.summery}</p>
                     </div>
+                    <Boot lecture = {lecture}/>
                   </div>
-                </div>
-              ))}
-             
+                     </div>
+                ))}
+          
             </div>
             <Link to="/health" className="linkpages">
-                <strong>Learn Health</strong>
+                <strong>Learn More..</strong>
               </Link>
+            
           </div>
         </section>
+        
       </div>
     );
   }

@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.post('/',contactCtrl.createContactus)
 router.post('/send', (req, res) => {
-  
+   
     try {
       const mailOptions = {
         from: req.body.email,
@@ -28,7 +28,7 @@ router.post('/send', (req, res) => {
           success: false,
           message: "something went wrong, please try later",
         },
-        console.log("blaa1")
+        console.log(error)
       );
     }
   });
