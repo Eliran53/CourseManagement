@@ -21,6 +21,7 @@ import history from '../history';
 import LogOut from '../components/logOut'
 import Customer from '../components/customer-zone/customer-zone'
 import Test from '../components/test'
+import SignIn from '../components/newLogin'
 
 export default  function App() {
   return (

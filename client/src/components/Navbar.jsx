@@ -18,7 +18,7 @@ export default function Navbar() {
     if (
       ![
         "/contactUs",
-        "/Login",
+        "/login",
         "/Signup",
         "/api/queries/:id",
         "/add",

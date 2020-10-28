@@ -62,7 +62,7 @@ function bootstrap(props) {
                 Close
               </button>
               {auth ? (
-                <button type="button" className="btn btn-primary">
+                <button type="button" className="btn btn-primary" >
                   <Link to="/test" className="link">
                     {" "}
                     Buy ticket
