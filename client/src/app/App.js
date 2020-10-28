@@ -17,7 +17,7 @@ import Health from "../otherSite/Health";
 import Makeup from "../otherSite/Makeup";
 import FormDialog from "./testLogin";
 import history from '../history';
-import Credit from '../components/credit-card/Credit';
+ import Credit from '../components/credit-card/Credit';
 import LogOut from '../components/logOut'
 import Customer from '../components/customer-zone/customer-zone'
 
@@ -27,7 +27,7 @@ export default  function App() {
       <Router history={history}>
         <Navbar />
         <Switch>
-          <Route path="/creadit-card" exact component={Card} />
+          <Route path="/creadit-card" exact component={Credit} />
           <Route path="/add" exact component={Add} />
           <Route path="/login" exact component={FormDialog} />
           <Route path="/" exact component={Home} />
@@ -42,6 +42,7 @@ export default  function App() {
           <Route path="/lifeStyle" exact component={LifeStyle} />
           <Route path="/api/queries/:id" exact component={instructors} />
           <Route path='/zone' exact component={Customer}/>
+          <Route path='/logout' exact component={LogOut}/>
 
         </Switch>
         <Footer />

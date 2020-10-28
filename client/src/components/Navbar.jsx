@@ -99,7 +99,7 @@ export default function Navbar() {
             <ul className="navbar-nav ml-auto my-2 my-lg-0">
               <li className="nav-item">
                 {" "}
-                <Link to="/Login" className="nav-link js-scroll-trigger">
+                <Link to="/login" className="nav-link js-scroll-trigger">
                   Login
                 </Link>
               </li>
