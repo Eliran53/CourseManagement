@@ -16,11 +16,13 @@ import LifeStyle from '../otherSite/LifeStyle'
 import Health from '../otherSite/Health'
 import Makeup from '../otherSite/Makeup'
 import FormDialog from "./testLogin";
+import history from '../history';
+import Credit from '../components/credit-card/Credit';
 
-export default function App() {
+export default  function App() {
   return (
     <div className="App">
-      <Router>
+      <Router history={history}>
         <Navbar />
         <Switch>
           <Route path="/add" exact component={Add} />
@@ -35,7 +37,9 @@ export default function App() {
           <Route path="/food" exact component={Food} />
           <Route path="/music" exact component={Music} />
           <Route path="/lifeStyle" exact component={LifeStyle} />
+          <Route path="/credit" exact component={Credit} />
           <Route path="/api/queries/:id" exact component={instructors} />
+
         </Switch>
         <Footer />
       </Router>
