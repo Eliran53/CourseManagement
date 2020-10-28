@@ -1,3 +1,4 @@
+const authJwt = require('../middleware/authJwt')
 const authcontroller = require("../controllers/auth");
 const config = require("../config/auth.js");
 const jwt = require("jsonwebtoken");
@@ -16,19 +17,9 @@ app.use(csrfProtection);
 
 router.post("/signup", authcontroller.signup);
 router.post("/signin", authcontroller.signin);
-router.get("/payload", (req, res) => {
-  const token = req.cookies.token;
-  if (!token) {
-    return res.status(403).send({ message: "No token provided!" });
-  }
+router.get("/payload",[authJwt.verifyToken], (req, res,next) => {
 
-  jwt.verify(token, config.secret, (err, decoded) => {
-    if (err) {
-      return res.status(401).send({ message: "Unauthorized!" });
-    }
-    userId = decoded.id;
-    res.json({ userId });
-  });
+  return res.status(200).send({ data: {name:req.name} });
 });
 
 

@@ -22,7 +22,6 @@ const Instructors = () => {
   
   const loadinstructors = async () => {
     const res = await axios.get(url);
-     console.log(res.data)
     setinstructors(res.data.data);
     
   };

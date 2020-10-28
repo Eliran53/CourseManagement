@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-import { useHistory } from 'react-router-dom'
+import history from './history';
 
 class LoginBox extends React.Component {
 
@@ -27,15 +27,14 @@ class LoginBox extends React.Component {
         
         if (res.status === 200) {
           console.log('signIn!!!');
-          const history = useHistory();
           history.push('/')
+          window.location.reload()
 
         }
 
-
-      }).catch(() => {
-        this.props.onError();
-        console.log('some ERROR!!!!!!!')
+      }).catch((error) => {
+        // this.props.onError();
+        console.log(error)
       })
   }
 
