@@ -1,8 +1,10 @@
 import React from "react";
-import {Link} from 'react-router-dom'
-import '../css/Info.css'
+import { Link } from "react-router-dom";
+import "../css/Info.css";
+import Cookies from "js-cookie";
 function bootstrap(props) {
-  console.log("pro", props.lecture);
+  const auth = Cookies.get("token");
+  console.log("tessss", auth);
   return (
     <>
       <button
@@ -25,17 +27,20 @@ function bootstrap(props) {
           <div className="modal-content">
             <div className="modal-header">
               <p className="modal-title" id="exampleModalLongTitle">
-               Name Lecture: {props.lecture.lecture_name}
+                Name Lecture: {props.lecture.lecture_name}
                 <br />
                 duration: {props.lecture.duration}
                 <br />
-                max Capacity Participants: {props.lecture.maxCapacityParticipants}
+                max Capacity Participants:{" "}
+                {props.lecture.maxCapacityParticipants}
                 <br />
                 Lecture Date: {props.lecture.lectureDate}
                 <br />
                 Price: {props.lecture.price}
                 <br />
                 Language: {props.lecture.language}
+                <br />
+                summery: {props.lecture.summery}
                 <br />
               </p>
               <button
@@ -47,7 +52,7 @@ function bootstrap(props) {
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div className="modal-body">...</div>
+
             <div className="modal-footer">
               <button
                 type="button"
@@ -56,9 +61,16 @@ function bootstrap(props) {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary">
-               <Link to = "/test" className = "link"> Buy ticket</Link>
-              </button>
+              {auth ? (
+                <button type="button" className="btn btn-primary">
+                  <Link to="/test" className="link">
+                    {" "}
+                    Buy ticket
+                  </Link>
+                </button>
+              ) : (
+                "to buy ticket you need to login"
+              )}
             </div>
           </div>
         </div>
