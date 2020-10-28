@@ -6,11 +6,8 @@ const Role = require("../modules/role-module");
 
 searchLecturesByInstructorID = async (req,res) => {
   try{
-     console.log("first name:",req.params.id);
      const instructor = await Instructor. findOne({ _id: req.params.id}).
      populate('lectures').exec();
-     console.log("instructor",instructor);
-     console.log("lectures",instructor.lectures);
      if (instructor.lectures.length === 0) {
         return res
             .status(404)
@@ -47,7 +44,6 @@ searchLecturesByDate = async (req, res) => {
     const lecture = await Lecture.findOne({
       lectureDate: req.body.lectureDate,
     }).exec();
-    console.log("lecture:", lecture);
     if (!lecture) {
       return res
         .status(404)
@@ -61,14 +57,11 @@ searchLecturesByDate = async (req, res) => {
 };
 searchLecturesByCategories = async (req, res) => {
   try {
-    console.log("subject_name:", req.body.subject_name);
     const category = await Subject.findOne({
       subject_name: req.body.subject_name,
     })
       .populate("lectures")
       .exec();
-    console.log("category:", category);
-    console.log("lectures:", category.lectures);
     if (category.lectures.length === 0) {
       return res
         .status(404)
@@ -82,14 +75,11 @@ searchLecturesByCategories = async (req, res) => {
 };
 searchCustomersByLectureName = async (req, res) => {
   try {
-    console.log("lecture name:", req.body.lecture_name);
     const lecture = await Lecture.findOne({
       lecture_name: req.body.lecture_name,
     })
       .populate("customers")
       .exec();
-    console.log("lecture:", lecture);
-    console.log("customers:", lecture.customers);
     if (lecture.customers.length == !0) {
       return res
         .status(404)
@@ -105,7 +95,6 @@ searchCustomersByLectureName = async (req, res) => {
 
  searchLecturesByInstructorID = async (req,res) => {
     try{
-       console.log("first name:",req.params.id);
        const instructor = await Instructor. findOne({ _id: req.params.id}).
        populate('lectures').exec();
        console.log("instructor",instructor);
@@ -125,7 +114,6 @@ searchCustomersByLectureName = async (req, res) => {
 
 searchLecturesByInstructorName = async (req, res) => {
   try {
-    console.log("first name:", req.body.first_name);
     const instructor = await Instructor.findOne({
       first_name: req.body.first_name,
     })

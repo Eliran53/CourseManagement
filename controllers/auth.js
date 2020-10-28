@@ -15,7 +15,7 @@ const { log } = require("debug");
 signup = async (req, res) => {
   const instructors = await Instructor.find({ email: req.body.email }).exec();
   const customers = await Customer.find({ email: req.body.email }).exec();
-  if (instructors && customers) {
+  if (instructors || customers) {
     console.log("email already exist");
     return res.status(400).json({
       error,
@@ -26,7 +26,7 @@ signup = async (req, res) => {
 const { NotExtended } = require("http-errors");
 
 signup = async (req, res) => {
-  console.log("REQ-BODY", req.body);
+  // console.log("REQ-BODY", req.body);
   let role;
   try {
     role = await role_ctrl.getRoleNameById(req.body.role_id);
@@ -56,24 +56,18 @@ signup = async (req, res) => {
 
 signin = async (req, res) => {
   const user = await instructor_ctrl.checkAuthentication(req, res);
-  console.log(user,"e")
   const role = await role_ctrl.getRoleNameById(user.role_id);
   const token = jwt.sign(
-    { id: user.id},
+    { id: user.id,name:user.first_Name},
     config.secret,
     {
       expiresIn: 3600, //  hour in sec
     }
   );
-  res.cookie("token", token, { httpOnly: true });
-  // const token = jwt.sign({ id: user.id }, config.secret, {
-
-  //   expiresIn: 3600, //  hour in sec
-
-  // });
+  res.cookie("token", token, { httpOnly: false });
   res.status(200).send({
     id: user._id,
-    email: user.email,
+    name:user.first_Name,
     roles: role,
     accessToken: token,
   });

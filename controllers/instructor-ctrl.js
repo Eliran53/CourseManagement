@@ -1,4 +1,5 @@
 const Instructor = require("../modules/instructor-module");
+const Customer = require('../modules/customers-module')
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid/v4");
 const { log } = require("debug");
@@ -141,7 +142,7 @@ checkAuthentication = async (req, res) => {
       .status(400)
       .json({ success: false, error: "Invalid login credentials" });
   }
-  const user = await Instructor.findOne({ email: req.body.email }).exec();
+  const user = await Customer.findOne({ email: req.body.email }).exec();
   if (!user) {
     return res
       .status(400)
