@@ -35,7 +35,7 @@
     "popper": "^1.0.1",
     "react-cookie": "^4.0.3",
     "reactjs-popup": "^2.0.4",
-    "transporter": "0.0.1",
+    "transporter": "^0.0.1",
     "uuid": "^3.3.3",
     "validator": "^13.1.17"
   },
