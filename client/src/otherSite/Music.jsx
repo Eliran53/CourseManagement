@@ -10,8 +10,6 @@ export default class Science extends React.Component {
   componentDidMount() {
     axios.post("http://localhost:3001/api/queries/subjectName", {subject_name: 'music'}).then((res) => {
       const { data } = res.data;
-      console.log(res)
-      console.log(data)
       data.forEach((item) => {
         item.videos = item.videos.startsWith("http")
           ? item.videos.split("v=")[1]

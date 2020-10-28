@@ -15,7 +15,6 @@ export default class LifeStyle extends React.Component {
           ? item.videos.split("v=")[1]
           : item.videos;
       });
-      console.log(data);
       this.setState({ post: data, lectures: data });
     });
   }
