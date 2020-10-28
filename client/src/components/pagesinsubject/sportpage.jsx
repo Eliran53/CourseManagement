@@ -13,8 +13,6 @@ export default class Sport extends React.Component {
     const url = `${urlBase()}/api/queries/subjectName`
     axios.post(url, {subject_name: 'sport'}).then((res) => {
       const { data } = res.data;
-      console.log(res)
-      console.log(data)
       data.splice(3,3).forEach((item) => {
         item.videos = item.videos.startsWith("http")
           ? item.videos.split("v=")[1]
@@ -22,7 +20,7 @@ export default class Sport extends React.Component {
       });
      
       this.setState({ lectures: res.data.data });
-      console.log(data);
+
     });
   }
 

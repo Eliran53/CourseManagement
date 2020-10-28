@@ -17,8 +17,6 @@ export default class Science extends React.Component {
       })
       .then((res) => {
         const { data } = res.data;
-        console.log(res);
-        console.log(data);
         data.splice(3, 3).forEach((item) => {
           item.videos = item.videos.startsWith("http")
             ? item.videos.split("v=")[1]
@@ -26,7 +24,6 @@ export default class Science extends React.Component {
         });
 
         this.setState({ lectures: res.data.data });
-        console.log(data);
       });
   }
 
