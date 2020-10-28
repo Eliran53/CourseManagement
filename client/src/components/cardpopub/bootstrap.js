@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from 'react-router-dom'
+import '../css/Info.css'
 function bootstrap(props) {
   console.log("pro", props.lecture);
   return (
@@ -56,7 +57,7 @@ function bootstrap(props) {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-               <Link to = "/test"> Buy ticket</Link>
+               <Link to = "/test" className = "link"> Buy ticket</Link>
               </button>
             </div>
           </div>
