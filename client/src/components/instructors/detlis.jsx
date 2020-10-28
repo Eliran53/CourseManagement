@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams,Link } from "react-router-dom";
 import axios from "axios";
 import { urlBase } from "../../utils/utils";
 import Table from "react-bootstrap/Table";
@@ -41,6 +41,7 @@ const Lecture = () => {
           </tr>
         </tbody>
       </Table>
+      <Link to ="/add">Add</Link>
     </div>
   );
 };
