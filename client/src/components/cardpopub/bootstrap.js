@@ -56,7 +56,7 @@ function bootstrap(props) {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-               <Link to = "/creadit-card"> Buy ticket</Link>
+               <Link to = "/test"> Buy ticket</Link>
               </button>
             </div>
           </div>

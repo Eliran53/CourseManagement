@@ -20,6 +20,7 @@ import history from '../history';
  import Credit from '../components/credit-card/Credit';
 import LogOut from '../components/logOut'
 import Customer from '../components/customer-zone/customer-zone'
+import Test from '../components/test'
 
 export default  function App() {
   return (
@@ -27,7 +28,8 @@ export default  function App() {
       <Router history={history}>
         <Navbar />
         <Switch>
-          <Route path="/creadit-card" exact component={Credit} />
+          <Route path="/credit-card" exact component={Credit} />
+          <Route path="/card" exact component={Credit} /> 
           <Route path="/add" exact component={Add} />
           <Route path="/login" exact component={FormDialog} />
           <Route path="/" exact component={Home} />
@@ -43,6 +45,8 @@ export default  function App() {
           <Route path="/api/queries/:id" exact component={instructors} />
           <Route path='/zone' exact component={Customer}/>
           <Route path='/logout' exact component={LogOut}/>
+          <Route path='/test' exact component={Test}/>
+
 
         </Switch>
         <Footer />

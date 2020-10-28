@@ -23,9 +23,9 @@ export default function Navbar() {
         "/api/queries/:id",
         "/add",
         "/music",
-        "/credit",
+        "/credit-card",
         "/zone",
-        "/creadit-card",
+        'card'
       ].includes(location?.pathname)
     ) {
       checkPosition();
