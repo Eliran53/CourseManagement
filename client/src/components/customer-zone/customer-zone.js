@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function zone() {
   return (
     <div>
-      <div>
+      <div className="videofile">
         <Customerzone />
       </div>
     </div>
