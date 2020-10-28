@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.1.0",
+    "@material/button": "^7.0.0",
     "axios": "^0.20.0",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
@@ -24,11 +25,14 @@
     "express": "^4.16.4",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "js-cookie": "^2.2.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.6",
     "morgan": "~1.9.1",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.4",
+    "popper": "^1.0.1",
+    "react-cookie": "^4.0.3",
     "reactjs-popup": "^2.0.4",
     "uuid": "^3.3.3",
     "validator": "^13.1.17"
