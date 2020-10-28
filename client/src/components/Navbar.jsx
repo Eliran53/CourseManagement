@@ -7,7 +7,7 @@ import axios from "axios";
 import { urlBase } from "../utils/utils";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import '../components/css/Info.css'
 
 export default function Navbar() {
   const location = useLocation();
@@ -23,7 +23,7 @@ export default function Navbar() {
         "/api/queries/:id",
         "/add",
         "/music",
-        "/credit",
+        "/creadit-card",
       ].includes(location?.pathname)
     ) {
       checkPosition();
@@ -115,7 +115,7 @@ export default function Navbar() {
             </ul>
           ) : (
             <ul className="navbar-nav ml-auto my-2 my-lg-0">
-              <li className="nav-item" > hello ,{name}</li>
+              <li className="nav-item " > hello ,{name}</li>
               <li className="nav-item">
                 {" "}
                 <Link to="/logout" className="nav-link js-scroll-trigger">

@@ -16,15 +16,15 @@ import LifeStyle from "../otherSite/LifeStyle";
 import Health from "../otherSite/Health";
 import Makeup from "../otherSite/Makeup";
 import FormDialog from "./testLogin";
-import history from '../history';
-import Credit from '../components/credit-card/Credit';
-
-export default  function App() {
+import history from "../history";
+import Card from "../components/credit-card/Credit";
+export default function App() {
   return (
     <div className="App">
       <Router history={history}>
         <Navbar />
         <Switch>
+          <Route path="/creadit-card" exact component={Card} />
           <Route path="/add" exact component={Add} />
           <Route path="/login" exact component={FormDialog} />
           <Route path="/" exact component={Home} />
@@ -37,9 +37,7 @@ export default  function App() {
           <Route path="/food" exact component={Food} />
           <Route path="/music" exact component={Music} />
           <Route path="/lifeStyle" exact component={LifeStyle} />
-          <Route path="/credit" exact component={Credit} />
           <Route path="/api/queries/:id" exact component={instructors} />
-
         </Switch>
         <Footer />
       </Router>
