@@ -18,6 +18,8 @@ import Makeup from "../otherSite/Makeup";
 import FormDialog from "./testLogin";
 import history from '../history';
 import Credit from '../components/credit-card/Credit';
+import LogOut from '../components/logOut'
+import Customer from '../components/customer-zone/customer-zone'
 
 export default  function App() {
   return (
@@ -39,6 +41,7 @@ export default  function App() {
           <Route path="/lifeStyle" exact component={LifeStyle} />
           <Route path="/credit" exact component={Credit} />
           <Route path="/api/queries/:id" exact component={instructors} />
+          <Route path='/zone' exact component={Customer}/>
 
         </Switch>
         <Footer />
