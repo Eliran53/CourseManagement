@@ -4,6 +4,6 @@
 .link{
     color: white;
 }
-a.link {
+.link:hover{
     color: white;
 }
