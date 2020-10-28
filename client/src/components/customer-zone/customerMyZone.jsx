@@ -12,8 +12,8 @@ class Customerzone extends Component {
     };
 
     componentDidMount() {
-       const id = "5f6e5ac67a22a13c3cbe1f37";
-      const url = `${urlBase()}/api/customers?_id=${id}`;
+       const id = "5f983efdee5cb03a7035a417";
+      const url = `${urlBase()}/api/customers/${id}`;
       axios.get(url).then((res) => {
         const data = res.data.data;
        
@@ -39,12 +39,12 @@ class Customerzone extends Component {
           </tr>
         </thead>
         <tbody>
-            {this.state.lectures.map((lecture) => (
+            {this.state.lectures.map((lecture,index) => (
                 
           <tr>
-            <td>1</td>
+            <td>{index}</td>
             <td>{lecture.lecture_name}</td>
-            <td>{lecture.lecturedate}</td>
+            <td>{lecture.lectureDate}</td>
             <td>{lecture.summery}</td>
             <td>{lecture.price}</td>
           </tr>
