@@ -10,7 +10,7 @@ function About() {
               <h2 className="text-white mt-5">About Us!</h2>
               <hr className="divider light my-4" />
               <h3 className="text-white-50 mb-20">
-                <p>We are five software development students.</p>
+                <p>We are four software development students.</p>
                 <p>This site is our primary product.</p>
                 <p>
                   We have decided to develop a website that will meet your need

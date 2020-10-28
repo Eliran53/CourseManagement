@@ -2,6 +2,7 @@ import React from "react";
 import LoginBox from './LoginBox';
 import RegisterBox from './RegisterBox';
 import { useHistory } from "react-router-dom";
+import SignIn from './components/newLogin'
 import "./login-style.scss";
 // import "./login-style.scss";
 
