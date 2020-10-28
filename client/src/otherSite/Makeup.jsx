@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import "react-dom";
 import { urlBase } from "../utils/utils";
+import Boot from '../components/cardpopub/bootstrap'
 
 export default class Science extends React.Component {
   state = {
@@ -32,6 +33,7 @@ export default class Science extends React.Component {
         <section className="page-section" id="services">
           <div className="container">
             <div className="videofile">
+            <h1 className="h">Make Up</h1>
             <div className="row row-cols-1 row-cols-md-3">
               {this.state.lectures.map((lecture) => (
                 <div className="col mb-4 ">
@@ -51,6 +53,7 @@ export default class Science extends React.Component {
                       <h5 className="card-title">{lecture.lecture_name}</h5>
                       <p className="card-text">{lecture.summery}</p>
                     </div>
+                    <Boot lecture = {lecture}/>
                   </div>
                 </div>
               ))}
