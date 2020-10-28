@@ -27,20 +27,20 @@ function bootstrap(props) {
           <div className="modal-content">
             <div className="modal-header">
               <p className="modal-title" id="exampleModalLongTitle">
-                Name Lecture: {props.lecture.lecture_name}
+               <b className ="bb"> Name Lecture: </b>{props.lecture.lecture_name}
                 <br />
-                duration: {props.lecture.duration}
+               <b className ="bb">duration:</b> {props.lecture.duration}
                 <br />
-                max Capacity Participants:{" "}
+                <b className ="bb">max Capacity Participants:</b>{" "}
                 {props.lecture.maxCapacityParticipants}
                 <br />
-                Lecture Date: {props.lecture.lectureDate}
+                <b className ="bb">Lecture Date: </b>{props.lecture.lectureDate}
                 <br />
-                Price: {props.lecture.price}
+                <b className ="bb">Price:</b> {props.lecture.price}
                 <br />
-                Language: {props.lecture.language}
+                <b className ="bb">Language:</b> {props.lecture.language}
                 <br />
-                summery: {props.lecture.summery}
+                <b className ="bb">summery:</b> {props.lecture.summery}
                 <br />
               </p>
               <button

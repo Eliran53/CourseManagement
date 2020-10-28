@@ -5517,8 +5517,11 @@ a.close.disabled {
   margin-bottom: 0;
   line-height: 1.5;
   font-size: 22px;
+  color: black;
 }
-
+.bb{
+  color: #d6370c;
+}
 .modal-body {
   position: relative;
   flex: 1 1 auto;
