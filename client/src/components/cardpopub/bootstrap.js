@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from 'react-router-dom'
 function bootstrap(props) {
   console.log("pro", props.lecture);
   return (
@@ -24,17 +24,17 @@ function bootstrap(props) {
           <div className="modal-content">
             <div className="modal-header">
               <p className="modal-title" id="exampleModalLongTitle">
-                {props.lecture.lecture_name}
+               Name Lecture: {props.lecture.lecture_name}
                 <br />
-                {props.lecture.duration}
+                duration: {props.lecture.duration}
                 <br />
-                {props.lecture.maxCapacityParticipants}
+                max Capacity Participants: {props.lecture.maxCapacityParticipants}
                 <br />
-                {props.lecture.lectureDate}
+                Lecture Date: {props.lecture.lectureDate}
                 <br />
-                {props.lecture.price}
+                Price: {props.lecture.price}
                 <br />
-                {props.lecture.language}
+                Language: {props.lecture.language}
                 <br />
               </p>
               <button
@@ -56,7 +56,7 @@ function bootstrap(props) {
                 Close
               </button>
               <button type="button" className="btn btn-primary">
-                Save changes
+               <Link to = "/creadit-card"> Buy ticket</Link>
               </button>
             </div>
           </div>

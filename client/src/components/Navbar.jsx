@@ -7,6 +7,7 @@ import axios from "axios";
 import { urlBase } from "../utils/utils";
 import { useState } from "react";
 import { useEffect } from "react";
+import '../components/css/Info.css'
 
 export default function Navbar() {
   const location = useLocation();
@@ -23,7 +24,8 @@ export default function Navbar() {
         "/add",
         "/music",
         "/credit",
-        "/zone"
+        "/zone",
+        "/creadit-card",
       ].includes(location?.pathname)
     ) {
       checkPosition();

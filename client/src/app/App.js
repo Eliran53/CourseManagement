@@ -27,6 +27,7 @@ export default  function App() {
       <Router history={history}>
         <Navbar />
         <Switch>
+          <Route path="/creadit-card" exact component={Card} />
           <Route path="/add" exact component={Add} />
           <Route path="/login" exact component={FormDialog} />
           <Route path="/" exact component={Home} />
@@ -39,7 +40,6 @@ export default  function App() {
           <Route path="/food" exact component={Food} />
           <Route path="/music" exact component={Music} />
           <Route path="/lifeStyle" exact component={LifeStyle} />
-          <Route path="/credit" exact component={Credit} />
           <Route path="/api/queries/:id" exact component={instructors} />
           <Route path='/zone' exact component={Customer}/>
 
